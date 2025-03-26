@@ -125,12 +125,14 @@
 		correction operation
 	\end{center}
 	\pause
-	\begin{textblock*}{3.5cm}(1cm,4cm)
-		\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
-			\center
-			Backlog problem
-		\end{tcolorbox}
-	\end{textblock*}
+	\only<3-3>{
+		\begin{textblock*}{3.5cm}(1cm,4cm)
+			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
+				\center
+				Backlog problem
+			\end{tcolorbox}
+		\end{textblock*}
+	}
 \end{frame}
 
 \begin{frame}{Scaling the system size}
@@ -332,7 +334,7 @@
 		\begin{itemize}
 			\item Pauli errors $\rightarrow$ erasure errors
 			\item almost linear time complexity
-			\item Noise informed reweighting \cite{higgott_improved_2023}
+			\item Noise aware \cite{higgott_improved_2023}
 		\end{itemize}
 		\end{small}
 	\end{textblock*}
@@ -352,13 +354,14 @@
 	}
 	\pause
 	\only<4-4>{
-	\begin{textblock*}{6cm}(0.1cm,3cm)
+	\begin{textblock*}{6cm}(0.1cm,2cm)
 		\begin{small}
 			\textbf{Minimum Weight Perfect Matching}
 			\begin{itemize}
 				\item Outputs always errors which match the syndrome
-				\item Fast implementations for realtime decoding: Sparse blossom $O(N^{1.32})$, fusion blossom $O(N^{1.32})$
-				\item Noise informed reweighting \cite{iolius_performance_2022}
+				\item Improved: Sparse blossom $O(N^{1.32})$, fusion blossom $O(N^{1.32})$
+				\item Sparse blossom real time operational for $0.1\%$ depolarising noise on distance-17 surface code \cite{higgott_sparse_2025}
+				\item Noise aware \cite{iolius_performance_2022}
 			\end{itemize}
 		\end{small}
 	\end{textblock*}
@@ -374,8 +377,10 @@
 		\begin{small}
 			\textbf{Tensor Network Decoder}
 			\begin{itemize}
-				\item Surface codes admit natural tensor network representation
-				\item
+				\item Surface Code $\rightarrow$ Tensor Network
+				\item Optimal decoding $\rightarrow$ TN contraction
+				\item Approximate contraction by truncation on SVD
+				\item Generalised to arbitrary 2D codes \cite{chubb_general_2021}
 			\end{itemize}
 		\end{small}
 	\end{textblock*}
@@ -402,17 +407,16 @@
 	\end{table}
 \end{frame}
 
-\begin{frame}{Methods}
+\begin{frame}{Optimal Decoding Methods}
 	\vspace{-15pt}
 	\begin{table}[h]
         \renewcommand{\arraystretch}{1.5} % Increase row spacing
         \small
-		\begin{tabular}{c|c|p{7cm}}
+		\begin{tabular}{c|p{4cm}|p{7cm}}
 			\textbf{Year} & \textbf{Author} & \textbf{Contribution} \\
 			2009 & Creighton and Middleton \cite{thomas_exact_2009,thomas_numerically_2013} & Fast algorithm to calculate finite temperature partition functions of planar random bond Ising model based on FKT algortihm \cite{kasteleyn_statistics_1961,temperley_dimer_1961} \\
 			2013 & Vogel, Li, Wüst, Landau \cite{vogel_generic_2013} & Parallel tempered Wang-Landau algorithm \cite{wang_efficient_2001} for estimating density of states for systems with bounded spectrum \\
-			2014 & Bravyi, Suchara, Vargo \cite{bravyi_efficient_2014} & \\
-			2021 & Chubb & Tensor network decoder for optimal decoding
+			2014-21 & Bravyi, Suchara, Vargo and Chubb \cite{bravyi_efficient_2014, chubb_general_2021} & Development of approximate optimal decoding by TN contraction and generalisation to arbitrary 2D stabiliser codes \\
 		\end{tabular}
 	\end{table}
 \end{frame}
@@ -425,6 +429,7 @@
 		\item Noise model has big impact on code performance
 		\item Error correcting codes are gauged by $n/k$, d, $p_{\text{threshold}}$, $\omega$
 	\end{itemize}
+	\pause
 	Laking:
 	\begin{itemize}
 		\item Compatibility of codes for finite size regime under realistic noise models by optimal code capacity estimates

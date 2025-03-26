@@ -73,7 +73,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Circumvent Quantum Errors}
+\begin{frame}{Tackling Quantum Errors}
 	\begin{center}
         \includegraphics[width=0.6\textwidth]{fig/TypesErrorCorrection.png}
     \end{center}
@@ -245,20 +245,22 @@
 	\begin{textblock*}{2.5cm}(12.5cm,0.5cm)
 		\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
 	\end{textblock*}
-	Quality markers: $\frac{n}{k}$, d (, $\omega$ for QLDPC)
+	Quality markers: $\frac{k}{n}$, d (, $\omega$ for QLDPC)
 	\begin{table}[h]
         \renewcommand{\arraystretch}{1.5} % Increase row spacing
         \small
 		\begin{tabular}{c|c|c|c}
 			\textbf{Code} &  \textbf{n} & \textbf{k} & \textbf{d} \\
 			\hline
-			Toric Code & $2d^{2}$ & 2 & d \\
-			Surface Code & $d^{2} + (L-1)^{2}$ &  1 & d \\
+			Toric Code \cite{hirota_quantum_1997} & $2d^{2}$ & 2 & d \\
+			Planar Surface Code & $d^{2} + (L-1)^{2}$ &  1 & d \\
 			Rotated Surface Code & $d^{2}$ &  1 & d \\
+			\hline
 			\pause
 			Honneycomb Code \cite{landahl_fault-tolerant_2011} & $\frac{3}{4}d^{2}$ + $\frac{1}{4}$ & 1 & d \\
+			\hline
 			\pause
-			Quantum Tanner Code & n & $\Omega(n)$ & $\Omega(n)$
+			Quantum Tanner Code \cite{leverrier_quantum_2022} & n & $\Omega(n)$ & $\Omega(n)$
 		\end{tabular}
 	\end{table}
 \end{frame}
@@ -437,41 +439,40 @@
 	\end{itemize}
 
 \end{frame}
-\begin{frame}{Arising Opportunities}
-	Having a framework which estimates optimal code performances of finite size stabilizer codes under flexible noise models enables:
+\begin{frame}{Research goal}
+	Development of hardware adaptive framework:
+	\begin{center}
+		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
+		\begin{tikzpicture}[overlay]
+			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+		\end{tikzpicture}
+		\hspace{4.5cm}
+		Optimal code performance estimate
+	\end{center}\vspace{20pt}
+
 	\begin{itemize}
 		\item Informed decision on which codes promise good finite size performance
 		\item Gauge of decoder optimization process
-		\item Ability to investigate Rg flow of CFTs at Nishimori point by disturbing noise model
+		\item Investigate RG flow of CFTs at Nishimori point by disturbing noise model
 	\end{itemize}
 \end{frame}
 
-% Correlated Noise
-% CFT at Nishimori point RG flow along CFTs when disturbign the noise model continuously
-
-
-
 \begin{frame}{Research plan}
-	\vspace{-20pt}
-	\begin{itemize}
-		\item Development of hardware adaptive framework:
-			\begin{center}
-				\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
-				\begin{tikzpicture}[overlay]
-					\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-					\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-				\end{tikzpicture}
-				\hspace{4.5cm}
-				Optimal code performance estimate
-			\end{center}\vspace{20pt}
-		\item Within QuaSA deduce realistic noise models
-		\item Incorporate realistic noise models into framework
-	\end{itemize}
-	% We developed a hardware adaptive simulation framework to estimate logical quantum memory performance. \\
-	% The framework is easily adapted to varying error correcting codes and noise models.\\
-	% Applied it to the toric code under bitflip noise - which acts in the field of QEC as the pendulum in robotics.\\
-	% In a next step QuaSA offers the possibility to deduce actual realistic noise models by experimental data. \\
-	% Subsequently it is planned to extend the simulation results to these realistic noise models and may improve the simulation framework by hardware information. \\
+	\begin{table}[h]
+        \renewcommand{\arraystretch}{1.5} % Increase row spacing
+        \small
+		\begin{tabular}{c|p{10cm}}
+			\textbf{Time} &  \textbf{Objective} \\
+			\hline
+			Now & Framework for general stabilizer code under Pauli noise is implemented \\
+			April-May 2025 & Paper on optimization opportunities of MWPM by degeneracy of ground states \\
+			May- 2025 & Incoroporate TN approximate ML decoder into framework plus investigate further alternatives \\
+			May- 2025 & Incorporate realistic circuit level noise model into framework by Pauli twirling plus investigate further alternatives \\
+			May- 2025 & Investigation of critical exponents of CFTs at Nishimori point \\
+			2025-2026 & Implementation of error correcting codes, deduction of noise model and simulation of hardware within QuaSA\\
+		\end{tabular}
+	\end{table}
 \end{frame}
 
 

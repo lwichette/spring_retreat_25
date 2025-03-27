@@ -192,34 +192,31 @@
 \end{frame}
 
 
-\begin{frame}{QC development}
-	\begin{textblock*}{3cm}(0.5cm,3.5cm)
-		\includegraphics[width=1\textwidth]{fig/slim_noise.png}
-	\end{textblock*}
-	\begin{overlayarea}{\textwidth}{3cm}
-		\vspace{0cm}
-		\hspace{3cm}
-		\begin{tikzpicture}
-			\draw[->,  thick, osakared] (0cm, 0cm) -- (0.8cm, 0cm);
-			\draw[->, thick, osakared] (6cm, 0cm) -- (6.8cm, 0cm);
-		\end{tikzpicture}
-	\end{overlayarea}
-
-	\begin{textblock*}{8cm}(5.5cm,3cm)
-		\includegraphics[width=1\textwidth]{fig/overview_setup.png}
-	\end{textblock*}
-	\begin{textblock*}{3.5cm}(5.5cm,5cm)
-		\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
-			\center
-			Quality markers
-		\end{tcolorbox}
-	\end{textblock*}
-	\begin{textblock*}{3.5cm}(10.5cm,5cm)
-		\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
-			\center
-			Quality markers
-		\end{tcolorbox}
-	\end{textblock*}
+\begin{frame}{Overview Literature Research}
+	\begin{center}
+		\begin{itemize}
+			\only<1->{
+			\item Brief history of QEC
+			}
+			\vspace{0.5cm}
+			\pause
+			\only<2->{
+			\item Codes and teir quality markers
+			\vspace{0.5cm}
+			\item Decoder and their quality markers
+			}
+			\vspace{0.5cm}
+			\pause
+			\only<3->{
+			\item Experimental realization
+			}
+			\vspace{0.5cm}
+			\pause
+			\only<4->{
+			\item Methods to estimate optimal code performance
+			}
+		\end{itemize}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Brief history of QEC}
@@ -242,9 +239,9 @@
 \end{frame}
 
 \begin{frame}{Stabilizer Codes}
-	\begin{textblock*}{2.5cm}(12.5cm,0.5cm)
-		\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
-	\end{textblock*}
+	% \begin{textblock*}{2.5cm}(12.5cm,0.5cm)
+	% 	\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
+	% \end{textblock*}
 	Quality markers: $\frac{k}{n}$, d (, $\omega$ for QLDPC)
 	\begin{table}[h]
         \renewcommand{\arraystretch}{1.5} % Increase row spacing
@@ -266,12 +263,12 @@
 \end{frame}
 
 \begin{frame}{Optimal Code Capacity Thresholds}
-	\begin{textblock*}{2cm}(13.5cm,0.5cm)
-		\includegraphics[width=1\textwidth]{fig/slim_noise.png}
-	\end{textblock*}
-	\begin{textblock*}{2cm}(13.5cm,1.5cm)
-		\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
-	\end{textblock*}
+	% \begin{textblock*}{2cm}(13.5cm,0.5cm)
+	% 	\includegraphics[width=1\textwidth]{fig/slim_noise.png}
+	% \end{textblock*}
+	% \begin{textblock*}{2cm}(13.5cm,1.5cm)
+	% 	\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
+	% \end{textblock*}
 	Quality marker: $p_{\text{threshold}}$
 	\begin{table}[h]
         \renewcommand{\arraystretch}{1.5} % Increase row spacing
@@ -294,9 +291,9 @@
 \end{frame}
 
 \begin{frame}{Surface Code Suboptimal Decoders}
-	\begin{textblock*}{2cm}(14cm,0.5cm)
-		\includegraphics[width=0.4\textwidth]{fig/decoder.png}
-	\end{textblock*}
+	% \begin{textblock*}{2cm}(14cm,0.5cm)
+	% 	\includegraphics[width=0.4\textwidth]{fig/decoder.png}
+	% \end{textblock*}
 	\begin{textblock*}{9cm}(6cm,2.5cm)
         \includegraphics[width=1\textwidth]{fig/Screenshot from 2025-03-24 15-21-55.png}
     \end{textblock*}
@@ -310,14 +307,14 @@
 			\cite{delfosse_almost-linear_2021}
 		\end{tiny}
 	\end{textblock*}
-	\begin{textblock*}{2cm}(9.9cm,3.4cm)
+	\begin{textblock*}{2cm}(9.8cm,3.4cm)
 		\begin{tiny}
 			\cite{panteleev_degenerate_2021}
 		\end{tiny}
 	\end{textblock*}
 	\begin{textblock*}{2cm}(13.1cm,3.4cm)
 		\begin{tiny}
-			\cite{bravyi_efficient_2014}
+			\cite{bravyi_efficient_2014,chubb_general_2021}
 		\end{tiny}
 	\end{textblock*}
 	\only<1-1>{

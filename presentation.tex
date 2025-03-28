@@ -325,34 +325,34 @@
 		\end{tcolorbox}
 	\end{textblock*}
 	}
+	% \pause
+	% \only<2-2>{
+	% \begin{textblock*}{5.8cm}(0.1cm,3.5cm)
+	% 	\begin{small}
+	% 	\textbf{Union Find}
+	% 	\begin{itemize}
+	% 		\item Pauli errors $\rightarrow$ erasure errors
+	% 		\item almost linear time complexity
+	% 		\item Noise aware \cite{higgott_improved_2023}
+	% 	\end{itemize}
+	% 	\end{small}
+	% \end{textblock*}
+	% }
+	% \pause
+	% \only<3-3>{
+	% \begin{textblock*}{5.8cm}(0.1cm,3cm)
+	% 	\begin{small}
+	% 	\textbf{Belief Propagation}
+	% 	\begin{itemize}
+	% 		\item Acts on general Tanner graphs $\rightarrow$ any QLDPC decoder
+	% 		\item Issues with highly degenerate codes (split-belief phenomenon) \cite{poulin_iterative_2008, roffe_decoding_2020}
+	% 		\item Ordered statistics decoding (BP+OSD) to enhance performance \cite{panteleev_degenerate_2021}
+	% 	\end{itemize}
+	% 	\end{small}
+	% \end{textblock*}
+	% }
 	\pause
 	\only<2-2>{
-	\begin{textblock*}{5.8cm}(0.1cm,3.5cm)
-		\begin{small}
-		\textbf{Union Find}
-		\begin{itemize}
-			\item Pauli errors $\rightarrow$ erasure errors
-			\item almost linear time complexity
-			\item Noise aware \cite{higgott_improved_2023}
-		\end{itemize}
-		\end{small}
-	\end{textblock*}
-	}
-	\pause
-	\only<3-3>{
-	\begin{textblock*}{5.8cm}(0.1cm,3cm)
-		\begin{small}
-		\textbf{Belief Propagation}
-		\begin{itemize}
-			\item Acts on general Tanner graphs $\rightarrow$ any QLDPC decoder
-			\item Issues with highly degenerate codes (split-belief phenomenon) \cite{poulin_iterative_2008, roffe_decoding_2020}
-			\item Ordered statistics decoding (BP+OSD) to enhance performance \cite{panteleev_degenerate_2021}
-		\end{itemize}
-		\end{small}
-	\end{textblock*}
-	}
-	\pause
-	\only<4-4>{
 	\begin{textblock*}{6cm}(0.1cm,2cm)
 		\begin{small}
 			\textbf{Minimum Weight Perfect Matching}
@@ -371,7 +371,7 @@
 	\end{textblock*}
 	}
 	\pause
-	\only<5-5>{
+	\only<3-3>{
 	\begin{textblock*}{6cm}(0.1cm,3cm)
 		\begin{small}
 			\textbf{Tensor Network Decoder}
@@ -384,11 +384,8 @@
 		\end{small}
 	\end{textblock*}
 	}
-	% 	TN Decoder & \cite{bravyi_efficient_2014}
-
 \end{frame}
 
-% experiments of logical comp and mem below and above threshold
 \begin{frame}{Experimental Realization}
 	\vspace{-18pt}
 	\begin{table}[h]
@@ -399,9 +396,8 @@
 			2014 & Nigg et al. & Seven-qubit color code on trapped-ion device and execution of logical single-qubit gates \cite{nigg_quantum_2014} \\
 			2015 & Kelly et al. &  Nine qubit repetition code on superconducting processor \cite{kelly_state_2015} \\
 			2020 & Erhard et al. & Lattice surgery generated entanglement of two logical qubits on a ten qubit ion trap device \cite{erhard_entangling_2020} \\
-			2021 & Ryan et al. & Demonstrated real time decoding on seven-qubit color code on trapped-ion device and non-Clifford operation \cite{ryan-anderson_realization_2021}\\
-			2022 & Krinner et. al & Implemented distance three surface code on 17 superconducting qubits \cite{krinner_realizing_2022}\\
-			2023-24 & Google Quantum AI et al. & Below threshold quantum memory experiments on up to 101 qubits on a superconducting processor \cite{google_quantum_ai_suppressing_2023, google_quantum_ai_and_collaborators_quantum_2025}
+			2021 & Ryan et al. & Real time decoding on seven-qubit color code on trapped-ion device and non-Clifford operation \cite{ryan-anderson_realization_2021}\\
+			2023-24 & Google Quantum AI et al. & Real time decoding and below threshold quantum memory experiments on up to 101 qubits on superconducting processor \cite{google_quantum_ai_suppressing_2023, google_quantum_ai_and_collaborators_quantum_2025}
 		\end{tabular}
 	\end{table}
 \end{frame}
@@ -466,11 +462,169 @@
 			April-May 2025 & Paper on optimization opportunities of MWPM by degeneracy of ground states \\
 			May- 2025 & Incoroporate TN approximate ML decoder into framework plus investigate further alternatives \\
 			May- 2025 & Incorporate realistic circuit level noise model into framework by Pauli twirling plus investigate further alternatives \\
-			May- 2025 & Investigation of critical exponents of CFTs at Nishimori point \\
+			May- 2025 & Investigation of Rg flow at Nishimori point \\
 			2025-2026 & Implementation of error correcting codes, deduction of noise model and simulation of hardware within QuaSA\\
 		\end{tabular}
 	\end{table}
 \end{frame}
+
+\begin{frame}{Preliminary Results}
+	\only<1-1>{
+	\begin{textblock*}{14cm}(1.5cm,2cm)
+		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
+		\begin{tikzpicture}[overlay]
+			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+		\end{tikzpicture}
+		\hspace{4.5cm}
+		Optimal code performance estimate
+	\end{textblock*}
+	}
+	\pause
+	\only<2->{
+	\begin{textblock*}{14cm}(1.5cm,2cm)
+		\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
+		\begin{tikzpicture}[overlay]
+			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+		\end{tikzpicture}
+		\hspace{4.5cm}
+		Error class probability estimates
+	\end{textblock*}
+	}
+	% \pause
+	% \only<3->{
+	% 	\vspace{2cm}
+	% 	\hspace{1.5cm}
+	% 	\begin{itemize}
+	% 		\item Maximum Z decoding $\sim$ decoding probability
+	% 		\item Probabilistic Z decoding $\sim$ order probability
+	% 		\item Decoding probability and order probability require less samples for same accuracy than respective Z decoding
+	% 		\item At low temperature: Order probability $\sim$ maximum probability decoding and decoding probability $\sim$ degeneracy enhanced maximum probability decoding
+	% 		\item Enhancing MWPM by takign degeneracy into account can approximate decoding probability
+	% 	\end{itemize}
+	% }
+\end{frame}
+
+\begin{frame}{Intermezzo for technicalities}
+	\only<1-1>{
+	\begin{textblock*}{16cm}(4cm,1.7cm)
+		\includegraphics[width=0.4\textwidth]{fig/Toric_code_ex_1.png}
+	\end{textblock*}
+	}
+	\only<2-2>{
+	\begin{textblock*}{16cm}(4cm,1.7cm)
+		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_2.png}
+	\end{textblock*}
+	}
+	\only<3-3>{
+	\begin{textblock*}{16cm}(2cm,1.7cm)
+		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_3.png}
+	\end{textblock*}
+	\begin{textblock*}{8cm}(8cm,2cm)
+		\textbf{Maximum probability/minimum weight decoding}\\
+		\vspace{0.5cm}
+		$E_{\text{correction}}=\text{argmax}_{E\in \bar{\mathcal{G}}_{n}}P(E|s)$
+	\end{textblock*}
+	}
+	\only<4-4>{
+	\begin{textblock*}{16cm}(2cm,1.7cm)
+		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_6.png}
+	\end{textblock*}
+	\begin{textblock*}{8cm}(8cm,2cm)
+		\textbf{Maximum probability/minimum weight decoding}\\
+		\vspace{0.5cm}
+		$E_{\text{correction}}=\text{argmax}_{E\in \bar{\mathcal{G}}_{n}}P(E|s)$
+	\end{textblock*}
+	}
+	\only<5-5>{
+	\begin{textblock*}{16cm}(4cm,1.7cm)
+		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_7.png}
+	\end{textblock*}
+	\begin{textblock*}{6cm}(10cm,2cm)
+		\textbf{success!} \\ But didnt take degeneracy into account
+	\end{textblock*}
+	}
+	\only<6-6>{
+	\begin{textblock*}{16cm}(2cm,1.7cm)
+		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_2.png}
+	\end{textblock*}
+	\begin{textblock*}{8cm}(8cm,2cm)
+		\textbf{Maximum likelihood/optimal decoding}\\
+		$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
+		$[C_{s}]=SC_{s}$ \\
+		$s \mapsto C_{s}L_{\delta(s)}$ with \\
+		$\delta(s) = \arg\max_{l\in L}P([C_{s}L_{l}])$
+	\end{textblock*}
+	}
+	\only<7-7>{
+		\begin{textblock*}{16cm}(2cm,1.7cm)
+			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_8.png}
+		\end{textblock*}
+		\begin{textblock*}{8cm}(8cm,2cm)
+			\textbf{Maximum likelihood/optimal decoding}\\
+			$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
+			$[C_{s}]=SC_{s}$ \\
+			$s \mapsto C_{s}L_{\delta(s)}$ with \\
+			$\delta(s) = \arg\max_{l\in L}P([C_{s}L_{l}])$\\
+			\vspace{0.8cm}
+			Statistical mechanics mapping \cite{dennis_topological_2002}:
+			$\delta(s) = \arg\max_{l\in L}Z_{C_{s}L_{l}}(\beta_{\text{Nishimori}})$\\
+			\vspace{0.8cm}
+			Estimation of Z by REWL and FKT for varying temperatures and physical error rates
+		\end{textblock*}
+	}
+	\only<8-8>{
+		Define further:
+
+	}
+	% \only<6-6>{
+	% \begin{textblock*}{16cm}(4cm,1.7cm)
+	% 	\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_4.png}
+	% \end{textblock*}
+	% }
+	% \only<7-7>{
+	% \begin{textblock*}{16cm}(4cm,1.7cm)
+	% 	\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_5.png}
+	% \end{textblock*}
+	% }
+\end{frame}
+
+\begin{frame}{Preliminary Results}
+	\only<1->{
+	\begin{textblock*}{14cm}(1.5cm,2cm)
+		\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
+		\begin{tikzpicture}[overlay]
+			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+		\end{tikzpicture}
+		\hspace{4.5cm}
+		Error class probability estimates
+	\end{textblock*}
+	}
+	\pause
+	\only<2->{
+		\vspace{2cm}
+		\hspace{1.5cm}
+		\begin{itemize}
+			\item Maximum Z decoding $\sim$ decoding probability
+			\item Probabilistic Z decoding $\sim$ order probability
+			\item Decoding probability and order probability require less samples for same accuracy than respective Z decoding
+			\item At low temperature: Order probability $\sim$ maximum probability decoding and decoding probability $\sim$ degeneracy enhanced maximum probability decoding
+			\item Enhancing MWPM by takign degeneracy into account can approximate decoding probability
+		\end{itemize}
+	}
+\end{frame}
+
+% conclusion + success metrics
+% outlook
+% make literature appear with name and year
+% only info which I need and speak about
+% union find in experimental usage
+% how does belief propagation work
+% scales for real time decoding
+
+
 
 
 \begin{frame}

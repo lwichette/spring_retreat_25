@@ -506,7 +506,7 @@
 	% }
 \end{frame}
 
-\begin{frame}{Intermezzo for technicalities}
+\begin{frame}{Intermezzo - Groundwork for Results}
 	\only<1-1>{
 	\begin{textblock*}{16cm}(4cm,1.7cm)
 		\includegraphics[width=0.4\textwidth]{fig/Toric_code_ex_1.png}
@@ -568,15 +568,41 @@
 			$s \mapsto C_{s}L_{\delta(s)}$ with \\
 			$\delta(s) = \arg\max_{l\in L}P([C_{s}L_{l}])$\\
 			\vspace{0.8cm}
-			Statistical mechanics mapping \cite{dennis_topological_2002}:
-			$\delta(s) = \arg\max_{l\in L}Z_{C_{s}L_{l}}(\beta_{\text{Nishimori}})$\\
-			\vspace{0.8cm}
-			Estimation of Z by REWL and FKT for varying temperatures and physical error rates
+			\textbf{Z decoding} by statistical mechanics mapping \cite{dennis_topological_2002}:\\
+			$\delta(s) = \arg\max_{l\in L}Z^{T_{\text{Nishimori}}}(C_{s}L_{l})$\\
 		\end{textblock*}
 	}
 	\only<8-8>{
-		Define further:
-
+		\begin{textblock*}{16cm}(2cm,1.7cm)
+			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_8.png}
+		\end{textblock*}
+		\begin{textblock*}{8cm}(8cm,2cm)
+			\textbf{Z decoding at temperature T}\\
+			$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
+			$[C_{s}]=SC_{s}$ \\
+			$s \mapsto C^{\star}_{s}(T)\equiv C_{s}L_{\delta(s)}$ with \\
+			$\delta(s) = \arg\max_{l\in L}Z^{T}(C_{s}L_{l})$\\
+			\vspace{0.8cm}
+			\textbf{Probabilistic Z decoding at temperature T}:\\
+			$\bar{\delta(s)}$ with $P(\bar{\delta(s)} = l\in L)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$
+		\end{textblock*}
+	}
+	\only<9-9>{
+		\begin{textblock*}{16cm}(2cm,1.7cm)
+			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_8.png}
+		\end{textblock*}
+		\begin{textblock*}{8cm}(8cm,2cm)
+			\textbf{Z decoding at temperature T}\\
+			$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
+			$[C_{s}]=SC_{s}$ \\
+			$s \mapsto C^{\star}_{s}(T)\equiv C_{s}L_{\delta(s)}$ with \\
+			$\delta(s) = \arg\max_{l\in L}Z^{T}(C_{s}L_{l})$\\
+			\vspace{0.8cm}
+			\textbf{Probabilistic Z decoding at temperature T}:\\
+			$\bar{\delta(s)}$ with $P(\bar{\delta(s)} = l\in L)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$\\
+			\vspace{0.8cm}
+			Estimation of Z by REWL and FKT
+		\end{textblock*}
 	}
 	% \only<6-6>{
 	% \begin{textblock*}{16cm}(4cm,1.7cm)
@@ -589,6 +615,46 @@
 	% \end{textblock*}
 	% }
 \end{frame}
+
+\begin{frame}{Definitions}
+	\begin{minipage}{0.48\textwidth}
+		\small
+		\textbf{Z decoding at T}
+		\begin{align*}
+			&P_{\text{success}}=\sum_{s}P(s)P_{\text{success}}(s)\\
+			&P_{\text{success}}(s)=P(C^{\star}_{s}(T))=\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\\
+			&\Rightarrow P_{\text{success}}=\langle\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\rangle_{s}
+		\end{align*}
+		with $[C^{\star}_{s}(T)]: Z^{T}(C^{\star}_{s})\geq Z^{T}(C_{s})$
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Success Rates}
+	\begin{minipage}{0.48\textwidth}
+		\small
+		\textbf{Z decoding at T}
+		\begin{align*}
+			&P_{\text{success}}=\langle\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\rangle_{s}
+		\end{align*}
+		with $[C^{\star}_{s}(T)]: Z^{T}(C^{\star}_{s})\geq Z^{T}(C_{s})$
+    \end{minipage}
+    \hfill
+	\pause
+    \begin{minipage}{0.48\textwidth}
+        \small
+		\textbf{Probabilistic Z decoding at T}
+		\begin{align*}
+			&P_{\text{success}}=\langle\frac{Z^{T}(C_{s}L_{\bar{l}})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}\rangle_{s}
+		\end{align*}
+		with $P(\bar{l}=l)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$
+    \end{minipage}
+	\pause
+	\textcolor{red}{\textbf{Decoding probability}}
+	\hspace{3cm}
+	\textcolor{red}{\textbf{Order probability}}
+\end{frame}
+
+
 
 \begin{frame}{Preliminary Results}
 	\only<1->{
@@ -607,13 +673,17 @@
 		\vspace{2cm}
 		\hspace{1.5cm}
 		\begin{itemize}
-			\item Maximum Z decoding $\sim$ decoding probability
+			\item Z decoding $\sim$ decoding probability
 			\item Probabilistic Z decoding $\sim$ order probability
 			\item Decoding probability and order probability require less samples for same accuracy than respective Z decoding
-			\item At low temperature: Order probability $\sim$ maximum probability decoding and decoding probability $\sim$ degeneracy enhanced maximum probability decoding
-			\item Enhancing MWPM by takign degeneracy into account can approximate decoding probability
+			% \item At low temperature: Order probability $\sim$ maximum probability decoding and decoding probability $\sim$ degeneracy enhanced maximum probability decoding
+			% \item Enhancing MWPM by takign degeneracy into account can approximate decoding probability
 		\end{itemize}
 	}
+\end{frame}
+
+\begin{frame}{Preliminary Results}
+
 \end{frame}
 
 % conclusion + success metrics

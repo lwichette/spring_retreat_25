@@ -11,7 +11,7 @@
 \usepackage{plex-mono}
 \usepackage{tcolorbox}
 
-\RequirePackage[ngerman]{babel}
+\RequirePackage[english]{babel}
 \RequirePackage[backend=biber,
                 style=numeric,
                 mincrossrefs=99,
@@ -123,10 +123,20 @@
 
 \setbeamertemplate{frametitle continuation}[from second]
 
+% \setbeamertemplate{footline}{%
+%     \hspace{1.05cm}\texttt{DFKI | Robotics Innovation Center}
+%     \hspace{9.2cm}\texttt{\insertpagenumber}
+%     \vspace{0.2cm}
+% }
+
 \setbeamertemplate{footline}{%
-    \hspace{1.05cm}\texttt{DFKI | Robotics Innovation Center}
-    \hspace{9.2cm}\texttt{S. \insertpagenumber}
-    \vspace{0.2cm}
+    \begin{beamercolorbox}[wd=\textwidth,ht=0.8cm,dp=0.2cm]{footline}
+        \hspace{0.3cm}
+        \includegraphics[height=0.6cm]{fig/dfki_Logo_vz.png}
+        \hfill
+        \insertpagenumber
+        \hspace{0.3cm}
+    \end{beamercolorbox}
 }
 
 \setbeamertemplate{frametitle}{%

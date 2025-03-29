@@ -6,7 +6,7 @@
 \title{On the effect of \newline realistic noise models on performance \newline predictions of quantum computers}
 \subtitle{Spring Retreat Talk}
 \author{Leon Wichette}
-\date{February 13, 2025}
+\date{\today}
 
 \begin{document}
 \selectfont
@@ -42,7 +42,7 @@
 		\end{textblock*}
 	}
 	\pause
-	\vspace{0.2cm}
+	\vspace{0.8cm}
 	\begin{center}
 		\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
 			\center
@@ -704,8 +704,34 @@
 \end{frame}
 
 \begin{frame}{Preliminary Results}
+	Variances of the different sampling methods
+\end{frame}
+
+\begin{frame}{Preliminary Results}
 	\center
 	\includegraphics[width=0.7\textwidth]{fig/Optimization_potential.png}
+\end{frame}
+
+\begin{frame}{Preliminary Results}
+\end{frame}
+
+\begin{frame}{Conclusion and Outlook}
+	\begin{textblock*}{14cm}(1.5cm,2cm)
+		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
+		\begin{tikzpicture}[overlay]
+			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+		\end{tikzpicture}
+		\hspace{4.5cm}
+		Optimal code performance estimate
+	\end{textblock*}
+	\vspace{2cm}
+	\begin{itemize}
+		\item \textbf{WL implementation:} Flexible but slow
+		\item \textbf{FKT implementation:} Fast but not flexible
+		\item \textbf{Near future:} TN implementation
+		\item \textbf{Further:} More realistic noise model
+	\end{itemize}
 \end{frame}
 
 % conclusion + success metrics

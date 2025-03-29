@@ -653,7 +653,7 @@
 \end{frame}
 
 \begin{frame}{Preliminary Results}
-	\only<1->{
+	\only<1-1>{
 	\begin{textblock*}{14cm}(1.5cm,2cm)
 		\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
 		\begin{tikzpicture}[overlay]
@@ -665,16 +665,9 @@
 	\end{textblock*}
 	}
 	\pause
-	\only<2->{
-		\vspace{2cm}
-		\hspace{1.5cm}
-		\begin{itemize}
-			\item Z decoding $\sim$ decoding probability
-			\item Probabilistic Z decoding $\sim$ order probability
-			\item Decoding probability and order probability require less samples for same accuracy than respective Z decoding
-			% \item At low temperature: Order probability $\sim$ maximum probability decoding and decoding probability $\sim$ degeneracy enhanced maximum probability decoding
-			% \item Enhancing MWPM by takign degeneracy into account can approximate decoding probability
-		\end{itemize}
+	\only<2-2>{
+		\center
+		\includegraphics[width=0.7\textwidth]{fig/ML_MP.png}
 	}
 \end{frame}
 
@@ -708,6 +701,11 @@
 			\caption{Comparison efficient sampling methods to brute force decoding for odd sizes at $T=0.1T_{\text{Nish}}$}
 		\end{minipage}
 	\end{figure}
+\end{frame}
+
+\begin{frame}{Preliminary Results}
+	\center
+	\includegraphics[width=0.7\textwidth]{fig/Optimization_potential.png}
 \end{frame}
 
 % conclusion + success metrics

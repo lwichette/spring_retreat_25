@@ -616,20 +616,20 @@
 	% }
 \end{frame}
 
-\begin{frame}{Definitions}
-	\begin{minipage}{0.48\textwidth}
-		\small
-		\textbf{Z decoding at T}
-		\begin{align*}
-			&P_{\text{success}}=\sum_{s}P(s)P_{\text{success}}(s)\\
-			&P_{\text{success}}(s)=P(C^{\star}_{s}(T))=\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\\
-			&\Rightarrow P_{\text{success}}=\langle\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\rangle_{s}
-		\end{align*}
-		with $[C^{\star}_{s}(T)]: Z^{T}(C^{\star}_{s})\geq Z^{T}(C_{s})$
-    \end{minipage}
-\end{frame}
+% \begin{frame}{Definitions}
+% 	\begin{minipage}{0.48\textwidth}
+% 		\small
+% 		\textbf{Z decoding at T}
+% 		\begin{align*}
+% 			&P_{\text{success}}=\sum_{s}P(s)P_{\text{success}}(s)\\
+% 			&P_{\text{success}}(s)=P(C^{\star}_{s}(T))=\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\\
+% 			&\Rightarrow P_{\text{success}}=\langle\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\rangle_{s}
+% 		\end{align*}
+% 		with $[C^{\star}_{s}(T)]: Z^{T}(C^{\star}_{s})\geq Z^{T}(C_{s})$
+%     \end{minipage}
+% \end{frame}
 
-\begin{frame}{Success Rates}
+\begin{frame}{Intermezzo - Groundwork for Results}
 	\begin{minipage}{0.48\textwidth}
 		\small
 		\textbf{Z decoding at T}
@@ -653,8 +653,6 @@
 	\hspace{3cm}
 	\textcolor{red}{\textbf{Order probability}}
 \end{frame}
-
-
 
 \begin{frame}{Preliminary Results}
 	\only<1->{
@@ -683,7 +681,35 @@
 \end{frame}
 
 \begin{frame}{Preliminary Results}
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_even_T1.png}
+			\caption{Comparison efficient sampling methods to brute force decoding for even sizes at $T=T_{\text{Nish}}$}
+		\end{minipage} \hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_odd_T1.png}
+			\caption{Comparison efficient sampling methods to brute force decoding for odd sizes at $T=T_{\text{Nish}}$}
+		\end{minipage}
+	\end{figure}
+\end{frame}
 
+\begin{frame}{Preliminary Results}
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_even_T01.png}
+			\caption{Comparison efficient sampling methods to brute force decoding for even sizes at $T=0.1T_{\text{Nish}}$}
+		\end{minipage} \hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_odd_T01.png}
+			\caption{Comparison efficient sampling methods to brute force decoding for odd sizes at $T=0.1T_{\text{Nish}}$}
+		\end{minipage}
+	\end{figure}
 \end{frame}
 
 % conclusion + success metrics

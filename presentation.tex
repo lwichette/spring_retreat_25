@@ -317,13 +317,14 @@
 			\cite{bravyi_efficient_2014,chubb_general_2021}
 		\end{tiny}
 	\end{textblock*}
+
 	\only<1-1>{
-	\begin{textblock*}{3.5cm}(1cm,4cm)
-		\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
-			\center
-			Backlog problem
-		\end{tcolorbox}
-	\end{textblock*}
+		\begin{textblock*}{3.5cm}(1cm,4cm)
+			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
+				\center
+				Backlog problem
+			\end{tcolorbox}
+		\end{textblock*}
 	}
 	% \pause
 	% \only<2-2>{
@@ -358,9 +359,9 @@
 			\textbf{Minimum Weight Perfect Matching}
 			\begin{itemize}
 				\item Outputs always errors which match the syndrome
-				\item Improved: Sparse blossom $O(N^{1.32})$, fusion blossom $O(N^{1.32})$
-				\item Sparse blossom real time operational for $0.1\%$ depolarising noise on distance-17 surface code \cite{higgott_sparse_2025}
-				\item Noise aware \cite{iolius_performance_2022}
+				\item Complexity improved: Sparse blossom $O(N^{1.32})$, fusion blossom $O(N^{1.32})$
+				\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \cite{higgott_sparse_2025}
+				\item Performance improved: Noise aware \cite{iolius_performance_2022}, Ensembling \cite{shutty_efficient_2024}
 			\end{itemize}
 		\end{small}
 	\end{textblock*}
@@ -747,7 +748,7 @@
 		\item \textbf{FKT implementation:} Fast but not flexible
 		\item \textbf{Decoder Optimization:} MWPM decoder can be enhanced by taking degeneracy of ground states into account
 		\item \textbf{Near future:} TN implementation
-		\item \textbf{Further:} More realistic noise model
+		\item \textbf{Further:} More realistic noise model, color codes towards quantum algorithms
 	\end{itemize}
 \end{frame}
 

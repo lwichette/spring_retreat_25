@@ -51,45 +51,45 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Classical vs. Quantum Error Correction}
-	Error correction is well studied in classical setting but there exist obstacles to transfer existing methods to quantum setting:
-	\begin{itemize}
-		\item \textbf{No-Cloning Theorem:} No-go theorem stating that an arbitrary quantum state can not be cloned by a unitary operation
-		\item \textbf{Projective Measurements:} Measurement of a quantum state projects the state onto a basis
-	\end{itemize}
-\end{frame}
+% \begin{frame}{Classical vs. Quantum Error Correction}
+% 	Error correction is well studied in classical setting but there exist obstacles to transfer existing methods to quantum setting:
+% 	\begin{itemize}
+% 		\item \textbf{No-Cloning Theorem:} No-go theorem stating that an arbitrary quantum state can not be cloned by a unitary operation
+% 		\item \textbf{Projective Measurements:} Measurement of a quantum state projects the state onto a basis
+% 	\end{itemize}
+% \end{frame}
 
-\begin{frame}{Tackling Quantum Errors}
-	\begin{center}
-        \includegraphics[width=0.6\textwidth]{fig/TypesErrorCorrection.png}
-    \end{center}
-	\begin{itemize}
-		\item \textbf{QEM:} Evaluate accurate expectation values of observables on noisy quantum circuits
-		\item \textbf{QEC:} Build a framework to herald qubits and gates of arbitrary good quality
-		\begin{itemize}
-			\item \textbf{Active:} Extracts information about apparent errors and deduces correction operations
-			\item \textbf{Passive:} Store quantum information in a self correcting way \cite{bacon_operator_2006, berthusen_experiments_2024}
-		\end{itemize}
-	\end{itemize}
-\end{frame}
+% \begin{frame}{Tackling Quantum Errors}
+% 	\begin{center}
+%         \includegraphics[width=0.6\textwidth]{fig/TypesErrorCorrection.png}
+%     \end{center}
+% 	\begin{itemize}
+% 		\item \textbf{QEM:} Evaluate accurate expectation values of observables on noisy quantum circuits
+% 		\item \textbf{QEC:} Build a framework to herald qubits and gates of arbitrary good quality
+% 		\begin{itemize}
+% 			\item \textbf{Active:} Extracts information about apparent errors and deduces correction operations
+% 			\item \textbf{Passive:} Store quantum information in a self correcting way \cite{bacon_operator_2006, berthusen_experiments_2024}
+% 		\end{itemize}
+% 	\end{itemize}
+% \end{frame}
 
-\begin{frame}{Tackling Quantum Errors}
-	\begin{center}
-        \includegraphics[width=0.6\textwidth]{fig/TypesErrorCorrection.png}
-    \end{center}
-	\begin{itemize}
-		\item \textbf{QEM:} Evaluate accurate expectation values by noisy quantum circuits
-		\item \textbf{QEC:} Obtain qubits and gates of arbitrary good quality
-		\begin{itemize}
-			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
-			\item \textbf{Active:} Relies on actively measuring information about errors and deducing correction operations
-			\end{tcolorbox}
-			\item \textbf{Passive:} Store quantum information in a self correcting way~\cite{bacon_operator_2006, berthusen_experiments_2024}
-		\end{itemize}
-	\end{itemize}
-\end{frame}
+% \begin{frame}{Tackling Quantum Errors}
+% 	\begin{center}
+%         \includegraphics[width=0.6\textwidth]{fig/TypesErrorCorrection.png}
+%     \end{center}
+% 	\begin{itemize}
+% 		\item \textbf{QEM:} Evaluate accurate expectation values by noisy quantum circuits
+% 		\item \textbf{QEC:} Obtain qubits and gates of arbitrary good quality
+% 		\begin{itemize}
+% 			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
+% 			\item \textbf{Active:} Relies on actively measuring information about errors and deducing correction operations
+% 			\end{tcolorbox}
+% 			\item \textbf{Passive:} Store quantum information in a self correcting way~\cite{bacon_operator_2006, berthusen_experiments_2024}
+% 		\end{itemize}
+% 	\end{itemize}
+% \end{frame}
 
-\begin{frame}{QEC idea}
+\begin{frame}{QEC general idea}
 	\begin{minipage}[t]{0.65\textwidth}
 		\centering
 		\textbf{Error correction code:}
@@ -160,115 +160,125 @@
 	% The error rate seperating these two regimes is called the error correction threshold.
 \end{frame}
 
-\begin{frame}{Noise}
-	\begin{center}
-        \includegraphics[width=0.6\textwidth]{fig/NoiseTypes.png}
-    \end{center}
-	\small
-	\begin{itemize}
-		\item \textbf{Decoherence:} Interaction with environment evolves idle qubit states stochastically
-		\item \textbf{Circuit-level Noise:} Caused by imperfect manipualtion of QI:
-		\begin{itemize}
-			\item Imperfect implementation of quantum gates causes errors
-			\item \textbf{S}tate \textbf{P}reparation \textbf{A}nd \textbf{M}easurement errors
-			\item SI1000: \textbf{S}uperconducting \textbf{I}nspired noise model with \textbf{1000} nanosecond cycle
-		\end{itemize}
-	\end{itemize}
-	\pause
-	\begin{overlayarea}{\textwidth}{3cm}
-	\vspace{-8cm}
-	\hspace{3.5cm}
-	\begin{tikzpicture}
-		% Define nodes
-		\node (A) at (0cm,0cm) {};
-		\node (B) at (6cm,0cm) {};
-		\node (C) at (4cm,0cm) {};
-
-		% Draw a curved arrow from B to A
-		\draw[->, bend right=40] (B) to node[above] {Pauli Twirl \cite{geller_efficient_2013}} (A);
-		\draw[->, bend right=25] (C) to node[above] {} (0.5cm, 0cm);
-	\end{tikzpicture}
-	\end{overlayarea}
+\begin{frame}{Problem statement}
+	\includegraphics[width=0.4\textwidth]{fig/resource_intensive_decoder_dev.png}
+	\only<1>{\hspace{20pt}\raisebox{35pt}{$\huge \Rightarrow$ \textbf{Only do it for promising codes}}}
+	\only<2->{
+		\hspace{2pt}
+		\raisebox{18pt}{\includegraphics[width=0.08\textwidth]{fig/arrows.png}}
+		\hspace{5pt}
+		\includegraphics[width=0.4\textwidth]{fig/promising_codes.png}\\
+	}
+	\vspace{1.5cm}
+	\only<3->{
+	\center
+	\textbf{Optimal code performance: \\baseline for code selection and decoder optimization}
+	% \begin{itemize}
+	% 	\only<3->{\item \textbf{Code selection:} Hardware specific simulation of optimal code performance makes error correcting codes comparable.}
+	% 	\only<4>{\item \textbf{Decoder optimization:} Estimation of optimal code performance shows upper limit for decoder optimization.}
+	% \end{itemize}
+	}
 \end{frame}
 
+% \begin{frame}{Noise}
+% 	\begin{center}
+%         \includegraphics[width=0.6\textwidth]{fig/NoiseTypes.png}
+%     \end{center}
+% 	\small
+% 	\begin{itemize}
+% 		\item \textbf{Decoherence:} Interaction with environment evolves idle qubit states stochastically
+% 		\item \textbf{Circuit-level Noise:} Caused by imperfect manipualtion of QI:
+% 		\begin{itemize}
+% 			\item Imperfect implementation of quantum gates causes errors
+% 			\item \textbf{S}tate \textbf{P}reparation \textbf{A}nd \textbf{M}easurement errors
+% 			\item SI1000: \textbf{S}uperconducting \textbf{I}nspired noise model with \textbf{1000} nanosecond cycle
+% 		\end{itemize}
+% 	\end{itemize}
+% 	\pause
+% 	\begin{overlayarea}{\textwidth}{3cm}
+% 	\vspace{-8cm}
+% 	\hspace{3.5cm}
+% 	\begin{tikzpicture}
+% 		% Define nodes
+% 		\node (A) at (0cm,0cm) {};
+% 		\node (B) at (6cm,0cm) {};
+% 		\node (C) at (4cm,0cm) {};
 
-\begin{frame}{Overview Literature Research}
-	\begin{center}
-		\begin{itemize}
-			\only<1->{
-			\item Brief history of QEC
-			}
-			\vspace{0.5cm}
-			\pause
-			\only<2->{
-			\item Codes and used quality markers
-			\vspace{0.5cm}
-			\item Decoder and used quality markers
-			}
-			\vspace{0.5cm}
-			\pause
-			\only<3->{
-			\item Experimental realization
-			}
-			\vspace{0.5cm}
-			\pause
-			\only<4->{
-			\item Methods to estimate optimal code performance
-			}
-		\end{itemize}
-	\end{center}
-\end{frame}
+% 		% Draw a curved arrow from B to A
+% 		\draw[->, bend right=40] (B) to node[above] {Pauli Twirl \cite{geller_efficient_2013}} (A);
+% 		\draw[->, bend right=25] (C) to node[above] {} (0.5cm, 0cm);
+% 	\end{tikzpicture}
+% 	\end{overlayarea}
+% \end{frame}
 
-\begin{frame}{Brief history of QEC}
-	\vspace{-20pt}
-	\begin{table}[h]
-        \centering
-		\renewcommand{\arraystretch}{1.5}
-        \resizebox{\textwidth}{!}{
-		\begin{tabular}{c|c|p{7cm}}
-			\textbf{Year} & \textbf{Author} & \textbf{Contribution} \\
-			1995 & Shor & First quantum error correcting code and threshold theorem~\cite{shor_scheme_1995} \\
-			1996 & Calderbank, Shor and Steane & Introduction of quantum error correcting codes based on classical codes~\cite{calderbank_good_1996, steane_multiple-particle_1996} \\
-			1997 & Gottesman & Introduction of stabilizer code framework~\cite{gottesman_stabilizer_1997} \\
-			1997 & Kitaev & Introduction of the surface code~\cite{hirota_quantum_1997, kitaev_fault-tolerant_2003}\\
-			2002 & Dennis, Kitaev, Landahl and Preskill & Introduction of statistical mechanics mapping and fault tolerant operations on the surface code~\cite{dennis_topological_2002} \\
-			2014-15 & Nigg et al. and  Kelly et al. & First experimental realization of small codes \cite{nigg_quantum_2014,kelly_state_2015} \\
-		\end{tabular}
-		}
-	\end{table}
-\end{frame}
 
-\begin{frame}{Stabilizer Codes}
-	% \begin{textblock*}{2.5cm}(12.5cm,0.5cm)
-	% 	\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
-	% \end{textblock*}
-	Quality markers: $\frac{k}{n}$, d (, $\omega$ for QLDPC)
-	\begin{table}[h]
-        \renewcommand{\arraystretch}{1.5} % Increase row spacing
-        \small
-		\begin{tabular}{c|c|c|c}
-			\textbf{Code} &  \textbf{n} & \textbf{k} & \textbf{d} \\
-			\hline
-			Toric Code \cite{hirota_quantum_1997} & $2d^{2}$ & 2 & d \\
-			Planar Surface Code & $d^{2} + (L-1)^{2}$ &  1 & d \\
-			Rotated Surface Code & $d^{2}$ &  1 & d \\
-			\hline
-			\pause
-			Honneycomb Code \cite{landahl_fault-tolerant_2011} & $\frac{3}{4}d^{2}$ + $\frac{1}{4}$ & 1 & d \\
-			\hline
-			\pause
-			Quantum Tanner Code \cite{leverrier_quantum_2022} & n & $\Omega(n)$ & $\Omega(n)$
-		\end{tabular}
-	\end{table}
-\end{frame}
+% \begin{frame}{Overview Literature Research}
+% 	\begin{center}
+% 		\begin{itemize}
+% 			\only<1->{
+% 			\item Optimal code capacity thresholds
+% 			}
+% 			\vspace{0.5cm}
+% 			\pause
+% 			\only<2->{
+% 			\item Surface code decoders
+% 			}
+% 			\vspace{0.5cm}
+% 			\pause
+% 			\only<3->{
+% 			\item Noise effects on code performance
+% 			}
+% 		\end{itemize}
+% 	\end{center}
+% \end{frame}
+
+
+% \begin{frame}{Brief history of QEC}
+% 	\vspace{-20pt}
+% 	\begin{table}[h]
+%         \centering
+% 		\renewcommand{\arraystretch}{1.5}
+%         \resizebox{\textwidth}{!}{
+% 		\begin{tabular}{c|c|p{7cm}}
+% 			\textbf{Year} & \textbf{Author} & \textbf{Contribution} \\
+% 			1995 & Shor & First quantum error correcting code and threshold theorem~\cite{shor_scheme_1995} \\
+% 			1996 & Calderbank, Shor and Steane & Introduction of quantum error correcting codes based on classical codes~\cite{calderbank_good_1996, steane_multiple-particle_1996} \\
+% 			1997 & Gottesman & Introduction of stabilizer code framework~\cite{gottesman_stabilizer_1997} \\
+% 			1997 & Kitaev & Introduction of the surface code~\cite{hirota_quantum_1997, kitaev_fault-tolerant_2003}\\
+% 			2002 & Dennis, Kitaev, Landahl and Preskill & Introduction of statistical mechanics mapping and fault tolerant operations on the surface code~\cite{dennis_topological_2002} \\
+% 			2014-15 & Nigg et al. and  Kelly et al. & First experimental realization of small codes \cite{nigg_quantum_2014,kelly_state_2015} \\
+% 		\end{tabular}
+% 		}
+% 	\end{table}
+% \end{frame}
+
+
+% \begin{frame}{Stabilizer Codes}
+% 	% \begin{textblock*}{2.5cm}(12.5cm,0.5cm)
+% 	% 	\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
+% 	% \end{textblock*}
+% 	Quality markers: $\frac{k}{n}$, d (, $\omega$ for QLDPC)
+% 	\begin{table}[h]
+%         \renewcommand{\arraystretch}{1.5} % Increase row spacing
+%         \small
+% 		\begin{tabular}{c|c|c|c}
+% 			\textbf{Code} &  \textbf{n} & \textbf{k} & \textbf{d} \\
+% 			\hline
+% 			Toric Code \cite{hirota_quantum_1997} & $2d^{2}$ & 2 & d \\
+% 			Planar Surface Code & $d^{2} + (L-1)^{2}$ &  1 & d \\
+% 			Rotated Surface Code & $d^{2}$ &  1 & d \\
+% 			\hline
+% 			\pause
+% 			Honneycomb Code \cite{landahl_fault-tolerant_2011} & $\frac{3}{4}d^{2}$ + $\frac{1}{4}$ & 1 & d \\
+% 			\hline
+% 			\pause
+% 			Quantum Tanner Code \cite{leverrier_quantum_2022} & n & $\Omega(n)$ & $\Omega(n)$
+% 		\end{tabular}
+% 	\end{table}
+% \end{frame}
+
 
 \begin{frame}{Optimal Code Capacity Thresholds}
-	% \begin{textblock*}{2cm}(13.5cm,0.5cm)
-	% 	\includegraphics[width=1\textwidth]{fig/slim_noise.png}
-	% \end{textblock*}
-	% \begin{textblock*}{2cm}(13.5cm,1.5cm)
-	% 	\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
-	% \end{textblock*}
 	Quality marker: $p_{\text{threshold}}$
 	\begin{table}[h]
         \renewcommand{\arraystretch}{1.5} % Increase row spacing
@@ -283,36 +293,42 @@
 			Surface Code & Independent X, Z errors & \cite{bravyi_efficient_2014} \\
 			& Depolarizing Noise & \cite{bravyi_efficient_2014} \\
 			& Amplitude Damping & \cite{darmawan_tensor-network_2017} \\
-			& Coherent Noise & \cite{behrends_statistical_2024, bao_phases_2024} \\
-			\hline
-			Lattice Codes & Independent X, Z errors & \cite{fujii_error-_2012} \\
+			& Coherent Noise & \cite{behrends_statistical_2024, bao_phases_2024}
 		\end{tabular}
 	\end{table}
+	% \pause
+	% \only<2-2>{
+	% 	\begin{textblock*}{4cm}(12.5cm,2.5cm)
+	% 		\small
+	% 		Optimal decoding threshold $\sim$ phase transition at Nishimori temperature
+	% 	\end{textblock*}
+	% }
 \end{frame}
+
 
 \begin{frame}{Surface Code Suboptimal Decoders}
 	% \begin{textblock*}{2cm}(14cm,0.5cm)
 	% 	\includegraphics[width=0.4\textwidth]{fig/decoder.png}
 	% \end{textblock*}
-	\begin{textblock*}{9cm}(6cm,2.5cm)
+	\begin{textblock*}{9cm}(7cm,2.5cm)
         \includegraphics[width=1\textwidth]{fig/Screenshot from 2025-03-24 15-21-55.png}
     \end{textblock*}
-	\begin{textblock*}{2cm}(11.5cm,3.4cm)
+	\begin{textblock*}{2cm}(12.5cm,3.4cm)
 		\begin{tiny}
 			\cite{edmonds_paths_1965}
 		\end{tiny}
 	\end{textblock*}
-	\begin{textblock*}{2cm}(8.2cm,3.4cm)
+	\begin{textblock*}{2cm}(9.2cm,3.4cm)
 		\begin{tiny}
 			\cite{delfosse_almost-linear_2021}
 		\end{tiny}
 	\end{textblock*}
-	\begin{textblock*}{2cm}(9.8cm,3.4cm)
+	\begin{textblock*}{2cm}(10.8cm,3.4cm)
 		\begin{tiny}
 			\cite{panteleev_degenerate_2021}
 		\end{tiny}
 	\end{textblock*}
-	\begin{textblock*}{2cm}(13.1cm,3.4cm)
+	\begin{textblock*}{2cm}(14.1cm,3.4cm)
 		\begin{tiny}
 			\cite{bravyi_efficient_2014,chubb_general_2021}
 		\end{tiny}
@@ -354,18 +370,18 @@
 	% }
 	\pause
 	\only<2-2>{
-	\begin{textblock*}{6cm}(0.1cm,2cm)
+	\begin{textblock*}{7cm}(0cm,2cm)
 		\begin{small}
-			\textbf{Minimum Weight Perfect Matching}
+			\textbf{\hspace{1cm}Minimum Weight Perfect Matching}
 			\begin{itemize}
-				\item Outputs always errors which match the syndrome
-				\item Complexity improved: Sparse blossom $O(N^{1.32})$, fusion blossom $O(N^{1.32})$
+				\item Complexity improved: Sparse blossom $O(N^{1.32})$, fusion blossom $O(N)$
 				\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \cite{higgott_sparse_2025}
-				\item Performance improved: Noise aware \cite{iolius_performance_2022}, Ensembling \cite{shutty_efficient_2024}
+				\item Improved performance: Ensembling~\cite{shutty_efficient_2024, jones_improved_2024},
+				\item Noise aware: Weights calibrated by noise~\cite{iolius_performance_2022,hockings_improving_2025}, correlated MWPM~\cite{fowler_optimal_2013}
 			\end{itemize}
 		\end{small}
 	\end{textblock*}
-	\begin{textblock*}{10cm}(8.7cm,3.5cm)  % Adjust position as needed
+	\begin{textblock*}{10cm}(9.7cm,3.5cm)
 		\begin{tikzpicture}
 			\draw[->, bend right=70] (2.5cm,0cm) to node[below] {\tiny{\cite{fowler_towards_2012, wu_fusion_2023, higgott_sparse_2025}}} (0cm,0cm);
 		\end{tikzpicture}
@@ -373,63 +389,64 @@
 	}
 	\pause
 	\only<3-3>{
-	\begin{textblock*}{6cm}(0.1cm,3cm)
+	\begin{textblock*}{7cm}(0cm,3cm)
 		\begin{small}
-			\textbf{Tensor Network Decoder}
+			\textbf{\hspace{1cm}Tensor Network Decoder}
 			\begin{itemize}
 				\item Surface Code $\rightarrow$ Tensor Network
 				\item Optimal decoding $\rightarrow$ TN contraction
-				\item Approximate contraction by truncation on SVD
+				\item Approximate contraction $\rightarrow$ approximate optimal decoding
 				\item Generalised to arbitrary 2D codes \cite{chubb_general_2021}
+				\item Noise aware~\cite{darmawan_optimal_2024}
 			\end{itemize}
 		\end{small}
 	\end{textblock*}
 	}
 \end{frame}
 
-\begin{frame}{Experimental Realization}
-	\vspace{-18pt}
-	\begin{table}[h]
-		\fontsize{10pt}{10pt}\selectfont
-        \renewcommand{\arraystretch}{1.5} % Increase row spacing
-		\begin{tabular}{c|p{3cm}|p{8.5cm}}
-			\textbf{Year} & \textbf{Author} & \textbf{Contribution} \\
-			2014 & Nigg et al. & Seven-qubit color code on trapped-ion device and execution of logical single-qubit gates \cite{nigg_quantum_2014} \\
-			2015 & Kelly et al. &  Nine qubit repetition code on superconducting processor \cite{kelly_state_2015} \\
-			2020 & Erhard et al. & Lattice surgery generated entanglement of two logical qubits on a ten qubit ion trap device \cite{erhard_entangling_2020} \\
-			2021 & Ryan et al. & Real time decoding on seven-qubit color code on trapped-ion device and non-Clifford operation \cite{ryan-anderson_realization_2021}\\
-			2023-24 & Google Quantum AI et al. & Real time decoding and below threshold quantum memory experiments on up to 101 qubits on superconducting processor \cite{google_quantum_ai_suppressing_2023, google_quantum_ai_and_collaborators_quantum_2025}
-		\end{tabular}
-	\end{table}
-\end{frame}
 
-\begin{frame}{Optimal Decoding Methods}
-	\vspace{-15pt}
-	\begin{table}[h]
-        \renewcommand{\arraystretch}{1.5} % Increase row spacing
-        \small
-		\begin{tabular}{c|p{4cm}|p{7cm}}
-			\textbf{Year} & \textbf{Author} & \textbf{Contribution} \\
-			2009 & Creighton and Middleton \cite{thomas_exact_2009,thomas_numerically_2013} & Fast algorithm to calculate finite temperature partition functions of planar random bond Ising model based on FKT algortihm \cite{kasteleyn_statistics_1961,temperley_dimer_1961} \\
-			2013 & Vogel, Li, Wüst, Landau \cite{vogel_generic_2013} & Parallel tempered Wang-Landau algorithm \cite{wang_efficient_2001} for estimating density of states for systems with bounded spectrum \\
-			2014-21 & Bravyi, Suchara, Vargo and Chubb \cite{bravyi_efficient_2014, chubb_general_2021} & Development of approximate optimal decoding by TN contraction and generalisation to arbitrary 2D stabiliser codes \\
-		\end{tabular}
-	\end{table}
-\end{frame}
+% \begin{frame}{Experimental Realization}
+% 	\vspace{-18pt}
+% 	\begin{table}[h]
+% 		\fontsize{10pt}{10pt}\selectfont
+%         \renewcommand{\arraystretch}{1.5} % Increase row spacing
+% 		\begin{tabular}{c|p{3cm}|p{8.5cm}}
+% 			\textbf{Year} & \textbf{Author} & \textbf{Contribution} \\
+% 			2014 & Nigg et al. & Seven-qubit color code on trapped-ion device and execution of logical single-qubit gates \cite{nigg_quantum_2014} \\
+% 			2015 & Kelly et al. &  Nine qubit repetition code on superconducting processor \cite{kelly_state_2015} \\
+% 			2020 & Erhard et al. & Lattice surgery generated entanglement of two logical qubits on a ten qubit ion trap device \cite{erhard_entangling_2020} \\
+% 			2021 & Ryan et al. & Real time decoding on seven-qubit color code on trapped-ion device and non-Clifford operation \cite{ryan-anderson_realization_2021}\\
+% 			2023-24 & Google Quantum AI et al. & Real time decoding and below threshold quantum memory experiments on up to 101 qubits on superconducting processor \cite{google_quantum_ai_suppressing_2023, google_quantum_ai_and_collaborators_quantum_2025}
+% 		\end{tabular}
+% 	\end{table}
+% \end{frame}
+
+% \begin{frame}{Optimal Decoding Methods}
+% 	\vspace{-15pt}
+% 	\begin{table}[h]
+%         \renewcommand{\arraystretch}{1.5} % Increase row spacing
+%         \small
+% 		\begin{tabular}{c|p{4cm}|p{7cm}}
+% 			\textbf{Year} & \textbf{Author} & \textbf{Contribution} \\
+% 			2009 & Creighton and Middleton \cite{thomas_exact_2009,thomas_numerically_2013} & Fast algorithm to calculate finite temperature partition functions of planar random bond Ising model based on FKT algortihm \cite{kasteleyn_statistics_1961,temperley_dimer_1961} \\
+% 			2013 & Vogel, Li, Wüst, Landau \cite{vogel_generic_2013} & Parallel tempered Wang-Landau algorithm \cite{wang_efficient_2001} for estimating density of states for systems with bounded spectrum \\
+% 			2014-21 & Bravyi, Suchara, Vargo and Chubb \cite{bravyi_efficient_2014, chubb_general_2021} & Development of approximate optimal decoding by TN contraction and generalisation to arbitrary 2D stabiliser codes \\
+% 		\end{tabular}
+% 	\end{table}
+% \end{frame}
 
 \begin{frame}{Gap}
 	Existing:
 	\begin{itemize}
-		\item Much effort in development of fast decoders for stabilizer codes
-		\item Much effort in development of error correcting codes with high quality markers
-		\item Noise model has big impact on code performance
-		\item Error correcting codes are gauged by $n/k$, d, $p_{\text{threshold}}$, $\omega$
+		\item Much effort in development of error correcting codes
+		\item Quality markers of codes: Density of logical qubits per physical, code distance, $p_{\text{threshold}}$
+		\item Much effort in development of fast and high performant decoders for stabilizer codes
 	\end{itemize}
 	\pause
 	Laking:
 	\begin{itemize}
-		\item Comparibility of codes for finite size regime under realistic noise models by optimal code capacity estimates
-		\item Gauge of existing decoders with respect to optimal code capcity
+		\item Comparibility of codes for finite size regime under realistic noise models
+		\item Gauge of existing decoders with respect to optimal code capacity
 	\end{itemize}
 
 \end{frame}
@@ -448,7 +465,6 @@
 	\begin{itemize}
 		\item Informed decision on which codes promise good finite size performance
 		\item Gauge of decoder optimization process
-		\item Investigate RG flow of CFTs at Nishimori point by disturbing noise model
 	\end{itemize}
 \end{frame}
 
@@ -462,8 +478,7 @@
 			Now & Framework for general stabilizer code under Pauli noise is implemented \\
 			April-May 2025 & Paper on optimization opportunities of MWPM by degeneracy of ground states \\
 			May- 2025 & Incoroporate TN approximate ML decoder into framework plus investigate further alternatives \\
-			May- 2025 & Incorporate realistic circuit level noise model into framework by Pauli twirling plus investigate further alternatives \\
-			May- 2025 & Investigation of Rg flow at Nishimori point \\
+			May- 2025 & Incorporate realistic circuit level noise model into framework by Pauli twirling and investigate its influence \\
 			2025-2026 & Implementation of error correcting codes, deduction of noise model and simulation of hardware within QuaSA\\
 		\end{tabular}
 	\end{table}

@@ -438,8 +438,7 @@
 \begin{frame}{Gap}
 	Existing:
 	\begin{itemize}
-		\item Much effort in development of error correcting codes
-		\item Quality markers of codes: Density of logical qubits per physical, code distance, $p_{\text{threshold}}$
+		\item Much effort in development of error correcting codes with good quality markers: Number logical per physical qubits, code distance and $p_{\text{threshold}}$
 		\item Much effort in development of fast and high performant decoders for stabilizer codes
 	\end{itemize}
 	\pause
@@ -522,113 +521,230 @@
 	% }
 \end{frame}
 
-\begin{frame}{Intermezzo - Groundwork for Results}
-	\only<1-1>{
-	\begin{textblock*}{16cm}(4cm,1.7cm)
-		\includegraphics[width=0.4\textwidth]{fig/Toric_code_ex_1.png}
-	\end{textblock*}
-	}
-	\only<2-2>{
-	\begin{textblock*}{16cm}(4cm,1.7cm)
-		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_2.png}
-	\end{textblock*}
-	}
-	\only<3-3>{
-	\begin{textblock*}{16cm}(2cm,1.7cm)
-		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_3.png}
-	\end{textblock*}
-	\begin{textblock*}{8cm}(8cm,2cm)
-		\textbf{Maximum probability/minimum weight decoding}\\
-		\vspace{0.5cm}
-		$E_{\text{correction}}=\text{argmax}_{E\in \bar{\mathcal{G}}_{n}}P(E|s)$
-	\end{textblock*}
-	}
-	\only<4-4>{
-	\begin{textblock*}{16cm}(2cm,1.7cm)
-		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_6.png}
-	\end{textblock*}
-	\begin{textblock*}{8cm}(8cm,2cm)
-		\textbf{Maximum probability/minimum weight decoding}\\
-		\vspace{0.5cm}
-		$E_{\text{correction}}=\text{argmax}_{E\in \bar{\mathcal{G}}_{n}}P(E|s)$
-	\end{textblock*}
-	}
-	\only<5-5>{
-	\begin{textblock*}{16cm}(4cm,1.7cm)
-		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_7.png}
-	\end{textblock*}
-	\begin{textblock*}{6cm}(10cm,2cm)
-		\textbf{success!} \\ But didnt take degeneracy into account
-	\end{textblock*}
-	}
-	\only<6-6>{
-	\begin{textblock*}{16cm}(2cm,1.7cm)
-		\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_2.png}
-	\end{textblock*}
-	\begin{textblock*}{8cm}(8cm,2cm)
-		\textbf{Maximum likelihood/optimal decoding}\\
-		$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
-		$[C_{s}]=SC_{s}$ \\
-		$s \mapsto C_{s}L_{\delta(s)}$ with \\
-		$\delta(s) = \arg\max_{l\in L}P([C_{s}L_{l}])$
-	\end{textblock*}
-	}
-	\only<7-7>{
-		\begin{textblock*}{16cm}(2cm,1.7cm)
-			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_8.png}
-		\end{textblock*}
-		\begin{textblock*}{8cm}(8cm,2cm)
-			\textbf{Maximum likelihood/optimal decoding}\\
-			$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
-			$[C_{s}]=SC_{s}$ \\
-			$s \mapsto C_{s}L_{\delta(s)}$ with \\
-			$\delta(s) = \arg\max_{l\in L}P([C_{s}L_{l}])$\\
-			$\phantom{\delta(s)} \overset{\text{\cite{dennis_topological_2002}}}{=} \arg\max_{l\in L}Z^{T_{\text{Nishimori}}}(C_{s}L_{l})$
-		\end{textblock*}
-	}
-	\only<8-8>{
-		\begin{textblock*}{16cm}(2cm,1.7cm)
-			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_8.png}
-		\end{textblock*}
-		\begin{textblock*}{8cm}(8cm,2cm)
-			\textbf{Max Z decoding at temperature T}\\
-			$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
-			$[C_{s}]=SC_{s}$ \\
-			$s \mapsto C^{\star}_{s}(T)\equiv C_{s}L_{\delta(s)}$ with \\
-			$\delta(s) = \arg\max_{l\in L}Z^{T}(C_{s}L_{l})$\\
-			\vspace{0.8cm}
-			\textbf{Probabilistic Z decoding at temperature T}:\\
-			$\overline{\delta(s)}$ with $P(\overline{\delta(s)} = l\in L)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$
-		\end{textblock*}
-	}
-	\only<9-9>{
-		\begin{textblock*}{16cm}(2cm,1.7cm)
-			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_8.png}
-		\end{textblock*}
-		\begin{textblock*}{8cm}(8cm,2cm)
-			\textbf{Max Z decoding at temperature T}\\
-			$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
-			$[C_{s}]=SC_{s}$ \\
-			$s \mapsto C^{\star}_{s}(T)\equiv C_{s}L_{\delta(s)}$ with \\
-			$\delta(s) = \arg\max_{l\in L}Z^{T}(C_{s}L_{l})$\\
-			\vspace{0.8cm}
-			\textbf{Probabilistic Z decoding at temperature T}:\\
-			$\overline{\delta(s)}$ with $P(\overline{\delta(s)} = l\in L)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$\\
-			\vspace{0.8cm}
-			Estimation of Z by REWL and FKT algorithm
-		\end{textblock*}
-	}
-	% \only<6-6>{
-	% \begin{textblock*}{16cm}(4cm,1.7cm)
-	% 	\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_4.png}
-	% \end{textblock*}
-	% }
-	% \only<7-7>{
-	% \begin{textblock*}{16cm}(4cm,1.7cm)
-	% 	\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_5.png}
-	% \end{textblock*}
-	% }
+\begin{frame}{Groundwork for Results}
+\textbf{Example:}
+\begin{itemize}
+	\item Physical errors $E_{1}, E_{2}, E_{3}$ compatible with partial error information $s$\\
+	\pause
+	\item $E_{2}, E_{3}$ act equivalently on logical qubit while $E_{1}$ does not\\
+	\pause
+	\item $P(E_{1})=4\%$, $P(E_{2})=3\%$, $P(E_{3})=3\%$
+\end{itemize}
+\pause
+\vspace{0.5cm}
+\textbf{Maximum Probability decoding:}\\
+Select most probable physical error consistent with the partial error information\\
+\pause
+$P(E_{1})\geq P(E_{i})\forall i \Rightarrow$ Select error $E_{1}$\\
+\pause
+\vspace{0.5cm}
+\textbf{Maximum likelihood/Optimal decoding:}\\
+Select most probable error class consistent with the partial error information\\
+\pause
+$P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=[E_{3}]$
 \end{frame}
+
+\begin{frame}{Groundwork for Results}
+	\only<1-1>{
+	\textbf{Maximum Probability decoding:}\\
+	Select error consistent with the partial error information and highest $P(E)$\\
+	}
+	\pause
+	\only<2-3>{
+	\textbf{Maximum Probability/Minimum Weight decoding:}\\
+	Select error consistent with the partial error information and highest $P(E)$\\
+	}
+	\pause
+	\only<3-3>{
+	\vspace{0.5cm}
+	\textbf{Maximum likelihood/Optimal decoding:}\\
+	Select class consistent with the partial error information and highest $P([E])$
+	}
+	\pause
+	\only<4-4>{
+		Reduce calculation of $P(E)$ and $P([E])$ to very well studied quantity called partition function $Z_{E}(T)$.\\
+	}
+	\pause
+	\only<5-5>{
+		\textbf{Maximum Probability/Minimum Weight decoding:}\\
+		Select error consistent with the partial error information and highest $P(E)=lim_{T\to 0}Z_{E}(T)$\\
+		\vspace{0.5cm}
+		\textbf{Maximum likelihood/Optimal decoding:}\\
+		Select class consistent with the partial error information and highest $P([E])=Z_{E}(T_{\text{Nishimori}})$
+	}
+	\pause
+	\only<6->{
+		\textbf{Minimum Energy Decoding:}\\
+		Select error consistent with the partial error information and highest $P(E)=lim_{T\to 0}Z_{E}(T)$\\
+		\vspace{0.5cm}
+		\textbf{Maximum Z Decoding:}\\
+		Select class consistent with the partial error information and highest $P([E])=Z_{E}(T_{\text{Nishimori}})$
+	}
+\end{frame}
+
+\begin{frame}{Intermezzo - Groundwork for Results}
+    \begin{minipage}{0.48\textwidth}
+        \small
+		\textbf{Minimum Energy decoding}
+		Order probability is estimator of success rate
+		\begin{align*}
+			&P_{\text{success}}=\lim_{T \to 0}\langle\frac{Z^{T}(E)}{\sum_{l\in L}Z^{T}(l)}\rangle_{s}
+		\end{align*}
+		with $P(\bar{l}=l)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$
+    \end{minipage}
+	\pause
+	\begin{minipage}{0.48\textwidth}
+		\small
+		\textbf{Max Z decoding}
+		\begin{align*}
+			&P_{\text{success}}=\langle\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\rangle_{s}
+		\end{align*}
+		with $[C^{\star}_{s}(T)]: Z^{T}(C^{\star}_{s})\geq Z^{T}(C_{s})$
+    \end{minipage}
+    \hfill
+	\pause
+	\hspace{3cm}
+	\textcolor{red}{\textbf{Order probability}}
+\end{frame}
+
+% \begin{frame}{Intermezzo - Groundwork for Results}
+% 	\only<1-1>{
+% 		\begin{textblock*}{16cm}(4cm,1.7cm)
+% 			\includegraphics[width=0.4\textwidth]{fig/Toric_code_ex_1.png}
+% 		\end{textblock*}
+% 	}
+% 	\only<2-2>{
+% 		\begin{textblock*}{16cm}(4cm,1.7cm)
+% 			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_2.png}
+% 		\end{textblock*}
+% 	}
+% 	\only<3-3>{
+% 		\begin{textblock*}{16cm}(2cm,1.7cm)
+% 			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_3.png}
+% 		\end{textblock*}
+% 		\begin{textblock*}{7.5cm}(8cm,2cm)
+% 			\textbf{Maximum probability (MP) decoding}\\
+% 			\vspace{0.5cm}
+% 			% $E_{\text{correction}}=\text{argmax}_{E\in \bar{\mathcal{G}}_{n}}P(E|s)$
+% 			Select most probable physical error consistent with the partial error information
+% 		\end{textblock*}
+% 	}
+% 	\only<4-4>{
+% 		\begin{textblock*}{16cm}(2cm,1.7cm)
+% 			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_3.png}
+% 		\end{textblock*}
+% 		\begin{textblock*}{7.5cm}(8cm,2cm)
+% 			\textbf{MP/MWPM decoding}\\
+% 			\vspace{0.5cm}
+% 			% $E_{\text{correction}}=\text{argmax}_{E\in \bar{\mathcal{G}}_{n}}P(E|s)$
+% 			Select physical error which acts on lowest number of qubits non trivially and is consistent with the partial error information
+% 	\end{textblock*}
+% 	}
+% 	\only<5-5>{
+% 		\begin{textblock*}{16cm}(2cm,1.7cm)
+% 			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_6.png}
+% 		\end{textblock*}
+% 		\begin{textblock*}{7.5cm}(8cm,2cm)
+% 			\textbf{MP/MWPM decoding}\\
+% 			\vspace{0.5cm}
+% 			% $E_{\text{correction}}=\text{argmax}_{E\in \bar{\mathcal{G}}_{n}}P(E|s)$
+% 			Select physical error which acts on lowest number of qubits non trivially and is consistent with the partial error information
+% 		\end{textblock*}
+% 	}
+% 	\only<6-6>{
+% 		\begin{textblock*}{16cm}(2cm,1.7cm)
+% 			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_9.png}
+% 		\end{textblock*}
+% 		\begin{textblock*}{8cm}(8cm,2cm)
+% 			\textbf{Maximum likelihood/optimal decoding}\\
+% 			Takes redundancy into account
+% 		\end{textblock*}
+% 	}
+% 	\only<6-6>{
+% 		\begin{textblock*}{16cm}(2cm,1.7cm)
+% 			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_9.png}
+% 		\end{textblock*}
+% 		\begin{textblock*}{8cm}(8cm,2cm)
+% 			\textbf{Maximum likelihood/optimal decoding}\\
+% 			Takes redundancy into account
+% 		\end{textblock*}
+% 	}
+% 	% \only<6-6>{
+% 	% \begin{textblock*}{16cm}(4cm,1.7cm)
+% 	% 	\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_7.png}
+% 	% \end{textblock*}
+% 	% \begin{textblock*}{6cm}(10cm,2cm)
+% 	% 	\textbf{success!} \\ But didnt take degeneracy into account
+% 	% \end{textblock*}
+% 	% }
+% 	% \only<7-7>{
+% 	% \begin{textblock*}{16cm}(2cm,1.7cm)
+% 	% 	\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_2.png}
+% 	% \end{textblock*}
+% 	% \begin{textblock*}{8cm}(8cm,2cm)
+% 	% 	\textbf{Maximum likelihood/optimal decoding}\\
+% 	% 	$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
+% 	% 	$[C_{s}]=SC_{s}$ \\
+% 	% 	$s \mapsto C_{s}L_{\delta(s)}$ with \\
+% 	% 	$\delta(s) = \arg\max_{l\in L}P([C_{s}L_{l}])$
+% 	% \end{textblock*}
+% 	% }
+% 	\only<8-8>{
+% 		\begin{textblock*}{16cm}(2cm,1.7cm)
+% 			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_8.png}
+% 		\end{textblock*}
+% 		\begin{textblock*}{8cm}(8cm,2cm)
+% 			\textbf{Maximum likelihood/optimal decoding}\\
+% 			$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
+% 			$[C_{s}]=SC_{s}$ \\
+% 			$s \mapsto C_{s}L_{\delta(s)}$ with \\
+% 			$\delta(s) = \arg\max_{l\in L}P([C_{s}L_{l}])$\\
+% 			$\phantom{\delta(s)} \overset{\text{\cite{dennis_topological_2002}}}{=} \arg\max_{l\in L}Z^{T_{\text{Nishimori}}}(C_{s}L_{l})$
+% 		\end{textblock*}
+% 	}
+% 	\only<9-9>{
+% 		\begin{textblock*}{16cm}(2cm,1.7cm)
+% 			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_8.png}
+% 		\end{textblock*}
+% 		\begin{textblock*}{8cm}(8cm,2cm)
+% 			\textbf{Max Z decoding at temperature T}\\
+% 			$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
+% 			$[C_{s}]=SC_{s}$ \\
+% 			$s \mapsto C^{\star}_{s}(T)\equiv C_{s}L_{\delta(s)}$ with \\
+% 			$\delta(s) = \arg\max_{l\in L}Z^{T}(C_{s}L_{l})$\\
+% 			\vspace{0.8cm}
+% 			\textbf{Probabilistic Z decoding at temperature T}:\\
+% 			$\overline{\delta(s)}$ with $P(\overline{\delta(s)} = l\in L)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$
+% 		\end{textblock*}
+% 	}
+% 	\only<10-10>{
+% 		\begin{textblock*}{16cm}(2cm,1.7cm)
+% 			\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_8.png}
+% 		\end{textblock*}
+% 		\begin{textblock*}{8cm}(8cm,2cm)
+% 			\textbf{Max Z decoding at temperature T}\\
+% 			$C_{s} \in \mathcal{G}_{n}$ compatible with $s$\\
+% 			$[C_{s}]=SC_{s}$ \\
+% 			$s \mapsto C^{\star}_{s}(T)\equiv C_{s}L_{\delta(s)}$ with \\
+% 			$\delta(s) = \arg\max_{l\in L}Z^{T}(C_{s}L_{l})$\\
+% 			\vspace{0.8cm}
+% 			\textbf{Probabilistic Z decoding at temperature T}:\\
+% 			$\overline{\delta(s)}$ with $P(\overline{\delta(s)} = l\in L)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$\\
+% 			\vspace{0.8cm}
+% 			Estimation of Z by REWL and FKT algorithm
+% 		\end{textblock*}
+% 	}
+% 	% \only<6-6>{
+% 	% \begin{textblock*}{16cm}(4cm,1.7cm)
+% 	% 	\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_4.png}
+% 	% \end{textblock*}
+% 	% }
+% 	% \only<7-7>{
+% 	% \begin{textblock*}{16cm}(4cm,1.7cm)
+% 	% 	\includegraphics[width=0.35\textwidth]{fig/Toric_code_ex_5.png}
+% 	% \end{textblock*}
+% 	% }
+% \end{frame}
 
 % \begin{frame}{Definitions}
 % 	\begin{minipage}{0.48\textwidth}
@@ -643,30 +759,30 @@
 %     \end{minipage}
 % \end{frame}
 
-\begin{frame}{Intermezzo - Groundwork for Results}
-	\begin{minipage}{0.48\textwidth}
-		\small
-		\textbf{Max Z decoding at T}
-		\begin{align*}
-			&P_{\text{success}}=\langle\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\rangle_{s}
-		\end{align*}
-		with $[C^{\star}_{s}(T)]: Z^{T}(C^{\star}_{s})\geq Z^{T}(C_{s})$
-    \end{minipage}
-    \hfill
-	\pause
-    \begin{minipage}{0.48\textwidth}
-        \small
-		\textbf{Probabilistic Z decoding at T}
-		\begin{align*}
-			&P_{\text{success}}=\langle\frac{Z^{T}(C_{s}L_{\bar{l}})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}\rangle_{s}
-		\end{align*}
-		with $P(\bar{l}=l)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$
-    \end{minipage}
-	\pause
-	\textcolor{red}{\textbf{Decoding probability}}
-	\hspace{3cm}
-	\textcolor{red}{\textbf{Order probability}}
-\end{frame}
+% \begin{frame}{Intermezzo - Groundwork for Results}
+% 	\begin{minipage}{0.48\textwidth}
+% 		\small
+% 		\textbf{Max Z decoding at T}
+% 		\begin{align*}
+% 			&P_{\text{success}}=\langle\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\rangle_{s}
+% 		\end{align*}
+% 		with $[C^{\star}_{s}(T)]: Z^{T}(C^{\star}_{s})\geq Z^{T}(C_{s})$
+%     \end{minipage}
+%     \hfill
+% 	\pause
+%     \begin{minipage}{0.48\textwidth}
+%         \small
+% 		\textbf{Probabilistic Z decoding at T}
+% 		\begin{align*}
+% 			&P_{\text{success}}=\langle\frac{Z^{T}(C_{s}L_{\bar{l}})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}\rangle_{s}
+% 		\end{align*}
+% 		with $P(\bar{l}=l)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$
+%     \end{minipage}
+% 	\pause
+% 	\textcolor{red}{\textbf{Decoding probability}}
+% 	\hspace{3cm}
+% 	\textcolor{red}{\textbf{Order probability}}
+% \end{frame}
 
 \begin{frame}{Preliminary Results}
 	\only<1-1>{

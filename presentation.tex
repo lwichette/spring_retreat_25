@@ -483,50 +483,12 @@
 	\end{table}
 \end{frame}
 
-\begin{frame}{Preliminary Results}
-	\only<1-1>{
-	\begin{textblock*}{14cm}(1.5cm,2cm)
-		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
-		\begin{tikzpicture}[overlay]
-			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-		\end{tikzpicture}
-		\hspace{4.5cm}
-		Optimal code performance estimate
-	\end{textblock*}
-	}
-	\pause
-	\only<2->{
-	\begin{textblock*}{14cm}(1.5cm,2cm)
-		\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
-		\begin{tikzpicture}[overlay]
-			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-		\end{tikzpicture}
-		\hspace{4.5cm}
-		Error class probability estimates
-	\end{textblock*}
-	}
-	% \pause
-	% \only<3->{
-	% 	\vspace{2cm}
-	% 	\hspace{1.5cm}
-	% 	\begin{itemize}
-	% 		\item Maximum Z decoding $\sim$ decoding probability
-	% 		\item Probabilistic Z decoding $\sim$ order probability
-	% 		\item Decoding probability and order probability require less samples for same accuracy than respective Z decoding
-	% 		\item At low temperature: Order probability $\sim$ maximum probability decoding and decoding probability $\sim$ degeneracy enhanced maximum probability decoding
-	% 		\item Enhancing MWPM by takign degeneracy into account can approximate decoding probability
-	% 	\end{itemize}
-	% }
-\end{frame}
-
-\begin{frame}{Groundwork for Results}
+\begin{frame}{Groundwork for Results - Example}
 \textbf{Example:}
 \begin{itemize}
-	\item Physical errors $E_{1}, E_{2}, E_{3}$ compatible with partial error information $s$\\
+	\item Physical errors $E_{1}, E_{2}, E_{3}$ compatible with partial error information\\
 	\pause
-	\item $E_{2}, E_{3}$ act equivalently on logical qubit while $E_{1}$ does not\\
+	\item $E_{2}, E_{3}$ act equivalently on logical qubit (same class) while $E_{1}$ does not\\
 	\pause
 	\item $P(E_{1})=4\%$, $P(E_{2})=3\%$, $P(E_{3})=3\%$
 \end{itemize}
@@ -544,7 +506,7 @@ Select most probable error class consistent with the partial error information\\
 $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=[E_{3}]$
 \end{frame}
 
-\begin{frame}{Groundwork for Results}
+\begin{frame}{Groundwork for Results - Decoder}
 	\only<1-1>{
 	\textbf{Maximum Probability decoding:}\\
 	Select error consistent with the partial error information and highest $P(E)$\\
@@ -562,7 +524,8 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	}
 	\pause
 	\only<4-4>{
-		Reduce calculation of $P(E)$ and $P([E])$ to very well studied quantity called partition function $Z_{E}(T)$.\\
+		\textbf{Statistical mechanics mapping~\cite{dennis_topological_2002}:}\\
+		Reduce calculation of $P(E)$ and $P([E])$ to very well studied partition function $Z_{E}(T)$ calculation\\
 	}
 	\pause
 	\only<5-5>{
@@ -572,40 +535,223 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 		\textbf{Maximum likelihood/Optimal decoding:}\\
 		Select class consistent with the partial error information and highest $P([E])=Z_{E}(T_{\text{Nishimori}})$
 	}
+\end{frame}
+
+\begin{frame}{Groundwork for Results - Success Rates}
+	Brute force simulation of decoding sample intensive $\rightarrow$ Define efficient estimators\\
 	\pause
-	\only<6->{
-		\textbf{Minimum Energy Decoding:}\\
-		Select error consistent with the partial error information and highest $P(E)=lim_{T\to 0}Z_{E}(T)$\\
-		\vspace{0.5cm}
-		\textbf{Maximum Z Decoding:}\\
-		Select class consistent with the partial error information and highest $P([E])=Z_{E}(T_{\text{Nishimori}})$
+	\vspace{0.5cm}
+	\textbf{Maximum Probability/Minimum Weight decoding:}\\
+	Succees rate estimator: Order probability $\Zhe$~\cite{thomas_simplest_2011}\\
+	\pause
+	\vspace{0.5cm}
+	\textbf{Maximum likelihood/Optimal decoding:}\\
+	We introduce success rate estimator: Decoding probability
+	\pause
+	\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
+		\textbf{General framework:}\\ Relies only on mapping of error correcting code $+$ noise to statistical mechanics system.
+	\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Results}
+	\only<1-2>{
+	\begin{textblock*}{14cm}(1.5cm,2cm)
+		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
+		\begin{tikzpicture}[overlay]
+			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+		\end{tikzpicture}
+		\hspace{4.5cm}
+		Optimal code performance estimates
+	\end{textblock*}
+	}
+	\pause
+	\only<2->{
+		\vspace{2cm}
+		\hspace{1.5cm}
+		\begin{itemize}
+			\item Minimum weight decoding $\sim$ order probability
+			\item Optimal decoding $\sim$ decoding probability
+			\item Decoding probability and order probability reduce the amount of required samples
+		\end{itemize}
+	}
+	\pause
+	\only<3->{
+	\begin{textblock*}{14cm}(1.5cm,2cm)
+		\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
+		\begin{tikzpicture}[overlay]
+			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+		\end{tikzpicture}
+		\hspace{4.5cm}
+		Error class probability estimates
+	\end{textblock*}
 	}
 \end{frame}
 
-\begin{frame}{Intermezzo - Groundwork for Results}
-    \begin{minipage}{0.48\textwidth}
-        \small
-		\textbf{Minimum Energy decoding}
-		Order probability is estimator of success rate
-		\begin{align*}
-			&P_{\text{success}}=\lim_{T \to 0}\langle\frac{Z^{T}(E)}{\sum_{l\in L}Z^{T}(l)}\rangle_{s}
-		\end{align*}
-		with $P(\bar{l}=l)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$
-    \end{minipage}
+\begin{frame}{Results - Zero T Limit}
+	\textbf{Theoretical MP/MW decoding:}\\
+	Select error consistent with the partial error information and highest $P(E)=lim_{T\to 0}Z_{E}(T)$\\
 	\pause
-	\begin{minipage}{0.48\textwidth}
-		\small
-		\textbf{Max Z decoding}
-		\begin{align*}
-			&P_{\text{success}}=\langle\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\rangle_{s}
-		\end{align*}
-		with $[C^{\star}_{s}(T)]: Z^{T}(C^{\star}_{s})\geq Z^{T}(C_{s})$
-    \end{minipage}
-    \hfill
+	\vspace{0.5cm}
+	\textbf{Numerically:} \\
+	REWL algorithm~\cite{wang_efficient_2001, vogel_generic_2013} - can take limit but slow\\
+	FKT algorithm~\cite{thomas_exact_2009, thomas_numerically_2013, kasteleyn_statistics_1961, temperley_dimer_1961} - only finite T but fast\\
 	\pause
-	\hspace{3cm}
-	\textcolor{red}{\textbf{Order probability}}
+	\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
+		Show FKT decoding at low $T\neq 0$ approximates WL $T=0$ decoding, e.g. MW decoding
+	\end{tcolorbox}
 \end{frame}
+
+\begin{frame}{Results - Zero T Limit}
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x11.png}
+			% \caption{}
+		\end{minipage} \hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x12.png}
+			% \caption{}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Results - MP vs Optimal}
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/MP_vs_ML_even.png}
+			% \caption{}
+		\end{minipage} \hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/MP_vs_ML_odd.png}
+			% \caption{}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Results - Efficient Estimation}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\linewidth]{fig/CIwidth.png}
+		% \caption{Comparison of $95\%$ confidence interval width between decoding probability and max Z decoding with varying sample sizes for the calculation of the decoding probability}
+	\end{figure}
+\end{frame}
+
+% \begin{frame}{Results}
+% 	\begin{figure}[h!]
+% 		\centering
+% 		\begin{minipage}{0.45\textwidth}
+% 			\centering
+% 			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_even_T1.png}
+% 			\caption{Comparison efficient sampling methods to brute force decoding for even sizes at $T=T_{\text{Nish}}$}
+% 		\end{minipage} \hfill
+% 		\begin{minipage}{0.45\textwidth}
+% 			\centering
+% 			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_odd_T1.png}
+% 			\caption{Comparison efficient sampling methods to brute force decoding for odd sizes at $T=T_{\text{Nish}}$}
+% 		\end{minipage}
+% 	\end{figure}
+% \end{frame}
+
+\begin{frame}{Results - Improving MP/MW}
+	\textbf{Example:}
+	\begin{itemize}
+		\item Physical errors $E_{1}, E_{2}, E_{3}$ compatible with partial error information\\
+		\pause
+		\item $E_{2}, E_{3}$ act equivalently on logical qubit (same class) while $E_{1}$ does not\\
+		\pause
+		\item $P(E_{1})=4\%$, $P(E_{2})=4\%$, $P(E_{3})=4\%$
+	\end{itemize}
+	\pause
+	\textbf{MP/MW decoding:}\\
+	Select most probable physical error consistent with the partial error information\\
+	$\Leftrightarrow$ Select randomly under most probable errors\\
+	\pause
+	Use knowledge on how many maximum probability errors are within different error classes:\\
+	\textbf{degeneracy enhanced MP decoding:}\\
+	Select error class with highest degeneracy of lowest weight errors\\
+\end{frame}
+
+\begin{frame}{Results - MP vs dMP}
+	\only<1->{
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_even_T01.png}
+			\caption{Comparison efficient sampling methods to brute force decoding for even sizes at $T=0.1T_{\text{Nish}}$}
+		\end{minipage} \hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_odd_T01.png}
+			\caption{Comparison efficient sampling methods to brute force decoding for odd sizes at $T=0.1T_{\text{Nish}}$}
+		\end{minipage}
+	\end{figure}
+	}
+\end{frame}
+
+
+\begin{frame}{Conclusion and Outlook}
+	\begin{textblock*}{14cm}(1.5cm,2cm)
+		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
+		\begin{tikzpicture}[overlay]
+			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+		\end{tikzpicture}
+		\hspace{4.5cm}
+		Optimal code performance estimate
+	\end{textblock*}
+	\vspace{3cm}
+	\begin{itemize}
+		\item \textbf{WL implementation:} Flexible but slow
+		\item \textbf{FKT implementation:} Fast but not flexible
+		\item \textbf{Decoder Optimization:} MWPM decoder can be enhanced by taking degeneracy of ground states into account
+		\item \textbf{Near future:} TN implementation
+		\item \textbf{Further:} More realistic noise model, color codes towards quantum algorithms
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		{\huge\textbf{Thank you for your attention!}}
+	\end{center}
+\end{frame}
+
+\printbibliography
+
+\end{document}
+
+
+% \begin{frame}{Intermezzo - Groundwork for Results}
+%     \begin{minipage}{0.48\textwidth}
+%         \small
+% 		\textbf{Minimum Energy decoding}\\
+% 		Order probability is estimator of success rate
+% 		\begin{align*}
+% 			&P_{\text{success}}=\lim_{T \to 0}\langle\frac{Z^{T}(E)}{\sum_{l\in L}Z^{T}(l)}\rangle_{s}
+% 		\end{align*}
+% 		with $P(\bar{l}=l)=\frac{Z^{T}(C_{s}L_{l})}{\sum_{l\in L}Z^{T}(C_{s}L_{l})}$
+%     \end{minipage}
+% 	\pause
+% 	\begin{minipage}{0.48\textwidth}
+% 		\small
+% 		\textbf{Max Z decoding}
+% 		\begin{align*}
+% 			&P_{\text{success}}=\langle\frac{Z^{T_{\text{Nishimori}}}(C^{\star}_{s})}{\sum_{l\in L}Z^{T_{\text{Nishimori}}}(C^{\star}_{s}L_{l})}\rangle_{s}
+% 		\end{align*}
+% 		with $[C^{\star}_{s}(T)]: Z^{T}(C^{\star}_{s})\geq Z^{T}(C_{s})$
+%     \end{minipage}
+%     \hfill
+% 	\pause
+% 	\hspace{3cm}
+% 	\textcolor{red}{\textbf{Order probability}}
+% \end{frame}
 
 % \begin{frame}{Intermezzo - Groundwork for Results}
 % 	\only<1-1>{
@@ -784,128 +930,6 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 % 	\textcolor{red}{\textbf{Order probability}}
 % \end{frame}
 
-\begin{frame}{Preliminary Results}
-	\only<1-1>{
-	\begin{textblock*}{14cm}(1.5cm,2cm)
-		\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
-		\begin{tikzpicture}[overlay]
-			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-		\end{tikzpicture}
-		\hspace{4.5cm}
-		Error class probability estimates
-	\end{textblock*}
-	}
-	\pause
-	\only<2-2>{
-		\hspace{2cm}
-		\includegraphics[width=0.7\textwidth]{fig/ML_MP.png}
-	}
-\end{frame}
-
-\begin{frame}{Preliminary Results}
-	\begin{figure}[h!]
-		\centering
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_even_T1.png}
-			\caption{Comparison efficient sampling methods to brute force decoding for even sizes at $T=T_{\text{Nish}}$}
-		\end{minipage} \hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_odd_T1.png}
-			\caption{Comparison efficient sampling methods to brute force decoding for odd sizes at $T=T_{\text{Nish}}$}
-		\end{minipage}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Preliminary Results}
-	\begin{figure}[h!]
-		\centering
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_even_T01.png}
-			\caption{Comparison efficient sampling methods to brute force decoding for even sizes at $T=0.1T_{\text{Nish}}$}
-		\end{minipage} \hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{fig/MaxZ_ProbabilisticZ_OrderProb_DecodingProb_odd_T01.png}
-			\caption{Comparison efficient sampling methods to brute force decoding for odd sizes at $T=0.1T_{\text{Nish}}$}
-		\end{minipage}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Preliminary Results}
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.5\linewidth]{fig/CIwidth.png}
-		% \caption{Comparison of $95\%$ confidence interval width between decoding probability and max Z decoding with varying sample sizes for the calculation of the decoding probability}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Preliminary Results}
-	\begin{figure}[h!]
-		\centering
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{fig/MineEMaxG_DecProb01_LowTMaxZ_x11.png}
-			\caption{Max Z decoding at low $T=0.1T_{\text{Nish}}$ reduces to max degeneracy ground state decoding for odd size $x=11$}
-		\end{minipage} \hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{fig/MineEMaxG_DecProb01_LowTMaxZ_x12.png}
-			\caption{Max Z decoding at low $T=0.1T_{\text{Nish}}$ reduces to max degeneracy ground state decoding for even size $x=12$}
-		\end{minipage}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Preliminary Results}
-	\center
-	\includegraphics[width=0.7\textwidth]{fig/Optimization_potential.png}
-\end{frame}
-
-
-\begin{frame}{Conclusion and Outlook}
-	\begin{textblock*}{14cm}(1.5cm,2cm)
-		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
-		\begin{tikzpicture}[overlay]
-			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-		\end{tikzpicture}
-		\hspace{4.5cm}
-		Optimal code performance estimate
-	\end{textblock*}
-	\vspace{3cm}
-	\begin{itemize}
-		\item \textbf{WL implementation:} Flexible but slow
-		\item \textbf{FKT implementation:} Fast but not flexible
-		\item \textbf{Decoder Optimization:} MWPM decoder can be enhanced by taking degeneracy of ground states into account
-		\item \textbf{Near future:} TN implementation
-		\item \textbf{Further:} More realistic noise model, color codes towards quantum algorithms
-	\end{itemize}
-\end{frame}
-
-% conclusion + success metrics
-% outlook
-% make literature appear with name and year
-% only info which I need and speak about
-% union find in experimental usage
-% how does belief propagation work
-% scales for real time decoding
-
-
-
-
-\begin{frame}
-	\begin{center}
-		{\huge\textbf{Thank you for your attention!}}
-	\end{center}
-\end{frame}
-
-\printbibliography
-
-\end{document}
-
 
 
 % \begin{frame}{Recent advancements in QEC}
@@ -940,7 +964,7 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 % 	}
 % \end{frame}
 
-% \begin{frame}{Preliminary Results}
+% \begin{frame}{Results}
 % 	\only<1->{
 % 	\begin{itemize}
 % 		\only<1->{\item Developed a hardware adaptive framework for optimal code performance estimation}
@@ -956,14 +980,14 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 % 	% Here we can clearly see the two regimes which are governed by different scaling behavior with the qubit count of the error correcting code. \\
 % \end{frame}
 
-% \begin{frame}{Preliminary Results}
+% \begin{frame}{Results}
 % 	Improved performance of a fast decoder and compared to optimal decoder performance: % maximum likelihood decoding is NP hard
 % 	\begin{center}
 % 		\includegraphics[width=0.6\linewidth]{fig/Improved decoder 10.png}
 % 	\end{center}
 % \end{frame}
 
-% \begin{frame}{Preliminary Results}
+% \begin{frame}{Results}
 % 	Investigation of noise informed decoder:
 % 	\begin{center}
 % 		\includegraphics[width=0.5\linewidth]{fig/noise_aware.png}

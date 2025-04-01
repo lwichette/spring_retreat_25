@@ -58,6 +58,10 @@
 
 \usetikzlibrary{calc, arrows.meta, positioning, backgrounds, fit, quantikz, cd, tikzmark, quotes}
 
+\usepackage[OT2,T1]{fontenc}
+\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+\DeclareMathSymbol{\Zhe}{\mathalpha}{cyrletters}{"11}
+
 % Algo
 \SetAlgoSkip{medskip}
 \setlength{\algomargin}{1em}

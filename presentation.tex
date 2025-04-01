@@ -500,8 +500,7 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	}
 \end{frame}
 
-\begin{frame}{Results - Pymatching}
-	Incorporate degeneracy awaraness in application of MWPM pymatching implementation:
+\begin{frame}{Results - Enhanced Pymatching}
 	\begin{figure}[h!]
 		\centering
 		\begin{minipage}{0.45\textwidth}
@@ -523,6 +522,25 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	% \caption{}
 \end{frame}
 
+\begin{frame}{Work plan}
+	\begin{table}[h]
+		\fontsize{8pt}{9pt}\selectfont
+		\center
+		{\renewcommand{\arraystretch}{2}
+		\begin{tabular}{l@{\hspace{1em}}p{4.5cm}p{3cm}l@{\hspace{1em}}p{1.7cm}}
+            \toprule
+            Authorship & Title & Type  & Year & Status   \\
+            \midrule
+            1st-author & Estimating ML and MP decoder performance in stabilizer codes, and the room for performance gains from ensembling in MP decoders & Physical Review A & 2025 & submission April-May \\
+			co-author & Exploration of Design Alternatives for Reducing Idle Time in Shor's Algorithm & IEEE Transactions on Quantum Engineering & 2025 & submitted \\
+            to be discussed & Extending current results to realistic noise models & Journal & 2025-26 & Future work \\
+			to be discussed & QuaSA: Error dynamics of Quantum Memory & Journal & 2026 & Future work \\
+            \bottomrule
+        \end{tabular}
+		}
+	\end{table} \vfill
+\end{frame}
+
 \begin{frame}{Conclusion and Outlook}
 	\begin{textblock*}{14cm}(1.5cm,2cm)
 		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
@@ -534,12 +552,14 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 		Optimal code performance estimate
 	\end{textblock*}
 	\vspace{3cm}
+	\small
 	\begin{itemize}
+		\item \textbf{Framework:} Stat. mech. map access to error class probabilities
 		\item \textbf{WL implementation:} Flexible but slow
 		\item \textbf{FKT implementation:} Fast but not flexible
 		\item \textbf{Decoder Optimization:} MWPM decoder can be enhanced by taking degeneracy of ground states into account
 		\item \textbf{Near future:} TN implementation
-		\item \textbf{Further:} More realistic noise model, color codes towards quantum algorithms
+		\item \textbf{Further:} More realistic noise model, maybe color codes
 	\end{itemize}
 \end{frame}
 

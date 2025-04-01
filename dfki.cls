@@ -17,6 +17,14 @@
                 mincrossrefs=99,
                 isbn=false,
                 autopunct=false]{biblatex}
+\DeclareCiteCommand{\citeauthoryear}
+  {\usebibmacro{prenote}}
+  {\mkbibbrackets{%
+    \printnames{labelname}%
+    \setunit{\printdelim{nameyeardelim}}%
+    \printfield{year}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
 
 \RequirePackage{xcolor}
 \RequirePackage{colortbl}

@@ -25,7 +25,7 @@
 		\vspace{0.3cm}
 		{\textbf{vs.}} \\
 		\vspace{0.3cm}
-		Desirable error rates for large scale applications $\sim 10^{-14}-10^{-15}$ \cite{fowler_surface_2012}\\
+		Desirable error rates for large scale applications $\sim 10^{-14}-10^{-15}$ \citeauthoryear{fowler_surface_2012}\\
 	\end{minipage}
 	\hfil
 	\begin{minipage}[t]{0.4\textwidth}
@@ -144,17 +144,17 @@
 	\begin{table}[h]
         \renewcommand{\arraystretch}{1.5} % Increase row spacing
         \small
-		\begin{tabular}{c|c|c}
+		\begin{tabular}{c|c|p{6cm}}
 			\textbf{Code} & \textbf{Noise} & \textbf{Publications} \\
 			\hline
-			Toric Code & Independent X, Z errors & \cite{merz_two-dimensional_2001, honecker_nishimori_2001} \\
-			 & Depolarizing Noise & \cite{bombin_strong_2012} \\
-			 & Correlated Noise & \cite{chubb_statistical_2019}\\
+			Toric Code & Independent X, Z errors & \citeauthoryear{merz_two-dimensional_2001, honecker_nishimori_2001} \\
+			 & Depolarizing Noise & \citeauthoryear{bombin_strong_2012} \\
+			 & Correlated Noise & \citeauthoryear{chubb_statistical_2019}\\
 			\hline
-			Surface Code & Independent X, Z errors & \cite{bravyi_efficient_2014} \\
-			& Depolarizing Noise & \cite{bravyi_efficient_2014} \\
-			& Amplitude Damping & \cite{darmawan_tensor-network_2017} \\
-			& Coherent Noise & \cite{behrends_statistical_2024, bao_phases_2024}
+			Surface Code & Independent X, Z errors & \citeauthoryear{bravyi_efficient_2014} \\
+			& Depolarizing Noise & \citeauthoryear{bravyi_efficient_2014} \\
+			& Amplitude Damping & \citeauthoryear{darmawan_tensor-network_2017} \\
+			& Coherent Noise & \citeauthoryear{behrends_statistical_2024, bao_phases_2024}
 		\end{tabular}
 	\end{table}
 \end{frame}
@@ -226,9 +226,9 @@
 			\textbf{\hspace{1cm}Minimum Weight Perfect Matching}
 			\begin{itemize}
 				\item Complexity improved: Sparse blossom $O(N^{1.32})$, fusion blossom $O(N)$
-				\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \cite{higgott_sparse_2025}
-				\item Improved performance: Ensembling~\cite{shutty_efficient_2024, jones_improved_2024},
-				\item Noise aware: Weights calibrated by noise~\cite{iolius_performance_2022,hockings_improving_2025}, correlated MWPM~\cite{fowler_optimal_2013}
+				\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
+				\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024},
+				\item Noise aware: Weights calibrated by noise~\citeauthoryear{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\citeauthoryear{fowler_optimal_2013}
 			\end{itemize}
 		\end{small}
 	\end{textblock*}
@@ -247,8 +247,8 @@
 				\item Surface Code $\rightarrow$ Tensor Network
 				\item Optimal decoding $\rightarrow$ TN contraction
 				\item Approximate contraction $\rightarrow$ approximate optimal decoding
-				\item Generalised to arbitrary 2D codes \cite{chubb_general_2021}
-				\item Noise aware~\cite{darmawan_optimal_2024}
+				\item Generalised to arbitrary 2D codes \citeauthoryear{chubb_general_2021}
+				\item Noise aware~\citeauthoryear{darmawan_optimal_2024}
 			\end{itemize}
 		\end{small}
 	\end{textblock*}
@@ -344,7 +344,7 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	}
 	\pause
 	\only<4-4>{
-		\textbf{Statistical mechanics mapping~\cite{dennis_topological_2002}:}\\
+		\textbf{Statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:}\\
 		Reduce calculation of $P(E)$ and $P([E])$ to very well studied partition function $Z_{E}(T)$ calculation\\
 	}
 	\pause
@@ -362,7 +362,7 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\pause
 	\vspace{0.5cm}
 	\textbf{Maximum Probability/Minimum Weight decoding:}\\
-	Succees rate estimator: Order probability $\Zhe$~\cite{thomas_simplest_2011}\\
+	Succees rate estimator: Order probability $\Zhe$~\citeauthoryear{thomas_simplest_2011}\\
 	\pause
 	\vspace{0.5cm}
 	\textbf{Maximum likelihood/Optimal decoding:}\\
@@ -374,7 +374,7 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \end{frame}
 
 \begin{frame}{Results}
-	\only<1-2>{
+	\only<1-1>{
 	\begin{textblock*}{14cm}(1.5cm,2cm)
 		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
 		\begin{tikzpicture}[overlay]
@@ -392,20 +392,16 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 		\begin{itemize}
 			\item Minimum weight decoding $\sim$ order probability
 			\item Optimal decoding $\sim$ decoding probability
-			\item Decoding probability and order probability reduce the amount of required samples
 		\end{itemize}
-	}
-	\pause
-	\only<3->{
-	\begin{textblock*}{14cm}(1.5cm,2cm)
-		\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
-		\begin{tikzpicture}[overlay]
-			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-		\end{tikzpicture}
-		\hspace{4.5cm}
-		Error class probability estimates
-	\end{textblock*}
+		\begin{textblock*}{14cm}(1.5cm,2cm)
+			\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
+			\begin{tikzpicture}[overlay]
+				\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+				\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+			\end{tikzpicture}
+			\hspace{4.5cm}
+			Error class probability estimates
+		\end{textblock*}
 	}
 \end{frame}
 
@@ -415,8 +411,8 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\pause
 	\vspace{0.5cm}
 	\textbf{Numerically:} \\
-	REWL algorithm~\cite{wang_efficient_2001, vogel_generic_2013} - can take limit but slow\\
-	FKT algorithm~\cite{thomas_exact_2009, thomas_numerically_2013, kasteleyn_statistics_1961, temperley_dimer_1961} - only finite T but fast\\
+	REWL~\cite{vogel_generic_2013, wang_efficient_2001} - can take limit but slow\\
+	FKT~\cite{kasteleyn_statistics_1961, temperley_dimer_1961, thomas_exact_2009, thomas_numerically_2013} - only finite T but fast\\
 	\pause
 	\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
 		Show FKT decoding at low $T\neq 0$ approximates WL $T=0$ decoding, e.g. MW decoding

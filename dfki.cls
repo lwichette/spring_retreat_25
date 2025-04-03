@@ -144,7 +144,7 @@
 \setbeamertemplate{footline}{%
     \begin{beamercolorbox}[wd=\textwidth,ht=0.8cm,dp=0.2cm]{footline}
         \hspace{0.3cm}
-        \includegraphics[height=0.6cm]{fig/dfki_Logo_vz.png}
+        % \includegraphics[height=0.6cm]{fig/dfki_Logo_vz.png}
         \hfill
         \insertpagenumber
         \hspace{0.3cm}

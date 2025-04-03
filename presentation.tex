@@ -114,7 +114,7 @@
 	\only<1-1>{
 		\begin{textblock*}{7cm}(8.5cm,2.5cm)
 			\begin{itemize}
-				\item \cite{kitaev_fault-tolerant_2003, bombin_optimal_2007}
+				\item \citeauthoryear{kitaev_fault-tolerant_2003, bombin_optimal_2007}
 				\item Qubits at vertices of the lattice
 				\item Encodes 1 logical qubit
 			\end{itemize}
@@ -256,104 +256,49 @@
 			& Amplitude Damping & \citeauthoryear{darmawan_tensor-network_2017} \\
 			& Coherent Noise & \citeauthoryear{behrends_statistical_2024, bao_phases_2024}
 		\end{tabular}
+		\textcolor{red}{Optimal curves for toric code}
 	\end{table}
 \end{frame}
 
+\begin{frame}{Suboptimal vs Optimal Decoding}
+	\begin{textblock*}{10cm}(1.5cm,2cm)
+		\includegraphics[width=0.55\textwidth]{fig/threshold.png}
+	\end{textblock*}
+	\begin{textblock*}{10cm}(8.5cm,2cm)
+		\includegraphics[width=0.55\textwidth]{fig/optimal_threshold.png}
+	\end{textblock*}
+	\vspace{4.5cm}
+	\begin{itemize}
+		\item \textbf{Suboptimal decoders:} Performance estimates for varying sizes and error rates
+		\item \textbf{Optimal decoder:} Mainly estimation of error threshold
+	\end{itemize}
+\end{frame}
 
-\begin{frame}{Surface Code Suboptimal Decoders}
-	\begin{textblock*}{9cm}(7cm,2.5cm)
-        \includegraphics[width=1\textwidth]{fig/Screenshot from 2025-03-24 15-21-55.png}
-    \end{textblock*}
-	\begin{textblock*}{2cm}(12.5cm,3.4cm)
-		\begin{tiny}
-			\cite{edmonds_paths_1965}
-		\end{tiny}
-	\end{textblock*}
-	\begin{textblock*}{2cm}(9.2cm,3.4cm)
-		\begin{tiny}
-			\cite{delfosse_almost-linear_2021}
-		\end{tiny}
-	\end{textblock*}
-	\begin{textblock*}{2cm}(10.8cm,3.4cm)
-		\begin{tiny}
-			\cite{panteleev_degenerate_2021}
-		\end{tiny}
-	\end{textblock*}
-	\begin{textblock*}{2cm}(14.1cm,3.4cm)
-		\begin{tiny}
-			\cite{bravyi_efficient_2014,chubb_general_2021}
-		\end{tiny}
-	\end{textblock*}
-
-	\only<1-1>{
-		\begin{textblock*}{3.5cm}(1cm,4cm)
-			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
-				\center
-				Backlog problem
-			\end{tcolorbox}
-		\end{textblock*}
-	}
-	% \pause
-	% \only<2-2>{
-	% \begin{textblock*}{5.8cm}(0.1cm,3.5cm)
-	% 	\begin{small}
-	% 	\textbf{Union Find}
-	% 	\begin{itemize}
-	% 		\item Pauli errors $\rightarrow$ erasure errors
-	% 		\item almost linear time complexity
-	% 		\item Noise aware \cite{higgott_improved_2023}
-	% 	\end{itemize}
-	% 	\end{small}
-	% \end{textblock*}
-	% }
-	% \pause
-	% \only<3-3>{
-	% \begin{textblock*}{5.8cm}(0.1cm,3cm)
-	% 	\begin{small}
-	% 	\textbf{Belief Propagation}
-	% 	\begin{itemize}
-	% 		\item Acts on general Tanner graphs $\rightarrow$ any QLDPC decoder
-	% 		\item Issues with highly degenerate codes (split-belief phenomenon) \cite{poulin_iterative_2008, roffe_decoding_2020}
-	% 		\item Ordered statistics decoding (BP+OSD) to enhance performance \cite{panteleev_degenerate_2021}
-	% 	\end{itemize}
-	% 	\end{small}
-	% \end{textblock*}
-	% }
-	\pause
-	\only<2-2>{
-	\begin{textblock*}{7cm}(0cm,2cm)
-		\begin{small}
-			\textbf{\hspace{1cm}Minimum Weight Perfect Matching}
-			\begin{itemize}
-				\item Complexity improved: Sparse blossom $O(n^{1.32})$, fusion blossom $O(n)$
-				\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
-				\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024}
-				\item Noise aware: Weights calibrated by noise~\citeauthoryear{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\citeauthoryear{fowler_optimal_2013}
-			\end{itemize}
-		\end{small}
-	\end{textblock*}
-	\begin{textblock*}{10cm}(9.7cm,3.5cm)
-		\begin{tikzpicture}
-			\draw[->, bend right=70] (2.5cm,0cm) to node[below] {\tiny{\cite{fowler_towards_2012, wu_fusion_2023, higgott_sparse_2025}}} (0cm,0cm);
-		\end{tikzpicture}
-	\end{textblock*}
+\begin{frame}{Suboptimal Decoders for Surface Codes}
+	\only<1-2>{
+		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
+		\begin{itemize}
+			\item Speed improved: Sparse blossom $O(n^{1.32})$~\citeauthoryear{higgott_sparse_2025}, fusion blossom $O(n)$~\citeauthoryear{wu_fusion_2023}
+			\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
+			\pause
+			\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024}
+			\item Noise aware: Weights calibrated by noise~\citeauthoryear{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\citeauthoryear{fowler_optimal_2013}
+		\end{itemize}
+		% \cite{fowler_towards_2012}
 	}
 	\pause
 	\only<3-3>{
-	\begin{textblock*}{7cm}(0cm,3cm)
-		\begin{small}
-			\textbf{\hspace{1cm}Tensor Network Decoder}
-			\begin{itemize}
-				\item Surface Code $\rightarrow$ Tensor Network
-				\item Optimal decoding $\rightarrow$ TN contraction
-				\item Approximate contraction $\rightarrow$ approximate optimal decoding
-				\item Generalised to arbitrary 2D codes \citeauthoryear{chubb_general_2021}
-				\item Noise aware~\citeauthoryear{darmawan_optimal_2024}
-			\end{itemize}
-		\end{small}
-	\end{textblock*}
+		\textbf{\hspace{1cm}Tensor Network Decoder~\citeauthoryear{bravyi_efficient_2014}}
+		\begin{itemize}
+			\item Surface Code $\rightarrow$ Tensor Network
+			\item Optimal decoding $\rightarrow$ TN contraction
+			\item Approximate contraction $\rightarrow$ approximate optimal decoding
+			\item Generalised to arbitrary 2D codes \citeauthoryear{chubb_general_2021}
+			\item Noise aware~\citeauthoryear{darmawan_optimal_2024}
+		\end{itemize}
 	}
 \end{frame}
+
 
 \begin{frame}{Gap}
 	Existing:
@@ -667,6 +612,102 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \printbibliography
 
 \end{document}
+
+
+% \begin{frame}{Surface Code Suboptimal Decoders}
+% 	\begin{textblock*}{9cm}(7cm,2.5cm)
+%         \includegraphics[width=1\textwidth]{fig/Screenshot from 2025-03-24 15-21-55.png}
+%     \end{textblock*}
+% 	\begin{textblock*}{2cm}(12.5cm,3.4cm)
+% 		\begin{tiny}
+% 			\cite{edmonds_paths_1965}
+% 		\end{tiny}
+% 	\end{textblock*}
+% 	\begin{textblock*}{2cm}(9.2cm,3.4cm)
+% 		\begin{tiny}
+% 			\cite{delfosse_almost-linear_2021}
+% 		\end{tiny}
+% 	\end{textblock*}
+% 	\begin{textblock*}{2cm}(10.8cm,3.4cm)
+% 		\begin{tiny}
+% 			\cite{panteleev_degenerate_2021}
+% 		\end{tiny}
+% 	\end{textblock*}
+% 	\begin{textblock*}{2cm}(14.1cm,3.4cm)
+% 		\begin{tiny}
+% 			\cite{bravyi_efficient_2014,chubb_general_2021}
+% 		\end{tiny}
+% 	\end{textblock*}
+
+% 	\only<1-1>{
+% 		\begin{textblock*}{3.5cm}(1cm,4cm)
+% 			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
+% 				\center
+% 				Backlog problem
+% 			\end{tcolorbox}
+% 		\end{textblock*}
+% 	}
+% 	% \pause
+% 	% \only<2-2>{
+% 	% \begin{textblock*}{5.8cm}(0.1cm,3.5cm)
+% 	% 	\begin{small}
+% 	% 	\textbf{Union Find}
+% 	% 	\begin{itemize}
+% 	% 		\item Pauli errors $\rightarrow$ erasure errors
+% 	% 		\item almost linear time complexity
+% 	% 		\item Noise aware \cite{higgott_improved_2023}
+% 	% 	\end{itemize}
+% 	% 	\end{small}
+% 	% \end{textblock*}
+% 	% }
+% 	% \pause
+% 	% \only<3-3>{
+% 	% \begin{textblock*}{5.8cm}(0.1cm,3cm)
+% 	% 	\begin{small}
+% 	% 	\textbf{Belief Propagation}
+% 	% 	\begin{itemize}
+% 	% 		\item Acts on general Tanner graphs $\rightarrow$ any QLDPC decoder
+% 	% 		\item Issues with highly degenerate codes (split-belief phenomenon) \cite{poulin_iterative_2008, roffe_decoding_2020}
+% 	% 		\item Ordered statistics decoding (BP+OSD) to enhance performance \cite{panteleev_degenerate_2021}
+% 	% 	\end{itemize}
+% 	% 	\end{small}
+% 	% \end{textblock*}
+% 	% }
+% 	\pause
+% 	\only<2-2>{
+% 	\begin{textblock*}{7cm}(0cm,2cm)
+% 		\begin{small}
+% 			\textbf{\hspace{1cm}Minimum Weight Perfect Matching}
+% 			\begin{itemize}
+% 				\item Complexity improved: Sparse blossom $O(n^{1.32})$, fusion blossom $O(n)$
+% 				\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
+% 				\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024}
+% 				\item Noise aware: Weights calibrated by noise~\citeauthoryear{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\citeauthoryear{fowler_optimal_2013}
+% 			\end{itemize}
+% 		\end{small}
+% 	\end{textblock*}
+% 	\begin{textblock*}{10cm}(9.7cm,3.5cm)
+% 		\begin{tikzpicture}
+% 			\draw[->, bend right=70] (2.5cm,0cm) to node[below] {\tiny{\cite{fowler_towards_2012, wu_fusion_2023, higgott_sparse_2025}}} (0cm,0cm);
+% 		\end{tikzpicture}
+% 	\end{textblock*}
+% 	}
+% 	\pause
+% 	\only<3-3>{
+% 	\begin{textblock*}{7cm}(0cm,3cm)
+% 		\begin{small}
+% 			\textbf{\hspace{1cm}Tensor Network Decoder}
+% 			\begin{itemize}
+% 				\item Surface Code $\rightarrow$ Tensor Network
+% 				\item Optimal decoding $\rightarrow$ TN contraction
+% 				\item Approximate contraction $\rightarrow$ approximate optimal decoding
+% 				\item Generalised to arbitrary 2D codes \citeauthoryear{chubb_general_2021}
+% 				\item Noise aware~\citeauthoryear{darmawan_optimal_2024}
+% 			\end{itemize}
+% 		\end{small}
+% 	\end{textblock*}
+% 	}
+% \end{frame}
 
 
 % \begin{frame}{Tackling Quantum Errors}

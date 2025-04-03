@@ -217,6 +217,11 @@
 		\pause
         \includegraphics[width=0.4\textwidth]{fig/noise_aware.png}
 	\end{center}
+	\only<2-2>{
+		\begin{textblock*}{6cm}(8cm,5.5cm)
+			Existence proofs of thresholds have been established for various code families \citeauthoryear{kitaev_fault-tolerant_2003}.
+		\end{textblock*}
+	}
 \end{frame}
 
 \begin{frame}{Problem statement}
@@ -278,6 +283,7 @@
 \begin{frame}{Suboptimal Decoders for Surface Codes}
 	\only<1-2>{
 		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
+		\pause
 		\begin{itemize}
 			\item Speed improved: Sparse blossom $O(n^{1.32})$~\citeauthoryear{higgott_sparse_2025}, fusion blossom $O(n)$~\citeauthoryear{wu_fusion_2023}
 			\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
@@ -463,10 +469,16 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \end{frame}
 
 \begin{frame}{Results - Efficient Success Estimation}
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.5\linewidth]{fig/CIwidth.png}
-	\end{figure}
+	\only<1->{
+		\begin{textblock*}{7.5cm}(0.5cm,3cm)
+			\includegraphics[width=\textwidth]{fig/CIwidth.png}
+		\end{textblock*}
+		}
+	\only<2-2>{
+		\begin{textblock*}{7.5cm}(8cm,3cm)
+			\includegraphics[width=\textwidth]{fig/CIwidth_39.png}
+		\end{textblock*}
+		}
 \end{frame}
 
 \begin{frame}{Results - MP vs Optimal}
@@ -507,7 +519,6 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \end{frame}
 
 \begin{frame}{Results - MP vs dMP}
-	\only<1->{
 	\begin{figure}[h!]
 		\centering
 		\begin{minipage}{0.45\textwidth}
@@ -515,13 +526,17 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 			\includegraphics[width=\textwidth]{fig/dMP_vs_MP_even.png}
 			% \caption{}
 		\end{minipage} \hfill
+		\pause
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{fig/dMP_vs_MP_odd.png}
 			% \caption{}
 		\end{minipage}
 	\end{figure}
-	}
+\end{frame}
+
+\begin{frame}{Results - Expectation of dMP}
+	degenracies in ground states of toric code of even dim
 \end{frame}
 
 \begin{frame}{Results - Enhanced Pymatching}
@@ -530,20 +545,18 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{fig/PymatchingToric2.png}
-			% \caption{}
 		\end{minipage} \hfill
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{fig/PymatchingToric1.png}
-			% \caption{}
 		\end{minipage}
 	\end{figure}
+	\textcolor{red}{get plots of larger permutations/perturbations}
 \end{frame}
 
 \begin{frame}{Preliminary Results - Gaussian Noise}
 	\centering
 	\includegraphics[width=0.7\textwidth]{fig/Optimal_decoding_varying_stddev.png}
-	% \caption{}
 \end{frame}
 
 \begin{frame}{Research plan}

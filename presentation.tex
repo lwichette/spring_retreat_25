@@ -21,7 +21,7 @@
 	\begin{minipage}[t]{0.59\textwidth}
 		\vspace{0.05cm}
 		\centering
-		Expected error rates on QC by advancements in optimal control $\sim 10^{-4}$ \\ %https://www.thp.uni-koeln.de/kastoryano/ExSheets/Notes_v5.pdf
+		Expected error rates on QC by advancements in optimal control $\sim 10^{-4}$ \citeauthoryear{RiverLaneRep2024}\\ %https://www.thp.uni-koeln.de/kastoryano/ExSheets/Notes_v5.pdf
 		\vspace{0.3cm}
 		{\textbf{vs.}} \\
 		\vspace{0.3cm}
@@ -51,6 +51,15 @@
 	\end{center}
 \end{frame}
 
+\begin{frame}{Classical vs. Quantum Error Correction}
+	Error correction is well studied in classical setting but there exist obstacles to transfer existing methods to quantum setting:
+	\pause
+	\begin{itemize}
+		\item \textbf{No-Cloning Theorem:} No-go theorem stating that an arbitrary quantum state can not be cloned by a unitary operation
+		\item \textbf{Projective Measurements:} Measurement of a quantum state projects the state onto a basis
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{QEC general idea}
 	\begin{minipage}[t]{0.65\textwidth}
 		\centering
@@ -63,7 +72,7 @@
 	\end{minipage}
 	\begin{minipage}[t]{0.3\textwidth}
 		\vspace{-1.5cm}
-        \includegraphics[width=0.6\textwidth]{fig/error_correction_code.png}
+        \includegraphics[width=0.6\textwidth]{fig/Rotated_surface_code_d3.png}
     \end{minipage}
 	\pause
 	\begin{tikzpicture}[overlay]
@@ -93,6 +102,41 @@
 				\center
 				Backlog problem
 			\end{tcolorbox}
+		\end{textblock*}
+	}
+\end{frame}
+
+\begin{frame}{Example: Surface Code}
+	\begin{textblock*}{7cm}(1.5cm,2cm)
+		\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d3.png}
+	\end{textblock*}
+	\only<1-1>{
+		\begin{textblock*}{7cm}(8.5cm,2.5cm)
+			\begin{itemize}
+				\item \cite{kitaev_fault-tolerant_2003, bombin_optimal_2007}
+				\item Qubits at vertices of the lattice
+				\item Encodes 1 logical qubit
+			\end{itemize}
+		\end{textblock*}
+	}
+	\pause
+	\only<2->{
+		\begin{textblock*}{7cm}(8.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Syndromes.png}
+		\end{textblock*}
+		\begin{textblock*}{13cm}(2.5cm,7cm)
+			Measurement of stabilizers gives partial error information
+		\end{textblock*}
+	}
+\end{frame}
+
+\begin{frame}{Example: Surface Code}
+	\begin{textblock*}{7cm}(1.5cm,2cm)
+		\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d3.png}
+	\end{textblock*}
+	\only<1-1>{
+		\begin{textblock*}{9cm}(6.5cm,3.5cm)
+			Bitflip error appears $\rightarrow$ Pair of Z-stabilizers return error information
 		\end{textblock*}
 	}
 \end{frame}
@@ -225,9 +269,9 @@
 		\begin{small}
 			\textbf{\hspace{1cm}Minimum Weight Perfect Matching}
 			\begin{itemize}
-				\item Complexity improved: Sparse blossom $O(N^{1.32})$, fusion blossom $O(N)$
+				\item Complexity improved: Sparse blossom $O(n^{1.32})$, fusion blossom $O(n)$
 				\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
-				\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024},
+				\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024}
 				\item Noise aware: Weights calibrated by noise~\citeauthoryear{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\citeauthoryear{fowler_optimal_2013}
 			\end{itemize}
 		\end{small}
@@ -568,14 +612,6 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 
 \end{document}
 
-
-% \begin{frame}{Classical vs. Quantum Error Correction}
-% 	Error correction is well studied in classical setting but there exist obstacles to transfer existing methods to quantum setting:
-% 	\begin{itemize}
-% 		\item \textbf{No-Cloning Theorem:} No-go theorem stating that an arbitrary quantum state can not be cloned by a unitary operation
-% 		\item \textbf{Projective Measurements:} Measurement of a quantum state projects the state onto a basis
-% 	\end{itemize}
-% \end{frame}
 
 % \begin{frame}{Tackling Quantum Errors}
 % 	\begin{center}

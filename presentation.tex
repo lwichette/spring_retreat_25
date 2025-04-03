@@ -56,6 +56,7 @@
 	\pause
 	\begin{itemize}
 		\item \textbf{No-Cloning Theorem:} No-go theorem stating that an arbitrary quantum state can not be cloned by a unitary operation
+		\pause
 		\item \textbf{Projective Measurements:} Measurement of a quantum state projects the state onto a basis
 	\end{itemize}
 \end{frame}
@@ -72,7 +73,7 @@
 	\end{minipage}
 	\begin{minipage}[t]{0.3\textwidth}
 		\vspace{-1.5cm}
-        \includegraphics[width=0.6\textwidth]{fig/Rotated_surface_code_d3.png}
+        \includegraphics[width=0.6\textwidth]{fig/Rotated_surface_code_d4.png}
     \end{minipage}
 	\pause
 	\begin{tikzpicture}[overlay]
@@ -108,7 +109,7 @@
 
 \begin{frame}{Example: Surface Code}
 	\begin{textblock*}{7cm}(1.5cm,2cm)
-		\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d3.png}
+		\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4.png}
 	\end{textblock*}
 	\only<1-1>{
 		\begin{textblock*}{7cm}(8.5cm,2.5cm)
@@ -131,12 +132,67 @@
 \end{frame}
 
 \begin{frame}{Example: Surface Code}
-	\begin{textblock*}{7cm}(1.5cm,2cm)
-		\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d3.png}
-	\end{textblock*}
 	\only<1-1>{
+		\begin{textblock*}{7cm}(1.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_error_appears.png}
+		\end{textblock*}
+		\begin{textblock*}{9cm}(6.5cm,3.5cm)
+			Bitflip error appears
+		\end{textblock*}
+	}
+	\pause
+	\only<2-2>{
+		\begin{textblock*}{7cm}(1.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_syndromes.png}
+		\end{textblock*}
 		\begin{textblock*}{9cm}(6.5cm,3.5cm)
 			Bitflip error appears $\rightarrow$ Pair of Z-stabilizers return error information
+		\end{textblock*}
+	}
+\end{frame}
+
+\begin{frame}{Example: Surface Code}
+	\only<1-1>{
+		\begin{textblock*}{7cm}(1.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_only_syndromes.png}
+		\end{textblock*}
+		\begin{textblock*}{9cm}(6.5cm,3.5cm)
+			\textbf{Maximum Probability Decoder:}\\
+			Select most probable error consistent with the partial error information
+		\end{textblock*}
+	}
+	\pause
+	\only<2-2>{
+		\begin{textblock*}{7cm}(1.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_decoder_graph.png}
+		\end{textblock*}
+		\begin{textblock*}{9cm}(6.5cm,3.5cm)
+			\textbf{Maximum Probability/Minimum Weight Decoder:}\\
+			Select lowest weight error on decoder graph consistent with the partial error information
+		\end{textblock*}
+	}
+	\pause
+	\only<3-3>{
+		\begin{textblock*}{7cm}(1.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_decoder_graph_decoded.png}
+		\end{textblock*}
+		\begin{textblock*}{9cm}(6.5cm,3.5cm)
+			\textbf{Maximum Probability/Minimum Weight Decoder:}\\
+			Select lowest weight error on decoder graph consistent with the partial error information
+		\end{textblock*}
+	}
+	\pause
+	\only<4-4>{
+		\begin{textblock*}{7cm}(1.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_decoder_graph_decoded.png}
+		\end{textblock*}
+		\begin{textblock*}{9cm}(6.5cm,3.5cm)
+			\textbf{Maximum Probability/Minimum Weight Decoder:}\\
+			Select lowest weight error on decoder graph consistent with the partial error information\\
+		\end{textblock*}
+		\begin{textblock*}{14cm}(1.5cm,6.5cm)
+			The decoder estimates are not always correct! \\
+			$\rightarrow$ Logical error rate $\equiv$ probability of correction failure $=$ $\langle\frac{\text{Number faulty error estimates}}{\text{Number estimates}}\rangle$\\
 		\end{textblock*}
 	}
 \end{frame}

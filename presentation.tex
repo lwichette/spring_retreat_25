@@ -392,7 +392,7 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\pause
 	\vspace{0.5cm}
 	\textbf{Maximum Probability/Minimum Weight decoding:}\\
-	Succees rate estimator: Order probability $\Zhe$~\citeauthoryear{thomas_simplest_2011}\\
+	Succees rate estimator: Order probability~\citeauthoryear{thomas_simplest_2011}\\
 	\pause
 	\vspace{0.5cm}
 	\textbf{Maximum likelihood/Optimal decoding:}\\
@@ -450,43 +450,41 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \end{frame}
 
 \begin{frame}{Results - Zero T Limit}
-	\begin{figure}[h!]
+	\only<1->{
+	\begin{textblock*}{7.5cm}(0.5cm,3cm)
+		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x11.png}
+	\end{textblock*}
+	}
+	\only<2-2>{
+	\begin{textblock*}{7.5cm}(8cm,3cm)
+		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x12.png}
+	\end{textblock*}
+	}
+\end{frame}
+
+\begin{frame}{Results - Efficient Success Estimation}
+	\begin{figure}
 		\centering
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x11.png}
-			% \caption{}
-		\end{minipage} \hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x12.png}
-			% \caption{}
-		\end{minipage}
+		\includegraphics[width=0.5\linewidth]{fig/CIwidth.png}
 	\end{figure}
 \end{frame}
 
 \begin{frame}{Results - MP vs Optimal}
-	\begin{figure}[h!]
-		\centering
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{fig/MP_vs_ML_even.png}
-			% \caption{}
-		\end{minipage} \hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
+	\only<1-1>{
+		\begin{textblock*}{7.5cm}(0.5cm,2.5cm)
+			\includegraphics[width=\textwidth]{fig/MP_vs_ML_39.png}
+		\end{textblock*}
+	}
+	\only<2->{
+		\begin{textblock*}{7.5cm}(0.5cm,2.5cm)
 			\includegraphics[width=\textwidth]{fig/MP_vs_ML_odd.png}
-			% \caption{}
-		\end{minipage}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Results - Efficient Estimation}
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.5\linewidth]{fig/CIwidth.png}
-		% \caption{Comparison of $95\%$ confidence interval width between decoding probability and max Z decoding with varying sample sizes for the calculation of the decoding probability}
-	\end{figure}
+		\end{textblock*}
+	}
+	\only<3->{
+	\begin{textblock*}{7.5cm}(8cm,2.5cm)
+		\includegraphics[width=\textwidth]{fig/MP_vs_ML_even.png}
+	\end{textblock*}
+	}
 \end{frame}
 
 \begin{frame}{Results - Improving MP/MW}

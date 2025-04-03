@@ -98,10 +98,11 @@
 	\end{center}
 	\pause
 	\only<3-3>{
-		\begin{textblock*}{3.5cm}(1cm,4cm)
-			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
+		\begin{textblock*}{10cm}(1cm,3.5cm)
+			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=9cm, arc=2mm]
 				\center
-				Backlog problem
+				\textbf{Backlog problem~\citeauthoryear{RiverLaneRep2024}:} \\
+				data volume $\sim100\frac{Tb}{s}$ and cycle time $\sim 1\mu s$
 			\end{tcolorbox}
 		\end{textblock*}
 	}
@@ -332,22 +333,6 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Research plan}
-	\begin{table}[h]
-        \renewcommand{\arraystretch}{1.5} % Increase row spacing
-        \small
-		\begin{tabular}{c|p{10cm}}
-			\textbf{Time} &  \textbf{Objective} \\
-			\hline
-			Now & Framework for general stabilizer code under Pauli noise is implemented \\
-			April-May 2025 & Paper on optimization opportunities of MWPM by degeneracy of ground states \\
-			May- 2025 & Incoroporate TN approximate ML decoder into framework plus investigate further alternatives \\
-			May- 2025 & Incorporate realistic circuit level noise model into framework by Pauli twirling and investigate its influence \\
-			2025-2026 & Implementation of error correcting codes, deduction of noise model and simulation of hardware within QuaSA\\
-		\end{tabular}
-	\end{table}
-\end{frame}
-
 \begin{frame}{Groundwork for Results - Example}
 \textbf{Example:}
 \begin{itemize}
@@ -561,6 +546,22 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\centering
 	\includegraphics[width=0.7\textwidth]{fig/Optimal_decoding_varying_stddev.png}
 	% \caption{}
+\end{frame}
+
+\begin{frame}{Research plan}
+	\begin{table}[h]
+        \renewcommand{\arraystretch}{1.5} % Increase row spacing
+        \small
+		\begin{tabular}{c|p{10cm}}
+			\textbf{Time} &  \textbf{Objective} \\
+			\hline
+			February 2025 & Presented framework at QIP 2025 by poster \\
+			April-May 2025 & Submit paper on optimization opportunities of MWPM by degeneracy of ground states \\
+			2025 & Incoroporate TN approximate ML decoder into framework $\&$ investigate further alternatives \\
+			2025 & Incorporate more realistic noise model into framework $\&$ investigate its influence \\
+			2025-2026 & Potentially QuaSA: Implementation of error correcting codes, deduction of noise model and simulation of hardware\\
+		\end{tabular}
+	\end{table}
 \end{frame}
 
 \begin{frame}{Work plan}

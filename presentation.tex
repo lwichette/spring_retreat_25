@@ -535,8 +535,179 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\end{figure}
 \end{frame}
 
-\begin{frame}{Results - Expectation of dMP}
-	degenracies in ground states of toric code of even dim
+
+\begin{frame}{Results - Intuition for dMP}
+    % First slide: Basic decoding graph
+    \only<1>{
+        \begin{textblock*}{6cm}(1.5cm,2.5cm)
+            \begin{tikzpicture}
+                \newcommand{\scaling}{0.8}
+                \newcommand{\nodesize}{1}
+                \newcommand{\imax}{5}
+                \newcommand{\jmax}{3}
+
+                % Draw grid lines
+                \foreach \i in {0,...,\imax} {
+                    \draw[gray,dotted] (\i*\scaling,-0.5*\scaling) -- (\i*\scaling,\jmax*\scaling+0.5*\scaling);
+                }
+                \foreach \j in {0,...,\jmax} {
+                    \draw[gray,dotted] (-0.5*\scaling,\j*\scaling) -- (\imax*\scaling+0.5*\scaling,\j*\scaling);
+                }
+
+                % Draw black nodes
+                \foreach \i in {0,...,\imax} {
+                    \foreach \j in {0,...,\jmax} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, fill=black, minimum size=\nodesize mm, inner sep=0]{};
+                    }
+                }
+            \end{tikzpicture}
+        \end{textblock*}
+
+		\begin{textblock*}{9cm}(6.5cm,3cm)
+			\center
+			Decoding graph of toric code at even dimension
+        \end{textblock*}
+    }
+
+    % Second slide: Adds error syndromes
+    \only<2-2>{
+        \begin{textblock*}{6cm}(1.5cm,2.5cm)
+            \begin{tikzpicture}
+                \newcommand{\scaling}{0.8}
+                \newcommand{\nodesize}{1}
+                \newcommand{\imax}{5}
+                \newcommand{\jmax}{3}
+
+                % Draw grid
+                \foreach \i in {0,...,\imax} {
+                    \draw[gray,dotted] (\i*\scaling,-0.5*\scaling) -- (\i*\scaling,\jmax*\scaling+0.5*\scaling);
+                }
+                \foreach \j in {0,...,\jmax} {
+                    \draw[gray,dotted] (-0.5*\scaling,\j*\scaling) -- (\imax*\scaling+0.5*\scaling,\j*\scaling);
+                }
+
+                % Draw black nodes
+                \foreach \i in {0,...,\imax} {
+                    \foreach \j in {0,...,\jmax} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, fill=black, minimum size=\nodesize mm, inner sep=0]{};
+                    }
+                }
+
+                % Draw red nodes
+                \foreach \i in {1,5} {
+                    \foreach \j in {2} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, red, fill=red, minimum size=2*\nodesize mm, inner sep=0]{};
+                    }
+                }
+                \foreach \i in {2,4} {
+                    \foreach \j in {1} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, red, fill=red, minimum size=2*\nodesize mm, inner sep=0]{};
+                    }
+                }
+
+                % Draw red dotted lines
+                \draw[red, line width=0.5mm, dotted] (2*\scaling,1*\scaling) -- (4*\scaling,1*\scaling);
+                \draw[red, line width=0.5mm, dotted] (-0.5*\scaling,2*\scaling) -- (1*\scaling,2*\scaling);
+                \draw[red, line width=0.5mm, dotted] (5*\scaling,2*\scaling) -- (5.5*\scaling,2*\scaling);
+            \end{tikzpicture}
+        \end{textblock*}
+		\begin{textblock*}{9cm}(7cm,3cm)
+			\begin{itemize}
+				\item Minimum weight error compatible with partial error information
+				\item Can not be deformed without changing weight
+			\end{itemize}
+        \end{textblock*}
+    }
+
+    % Third slide: Adds error chains
+    \only<3->{
+		\begin{textblock*}{6cm}(1.5cm,2.5cm)
+            \begin{tikzpicture}
+                \newcommand{\scaling}{0.8}
+                \newcommand{\nodesize}{1}
+                \newcommand{\imax}{5}
+                \newcommand{\jmax}{3}
+
+                % Draw grid
+                \foreach \i in {0,...,\imax} {
+                    \draw[gray,dotted] (\i*\scaling,-0.5*\scaling) -- (\i*\scaling,\jmax*\scaling+0.5*\scaling);
+                }
+                \foreach \j in {0,...,\jmax} {
+                    \draw[gray,dotted] (-0.5*\scaling,\j*\scaling) -- (\imax*\scaling+0.5*\scaling,\j*\scaling);
+                }
+
+                % Draw black nodes
+                \foreach \i in {0,...,\imax} {
+                    \foreach \j in {0,...,\jmax} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, fill=black, minimum size=\nodesize mm, inner sep=0]{};
+                    }
+                }
+
+                % Draw red nodes
+                \foreach \i in {1,5} {
+                    \foreach \j in {2} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, red, fill=red, minimum size=2*\nodesize mm, inner sep=0]{};
+                    }
+                }
+                \foreach \i in {2,4} {
+                    \foreach \j in {1} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, red, fill=red, minimum size=2*\nodesize mm, inner sep=0]{};
+                    }
+                }
+
+                % Draw red dotted lines
+                \draw[red, line width=0.5mm, dotted] (2*\scaling,1*\scaling) -- (4*\scaling,1*\scaling);
+                \draw[red, line width=0.5mm, dotted] (-0.5*\scaling,2*\scaling) -- (1*\scaling,2*\scaling);
+                \draw[red, line width=0.5mm, dotted] (5*\scaling,2*\scaling) -- (5.5*\scaling,2*\scaling);
+            \end{tikzpicture}
+        \end{textblock*}
+        \begin{textblock*}{6cm}(8.5cm,2.5cm)
+            \begin{tikzpicture}
+                \newcommand{\scaling}{0.8}
+                \newcommand{\nodesize}{1}
+                \newcommand{\imax}{5}
+                \newcommand{\jmax}{3}
+
+                % Draw grid
+                \foreach \i in {0,...,\imax} {
+                    \draw[gray,dotted] (\i*\scaling,-0.5*\scaling) -- (\i*\scaling,\jmax*\scaling+0.5*\scaling);
+                }
+                \foreach \j in {0,...,\jmax} {
+                    \draw[gray,dotted] (-0.5*\scaling,\j*\scaling) -- (\imax*\scaling+0.5*\scaling,\j*\scaling);
+                }
+
+                % Draw black nodes
+                \foreach \i in {0,...,\imax} {
+                    \foreach \j in {0,...,\jmax} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, fill=black, minimum size=\nodesize mm, inner sep=0]{};
+                    }
+                }
+
+                % Draw red nodes
+                \foreach \i in {1,5} {
+                    \foreach \j in {2} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, red, fill=red, minimum size=2*\nodesize mm, inner sep=0]{};
+                    }
+                }
+                \foreach \i in {2,4} {
+                    \foreach \j in {1} {
+                        \draw (\i*\scaling, \j*\scaling) node[circle, draw, red, fill=red, minimum size=2*\nodesize mm, inner sep=0]{};
+                    }
+                }
+
+                % Draw error chains
+                \draw[red, line width=0.5mm, dotted] (1*\scaling,1*\scaling) -- (2*\scaling,1*\scaling);
+                \draw[red, line width=0.5mm, dotted] (1*\scaling,1*\scaling) -- (1*\scaling,2*\scaling);
+                \draw[red, line width=0.5mm, dashed] (1*\scaling,2*\scaling) -- (2*\scaling,2*\scaling);
+                \draw[red, line width=0.5mm, dashed] (2*\scaling,1*\scaling) -- (2*\scaling,2*\scaling);
+
+                \draw[red, line width=0.5mm, dotted] (4*\scaling,1*\scaling) -- (5*\scaling,1*\scaling);
+                \draw[red, line width=0.5mm, dotted] (4*\scaling,1*\scaling) -- (4*\scaling,2*\scaling);
+                \draw[red, line width=0.5mm, dashed] (4*\scaling,2*\scaling) -- (5*\scaling,2*\scaling);
+                \draw[red, line width=0.5mm, dashed] (5*\scaling,1*\scaling) -- (5*\scaling,2*\scaling);
+            \end{tikzpicture}
+        \end{textblock*}
+    }
 \end{frame}
 
 \begin{frame}{Results - Enhanced Pymatching}

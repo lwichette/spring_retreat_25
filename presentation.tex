@@ -219,7 +219,7 @@
 	\end{center}
 	\only<2-2>{
 		\begin{textblock*}{6cm}(8cm,5.5cm)
-			Existence proofs of thresholds have been established for various code families \citeauthoryear{kitaev_fault-tolerant_2003}.
+			Existence proofs of thresholds have been established for specific code families~\citeauthoryear{knill_resilient_1997, kitaev_fault-tolerant_2003}.
 		\end{textblock*}
 	}
 \end{frame}
@@ -244,57 +244,28 @@
 	}
 \end{frame}
 
-
-\begin{frame}{Optimal Code Capacity Thresholds}
-	Quality marker: $p_{\text{threshold}}$
-	\begin{table}[h]
-        \renewcommand{\arraystretch}{1.5} % Increase row spacing
-        \small
-		\begin{tabular}{c|c|p{6cm}}
-			\textbf{Code} & \textbf{Noise} & \textbf{Publications} \\
-			\hline
-			Toric Code & Independent X, Z errors & \citeauthoryear{merz_two-dimensional_2001, honecker_nishimori_2001} \\
-			 & Depolarizing Noise & \citeauthoryear{bombin_strong_2012} \\
-			 & Correlated Noise & \citeauthoryear{chubb_statistical_2019}\\
-			\hline
-			Surface Code & Independent X, Z errors & \citeauthoryear{bravyi_efficient_2014} \\
-			& Depolarizing Noise & \citeauthoryear{bravyi_efficient_2014} \\
-			& Amplitude Damping & \citeauthoryear{darmawan_tensor-network_2017} \\
-			& Coherent Noise & \citeauthoryear{behrends_statistical_2024, bao_phases_2024}
-		\end{tabular}
-		\textcolor{red}{Optimal curves for toric code}
-	\end{table}
-\end{frame}
-
-\begin{frame}{Suboptimal vs Optimal Decoding}
-	\begin{textblock*}{10cm}(1.5cm,2cm)
-		\includegraphics[width=0.55\textwidth]{fig/threshold.png}
-	\end{textblock*}
-	\begin{textblock*}{10cm}(8.5cm,2cm)
-		\includegraphics[width=0.55\textwidth]{fig/optimal_threshold.png}
-	\end{textblock*}
-	\vspace{4.5cm}
-	\begin{itemize}
-		\item \textbf{Suboptimal decoders:} Performance estimates for varying sizes and error rates
-		\item \textbf{Optimal decoder:} Mainly estimation of error threshold
-	\end{itemize}
-\end{frame}
-
 \begin{frame}{Suboptimal Decoders for Surface Codes}
-	\only<1-2>{
+	\only<1-1>{
 		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
-		\pause
+	}
+	\only<2-2>{
+		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
 		\begin{itemize}
 			\item Speed improved: Sparse blossom $O(n^{1.32})$~\citeauthoryear{higgott_sparse_2025}, fusion blossom $O(n)$~\citeauthoryear{wu_fusion_2023}
 			\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
-			\pause
+		\end{itemize}
+	}
+	\only<3-3>{
+		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
+		\begin{itemize}
+			\item Speed improved: Sparse blossom $O(n^{1.32})$~\citeauthoryear{higgott_sparse_2025}, fusion blossom $O(n)$~\citeauthoryear{wu_fusion_2023}
+			\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
 			\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024}
 			\item Noise aware: Weights calibrated by noise~\citeauthoryear{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\citeauthoryear{fowler_optimal_2013}
 		\end{itemize}
 		% \cite{fowler_towards_2012}
 	}
-	\pause
-	\only<3-3>{
+	\only<4->{
 		\textbf{\hspace{1cm}Tensor Network Decoder~\citeauthoryear{bravyi_efficient_2014}}
 		\begin{itemize}
 			\item Surface Code $\rightarrow$ Tensor Network
@@ -307,11 +278,51 @@
 \end{frame}
 
 
+\begin{frame}{Suboptimal vs Optimal Decoding}
+	\only<1-1>{
+	\begin{textblock*}{10cm}(9.5cm,3cm)
+		\includegraphics[width=0.5\textwidth]{fig/threshold.png}
+	\end{textblock*}
+	\begin{textblock*}{8cm}(0.5cm,4cm)
+		\textbf{Suboptimal decoders:}\\
+		Failure curves estimated for various finite sized codes under varying noise models~\citeauthoryear{demarti_iolius_decoding_2024}
+	\end{textblock*}
+	}
+	\only<2-2>{
+	\begin{textblock*}{10cm}(9.5cm,3cm)
+		\includegraphics[width=0.5\textwidth]{fig/optimal_threshold.png}
+	\end{textblock*}
+	\begin{textblock*}{8cm}(0.5cm,3cm)
+		\textbf{Optimal decoding:}\\
+		Focus on optimal error threshold estimation
+		\begin{itemize}
+			\item Surface code under biflip noise~\citeauthoryear{merz_two-dimensional_2001} % mapping of the two-dimensional Ising model with random exchange (RBIM), via the transfer matrix, to a network model for a disordered system of non-interacting fermions. The RBIM transforms in this way to a localisation problem belonging to one of a set of non-standard symmetry classes, known as class D; the transition between paramagnet and ferromagnet is equivalent to a delocalisation transition between an insulator and a quantum Hall conductor.
+			\item Color code under bitflip noise~\citeauthoryear{katzgraber_error_2009}
+			\item Toric code under depolarization noise~\citeauthoryear{bombin_strong_2012}
+			\item Surface code under mildly correlated bitflip noise~\citeauthoryear{chubb_statistical_2019}
+		\end{itemize}
+	\end{textblock*}
+	}
+	\only<3->{
+	\begin{textblock*}{10cm}(9.5cm,3cm)
+		\includegraphics[width=0.5\textwidth]{fig/threshold.png}
+	\end{textblock*}
+	\begin{textblock*}{8cm}(0.5cm,3cm)
+		\textbf{Optimal decoding:}\\
+		TN decoder approximates optimal decoding and gives full curves:
+		\begin{itemize}
+			\item Surface code under depolarising noise~\citeauthoryear{bravyi_efficient_2014}
+			\item Surface code under biased Pauli noise~\citeauthoryear{tuckett_ultrahigh_2018}
+		\end{itemize}
+	\end{textblock*}
+	}
+\end{frame}
+
 \begin{frame}{Gap}
 	Existing:
 	\begin{itemize}
 		\item Much effort in development of error correcting codes with good quality markers: Number logical per physical qubits, code distance and $p_{\text{threshold}}$
-		\item Much effort in development of fast and high performant decoders for stabilizer codes
+		\item Much effort in development of fast and high performant decoders
 	\end{itemize}
 	\pause
 	Laking:
@@ -796,6 +807,27 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 
 \end{document}
 
+
+% \begin{frame}{Optimal Code Capacity Thresholds}
+% 	Quality marker: $p_{\text{threshold}}$
+% 	\begin{table}[h]
+%         \renewcommand{\arraystretch}{1.5} % Increase row spacing
+%         \small
+% 		\begin{tabular}{c|c|p{6cm}}
+% 			\textbf{Code} & \textbf{Noise} & \textbf{Publications} \\
+% 			\hline
+% 			Toric Code & Independent X, Z errors & \citeauthoryear{merz_two-dimensional_2001, honecker_nishimori_2001} \\
+% 			 & Depolarizing Noise & \citeauthoryear{bombin_strong_2012} \\
+% 			 & Correlated Noise & \citeauthoryear{chubb_statistical_2019}\\
+% 			\hline
+% 			Surface Code & Independent X, Z errors & \citeauthoryear{bravyi_efficient_2014} \\
+% 			& Depolarizing Noise & \citeauthoryear{bravyi_efficient_2014} \\
+% 			& Amplitude Damping & \citeauthoryear{darmawan_tensor-network_2017} \\
+% 			& Coherent Noise & \citeauthoryear{behrends_statistical_2024, bao_phases_2024}
+% 		\end{tabular}
+% 		\textcolor{red}{Optimal curves for toric code}
+% 	\end{table}
+% \end{frame}
 
 % \begin{frame}{Surface Code Suboptimal Decoders}
 % 	\begin{textblock*}{9cm}(7cm,2.5cm)

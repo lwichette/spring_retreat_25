@@ -170,7 +170,7 @@
 	}
 \end{frame}
 
-\begin{frame}{Example: Surface Code}
+\begin{frame}{Example: Surface Code Decoder}
 	\only<1-1>{
 		\begin{textblock*}{7cm}(1.5cm,2cm)
 			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_only_syndromes.png}
@@ -180,33 +180,41 @@
 			Select most probable error consistent with the partial error information
 		\end{textblock*}
 	}
-	\pause
 	\only<2-2>{
 		\begin{textblock*}{7cm}(1.5cm,2cm)
 			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_decoder_graph.png}
 		\end{textblock*}
 		\begin{textblock*}{10cm}(6cm,3.5cm)
-			\textbf{Maximum Probability/Minimum Weight Perfect Matching Decoder:}\\
-			Select lowest weight error on decoder graph consistent with the partial error information
+			\textbf{Maximum Probability/Minimum Weight Perfect Matching Decoder~\citeauthoryear{edmonds_paths_1965}:}\\
+			Select lowest weight error on decoder graph consistent with the partial error information \\
 		\end{textblock*}
 	}
-	\pause
 	\only<3-3>{
+		\begin{textblock*}{7cm}(1.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_decoder_graph.png}
+		\end{textblock*}
+		\begin{textblock*}{9cm}(6cm,3.5cm)
+			\textbf{Maximum Probability/Minimum Weight Perfect Matching Decoder~\citeauthoryear{edmonds_paths_1965}:}\\
+			Select lowest weight error on decoder graph consistent with the partial error information \\
+			\vspace{0.5cm}
+			Sparse blossom implementation: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
+		\end{textblock*}
+	}
+	\only<4-4>{
 		\begin{textblock*}{7cm}(1.5cm,2cm)
 			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_decoder_graph_syndromes.png}
 		\end{textblock*}
-		\begin{textblock*}{10cm}(6cm,3.5cm)
-			\textbf{Maximum Probability/Minimum Weight Perfect Matching Decoder:}\\
+		\begin{textblock*}{9cm}(6cm,3.5cm)
+			\textbf{Maximum Probability/Minimum Weight Perfect Matching Decoder~\citeauthoryear{edmonds_paths_1965}:}\\
 			Select lowest weight error on decoder graph consistent with the partial error information
 		\end{textblock*}
 	}
-	\pause
-	\only<4-4>{
+	\only<5-5>{
 		\begin{textblock*}{7cm}(1.5cm,2cm)
 			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_decoder_graph_decoded.png}
 		\end{textblock*}
-		\begin{textblock*}{10cm}(6cm,3.5cm)
-			\textbf{Maximum Probability/Minimum Weight Perfect Matching Decoder:}\\
+		\begin{textblock*}{9cm}(6cm,3.5cm)
+			\textbf{Maximum Probability/Minimum Weight Perfect Matching Decoder~\citeauthoryear{edmonds_paths_1965}:}\\
 			Select lowest weight error on decoder graph consistent with the partial error information\\
 		\end{textblock*}
 		\begin{textblock*}{14cm}(1.5cm,6.5cm)
@@ -262,29 +270,8 @@
 	}
 \end{frame}
 
-\begin{frame}{Suboptimal Decoders for Surface Codes}
-	\only<1-1>{
-		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
-	}
-	\only<2-2>{
-		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
-		\begin{itemize}
-			\item Speed improved: Sparse blossom $O(n^{1.32})$~\citeauthoryear{higgott_sparse_2025}, fusion blossom $O(n)$~\citeauthoryear{wu_fusion_2023}
-			\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
-		\end{itemize}
-	}
-	\only<3-3>{
-		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
-		\begin{itemize}
-			\item Speed improved: Sparse blossom $O(n^{1.32})$~\citeauthoryear{higgott_sparse_2025}, fusion blossom $O(n)$~\citeauthoryear{wu_fusion_2023}
-			\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
-			\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024}
-			\item Noise aware: Weights calibrated by noise~\citeauthoryear{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\citeauthoryear{fowler_optimal_2013}
-		\end{itemize}
-		% \cite{fowler_towards_2012}
-	}
-	\only<4->{
-		\textbf{\hspace{1cm}Tensor Network Decoder~\citeauthoryear{bravyi_efficient_2014}}
+\begin{frame}{Approximate Optimal Decoding}
+	\textbf{Tensor Network Decoder~\citeauthoryear{bravyi_efficient_2014}}
 		\begin{itemize}
 			\item Surface Code $\rightarrow$ Tensor Network
 			\item Optimal decoding $\rightarrow$ TN contraction
@@ -292,8 +279,8 @@
 			\item Generalised to arbitrary 2D codes \citeauthoryear{chubb_general_2021}
 			\item Noise aware~\citeauthoryear{darmawan_optimal_2024}
 		\end{itemize}
-	}
 \end{frame}
+
 
 
 \begin{frame}{Suboptimal vs Optimal Decoding}
@@ -830,6 +817,41 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 
 \end{document}
 
+
+
+
+% \begin{frame}{Suboptimal Decoders for Surface Codes}
+% 	\only<1-1>{
+% 		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
+% 	}
+% 	\only<2-2>{
+% 		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
+% 		\begin{itemize}
+% 			\item Speed improved: Sparse blossom $O(n^{1.32})$~\citeauthoryear{higgott_sparse_2025}, fusion blossom $O(n)$~\citeauthoryear{wu_fusion_2023}
+% 			\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
+% 		\end{itemize}
+% 	}
+% 	\only<3-3>{
+% 		\textbf{\hspace{1cm}Minimum Weight Perfect Matching~\citeauthoryear{edmonds_paths_1965}}
+% 		\begin{itemize}
+% 			\item Speed improved: Sparse blossom $O(n^{1.32})$~\citeauthoryear{higgott_sparse_2025}, fusion blossom $O(n)$~\citeauthoryear{wu_fusion_2023}
+% 			\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
+% 			\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024}
+% 			\item Noise aware: Weights calibrated by noise~\citeauthoryear{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\citeauthoryear{fowler_optimal_2013}
+% 		\end{itemize}
+% 		% \cite{fowler_towards_2012}
+% 	}
+% 	\only<4->{
+% 		\textbf{\hspace{1cm}Tensor Network Decoder~\citeauthoryear{bravyi_efficient_2014}}
+% 		\begin{itemize}
+% 			\item Surface Code $\rightarrow$ Tensor Network
+% 			\item Optimal decoding $\rightarrow$ TN contraction
+% 			\item Approximate contraction $\rightarrow$ approximate optimal decoding
+% 			\item Generalised to arbitrary 2D codes \citeauthoryear{chubb_general_2021}
+% 			\item Noise aware~\citeauthoryear{darmawan_optimal_2024}
+% 		\end{itemize}
+% 	}
+% \end{frame}
 
 % \begin{frame}{Optimal Code Capacity Thresholds}
 % 	Quality marker: $p_{\text{threshold}}$

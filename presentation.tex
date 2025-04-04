@@ -53,12 +53,17 @@
 
 \begin{frame}{Classical vs. Quantum Error Correction}
 	Error correction is well studied in classical setting but there exist obstacles to transfer existing methods to quantum setting:
-	\pause
-	\begin{itemize}
-		\item \textbf{No-Cloning Theorem:} No-go theorem stating that an arbitrary quantum state can not be cloned by a unitary operation
-		\pause
-		\item \textbf{Projective Measurements:} Measurement of a quantum state projects the state onto a basis
-	\end{itemize}
+	\begin{center}
+        \begin{tabular}{p{7cm}|p{7cm}}
+            \textbf{Classical Error Correction} & \textbf{Quantum Error Correction} \\
+			\vspace{0.5cm}\\
+            Can copy data & No-cloning theorem \\
+			\vspace{0.5cm}\\
+            Can measure data without disturbance & Projective measurement changes state \\
+			\vspace{0.5cm}\\
+            Only bit-flip errors & Bit- and phase-flip errors \\
+        \end{tabular}
+    \end{center}
 \end{frame}
 
 \begin{frame}{QEC general idea}
@@ -109,9 +114,11 @@
 \end{frame}
 
 \begin{frame}{Example: Surface Code}
+	\only<1-2>{
 	\begin{textblock*}{7cm}(1.5cm,2cm)
 		\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4.png}
 	\end{textblock*}
+	}
 	\only<1-1>{
 		\begin{textblock*}{7cm}(8.5cm,2.5cm)
 			\begin{itemize}
@@ -121,13 +128,24 @@
 			\end{itemize}
 		\end{textblock*}
 	}
-	\pause
-	\only<2->{
+	\only<2-2>{
 		\begin{textblock*}{7cm}(8.5cm,2cm)
 			\includegraphics[width=0.55\textwidth]{fig/Syndromes.png}
 		\end{textblock*}
 		\begin{textblock*}{13cm}(2.5cm,7cm)
-			Measurement of stabilizers gives partial error information
+			Measurement of stabilizers gives partial error information. \\
+		\end{textblock*}
+	}
+	\only<3->{
+		\begin{textblock*}{7cm}(1.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_error_free.png}
+		\end{textblock*}
+		\begin{textblock*}{7cm}(8.5cm,2cm)
+			\includegraphics[width=0.55\textwidth]{fig/Syndromes.png}
+		\end{textblock*}
+		\begin{textblock*}{13cm}(2.5cm,7cm)
+			Measurement of stabilizers gives partial error information. \\
+			In absence of errors, all stabilizers return $0$. \\
 		\end{textblock*}
 	}
 \end{frame}
@@ -175,7 +193,7 @@
 	\pause
 	\only<3-3>{
 		\begin{textblock*}{7cm}(1.5cm,2cm)
-			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_decoder_graph_decoded.png}
+			\includegraphics[width=0.55\textwidth]{fig/Rotated_surface_code_d4_decoder_graph_syndromes.png}
 		\end{textblock*}
 		\begin{textblock*}{10cm}(6cm,3.5cm)
 			\textbf{Maximum Probability/Minimum Weight Perfect Matching Decoder:}\\

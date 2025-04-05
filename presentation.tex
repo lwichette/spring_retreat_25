@@ -383,14 +383,11 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Overview Results}
+\begin{frame}{Overview Theoretical Results}
 	\begin{itemize}
 		\item Developed flexible framework for optimal code performance estimation
 		\item Developed efficient estimator for optimal decoding success rate
 		\item Related existing measure to success rate of maximum probability decoding
-		\item Compared maximum probability and maximum likelihood decoding
-		\item Enhanced performance of maximum probability decoder
-		\item Started investigation of noise influence on optimal code performance
 	\end{itemize}
 \end{frame}
 
@@ -416,29 +413,6 @@ Select most probable error class consistent with the partial error information\\
 \pause
 $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=[E_{3}]$
 \end{frame}
-
-% \begin{frame}{Groundwork for Results - Decoder}
-% 	\only<1-1>{
-% 	\textbf{Maximum Probability/Minimum Weight decoding:}\\
-% 	Select error consistent with the partial error information and highest $P(E)$\\
-% 	\vspace{0.5cm}
-% 	\textbf{Maximum likelihood/Optimal decoding:}\\
-% 	Select class consistent with the partial error information and highest $P([E])$
-% 	}
-% 	\pause
-% 	\only<2-2>{
-% 		\textbf{Statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:}\\
-% 		Reduce calculation of $P(E)$ and $P([E])$ to very well studied partition function $Z_{E}(T)$ calculation\\
-% 	}
-% 	\pause
-% 	\only<3-3>{
-% 		\textbf{Maximum Probability/Minimum Weight decoding:}\\
-% 		Select error consistent with the partial error information and highest $P(E)=lim_{T\to 0}Z_{E}(T)$\\
-% 		\vspace{0.5cm}
-% 		\textbf{Maximum likelihood/Optimal decoding:}\\
-% 		Select class consistent with the partial error information and highest $P([E])=Z_{E}(T_{\text{Nishimori}})$
-% 	}
-% \end{frame}
 
 \begin{frame}{Groundwork for Results - Decoder}
 	\vspace{-1cm}
@@ -467,16 +441,6 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 		\end{tcolorbox}
 		\end{textblock*}
 	}
-	% \pause
-	% \only<2-2>{
-	% 	\textbf{Statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:}\\
-	% 	Reduce calculation of $P(E)$ and $P([E])$ to very well studied partition function $Z_{E}(T)$ calculation\\
-	% 	\textbf{Maximum Probability/Minimum Weight decoding:}\\
-	% 	Select error consistent with the partial error information and highest $P(E)=$\\
-	% 	\vspace{0.5cm}
-	% 	\textbf{Maximum likelihood/Optimal decoding:}\\
-	% 	Select class consistent with the partial error information and highest $P([E])=Z_{E}(T_{\text{Nishimori}})$
-	% }
 \end{frame}
 
 \begin{frame}{Groundwork for Results - Success Rates}
@@ -504,7 +468,15 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	}
 \end{frame}
 
-\begin{frame}{Results}
+\begin{frame}{Overview Theoretical Results}
+	\begin{itemize}
+		\item Developed flexible framework for optimal code performance estimation
+		\item Developed efficient estimator for optimal decoding success rate
+		\item Related existing measure to success rate of maximum probability decoding
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Overview Numerical Results}
 	\only<1-1>{
 	\begin{textblock*}{14cm}(1.5cm,2cm)
 		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
@@ -521,8 +493,9 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 		\vspace{2cm}
 		\hspace{1.5cm}
 		\begin{itemize}
-			\item Minimum weight decoding $\sim$ order probability
-			\item Optimal decoding $\sim$ decoding probability
+			\item Compared maximum probability and maximum likelihood decoding
+			\item Enhanced performance of maximum probability decoder
+			\item Started investigation of noise influence on optimal code performance
 		\end{itemize}
 		\begin{textblock*}{14cm}(1.5cm,2cm)
 			\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
@@ -536,31 +509,18 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	}
 \end{frame}
 
-\begin{frame}{Results - Zero T Limit}
-	\textbf{Theoretical MP/MW decoding:}\\
-	Select error consistent with the partial error information and highest $P(E)=lim_{T\to 0}Z_{E}(T)$\\
+\begin{frame}{Results - Numerical difficulties}
+	\textbf{Maximum Probability/Minimum Weight decoding:}\\
+	Success rate estimated by zero temperature limit of order probability\\
 	\pause
 	\vspace{0.5cm}
-	\textbf{Numerically:} \\
-	Replica exchange Wang Landau algorithm~\citeauthoryear{vogel_generic_2013, wang_efficient_2001} - can take limit but slow\\
-	Fischer Kasteleyn Temperley algorithm~\citeauthoryear{kasteleyn_statistics_1961, temperley_dimer_1961, thomas_exact_2009, thomas_numerically_2013} - only finite T but fast\\
+	\textbf{Replica exchange Wang Landau algorithm~\citeauthoryear{vogel_generic_2013, wang_efficient_2001}:} Can take zero temperature limit but is slow\\
+	\vspace{0.5cm}
+	\textbf{Fischer Kasteleyn Temperley algorithm~\citeauthoryear{kasteleyn_statistics_1961, temperley_dimer_1961, thomas_exact_2009, thomas_numerically_2013}:} Relies on finite non-zero temperature and is fast\\
 	\pause
 	\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
-		Showed FKT decoding at low $T\neq 0$ approximates WL $T=0$ decoding, e.g. MW decoding
+		Showed FKT order probability results at low $T\neq 0$ approximate WL $T=0$ results, e.g. MP decoding
 	\end{tcolorbox}
-\end{frame}
-
-\begin{frame}{Results - Zero T Limit}
-	\only<1->{
-	\begin{textblock*}{7.5cm}(0.5cm,3cm)
-		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x11.png}
-	\end{textblock*}
-	}
-	\only<2-2>{
-	\begin{textblock*}{7.5cm}(8cm,3cm)
-		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x12.png}
-	\end{textblock*}
-	}
 \end{frame}
 
 \begin{frame}{Results - Efficient Success Estimation}
@@ -897,7 +857,50 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \end{document}
 
 
+% \begin{frame}{Results}
+% 	\only<1-1>{
+% 	\begin{textblock*}{14cm}(1.5cm,2cm)
+% 		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
+% 		\begin{tikzpicture}[overlay]
+% 			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+% 			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+% 		\end{tikzpicture}
+% 		\hspace{4.5cm}
+% 		Optimal code performance estimates
+% 	\end{textblock*}
+% 	}
+% 	\pause
+% 	\only<2->{
+% 		\vspace{2cm}
+% 		\hspace{1.5cm}
+% 		\begin{itemize}
+% 			\item Minimum weight decoding $\sim$ order probability
+% 			\item Optimal decoding $\sim$ decoding probability
+% 		\end{itemize}
+% 		\begin{textblock*}{14cm}(1.5cm,2cm)
+% 			\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
+% 			\begin{tikzpicture}[overlay]
+% 				\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+% 				\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+% 			\end{tikzpicture}
+% 			\hspace{4.5cm}
+% 			Error class probability estimates
+% 		\end{textblock*}
+% 	}
+% \end{frame}
 
+% \begin{frame}{Results - Zero T Limit}
+% 	\only<1->{
+% 	\begin{textblock*}{7.5cm}(0.5cm,3cm)
+% 		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x11.png}
+% 	\end{textblock*}
+% 	}
+% 	\only<2-2>{
+% 	\begin{textblock*}{7.5cm}(8cm,3cm)
+% 		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x12.png}
+% 	\end{textblock*}
+% 	}
+% \end{frame}
 
 % \begin{frame}{Suboptimal Decoders for Surface Codes}
 % 	\only<1-1>{

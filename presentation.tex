@@ -524,17 +524,22 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \end{frame}
 
 \begin{frame}{Results - Efficient Success Estimation}
-	\only<1-2>{
+	\only<1-3>{
 		\begin{textblock*}{7.5cm}(0.5cm,3cm)
 			\includegraphics[width=\textwidth]{fig/ML_vs_DecProb_39.png}
 		\end{textblock*}
 		}
-	\only<2->{
+	\only<2-2>{
+		\begin{textblock*}{7.5cm}(8cm,3cm)
+			\includegraphics[width=\textwidth]{fig/ML_vs_DecProb_39_zoomed.png}
+		\end{textblock*}
+		}
+	\only<3->{
 		\begin{textblock*}{7.5cm}(8cm,3cm)
 			\includegraphics[width=\textwidth]{fig/CIwidth_39.png}
 		\end{textblock*}
 		}
-	\only<3->{
+	\only<4->{
 		\begin{textblock*}{7.5cm}(0.5cm,3cm)
 			\includegraphics[width=\textwidth]{fig/CIwidth.png}
 		\end{textblock*}
@@ -544,15 +549,20 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \begin{frame}{Results - MP vs Optimal}
 	\only<1-1>{
 		\begin{textblock*}{7.5cm}(0.5cm,2.5cm)
-			\includegraphics[width=\textwidth]{fig/MP_vs_ML_39.png}
+			\includegraphics[width=\textwidth]{fig/MP_vs_ML_9.png}
 		\end{textblock*}
 	}
-	\only<2->{
+	\only<2-2>{
 		\begin{textblock*}{7.5cm}(0.5cm,2.5cm)
-			\includegraphics[width=\textwidth]{fig/MP_vs_ML_odd.png}
+			\includegraphics[width=\textwidth]{fig/MP_vs_ML_9_19.png}
 		\end{textblock*}
 	}
 	\only<3->{
+		\begin{textblock*}{7.5cm}(0.5cm,2.5cm)
+			\includegraphics[width=\textwidth]{fig/MP_vs_ML_9_19_39.png}
+		\end{textblock*}
+	}
+	\only<4->{
 	\begin{textblock*}{7.5cm}(8cm,2.5cm)
 		\includegraphics[width=\textwidth]{fig/MP_vs_ML_even.png}
 	\end{textblock*}
@@ -771,7 +781,7 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \end{frame}
 
 \begin{frame}{Results - Enhanced Pymatching}
-	\includegraphics[width=\textwidth]{fig/provisional_pymatching.png}
+	\includegraphics[width=\textwidth]{fig/perm_toric.png}
 	% \begin{figure}[h!]
 	% 	\centering
 	% 	\begin{minipage}{0.45\textwidth}
@@ -790,7 +800,27 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\includegraphics[width=0.7\textwidth]{fig/Optimal_decoding_varying_stddev.png}
 \end{frame}
 
-\begin{frame}{Research plan}
+\begin{frame}{Overview Numerical Results}
+	\vspace{2cm}
+	\hspace{1.5cm}
+	\begin{itemize}
+		\item Applied estimation framework to toric code under bit-flip noise
+		\item Compared maximum probability and maximum likelihood decoding
+		\item Enhanced performance of maximum probability decoder
+		\item Started investigation of noise influence on optimal code performance
+	\end{itemize}
+	\begin{textblock*}{14cm}(1.5cm,2cm)
+		\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
+		\begin{tikzpicture}[overlay]
+			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+		\end{tikzpicture}
+		\hspace{4.5cm}
+		Error class probability estimates
+	\end{textblock*}
+\end{frame}
+
+\begin{frame}{Research Plan}
 	\begin{table}[h]
         \renewcommand{\arraystretch}{1.5} % Increase row spacing
         \small
@@ -799,14 +829,14 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 			\hline
 			February 2025 & Presented framework at QIP 2025 by poster \\
 			April-May 2025 & Submit paper on optimization opportunities of MWPM by degeneracy of ground states \\
-			2025 & Incoroporate TN approximate ML decoder into framework $\&$ investigate further alternatives \\
+			2025 & Incorporate TN approximate ML decoder into framework $\&$ investigate further alternatives \\
 			2025 & Incorporate more realistic noise model into framework $\&$ investigate its influence \\
 			2025-2026 & Potentially QuaSA: Implementation of error correcting codes, deduction of noise model and simulation of hardware\\
 		\end{tabular}
 	\end{table}
 \end{frame}
 
-\begin{frame}{Work plan}
+\begin{frame}{Publications Plan}
 	\begin{table}[h]
 		\fontsize{8pt}{9pt}\selectfont
 		\center
@@ -825,27 +855,6 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\end{table} \vfill
 \end{frame}
 
-\begin{frame}{Conclusion and Outlook}
-	\begin{textblock*}{14cm}(1.5cm,2cm)
-		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
-		\begin{tikzpicture}[overlay]
-			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-		\end{tikzpicture}
-		\hspace{4.5cm}
-		Optimal code performance estimate
-	\end{textblock*}
-	\vspace{3cm}
-	\small
-	\begin{itemize}
-		\item \textbf{Framework:} Applicable to all stabilizer codes under Pauli noise
-		\item \textbf{Optimal decoding:} Developed efficient estimator of success rate
-		\item \textbf{Decoder Optimization:} Improved MWPM by degeneracy of ground states
-		\item \textbf{Near future:} Investigate noise influence on optimal performance
-		\item \textbf{Further:} Incorporate realistic noise model which requires new methods like TN
-	\end{itemize}
-\end{frame}
-
 \begin{frame}
 	\begin{center}
 		{\huge\textbf{Thank you for your attention!}}
@@ -856,6 +865,26 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 
 \end{document}
 
+% \begin{frame}{Conclusion and Outlook}
+% 	\begin{textblock*}{14cm}(1.5cm,2cm)
+% 		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
+% 		\begin{tikzpicture}[overlay]
+% 			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
+% 			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
+% 		\end{tikzpicture}
+% 		\hspace{4.5cm}
+% 		Optimal code performance estimate
+% 	\end{textblock*}
+% 	\vspace{3cm}
+% 	\small
+% 	\begin{itemize}
+% 		\item \textbf{Framework:} Applicable to all stabilizer codes under Pauli noise
+% 		\item \textbf{Optimal decoding:} Developed efficient estimator of success rate
+% 		\item \textbf{Decoder Optimization:} Improved MWPM by degeneracy of ground states
+% 		\item \textbf{Near future:} Investigate noise influence on optimal performance
+% 		\item \textbf{Further:} Incorporate realistic noise model which requires new methods like TN
+% 	\end{itemize}
+% \end{frame}
 
 % \begin{frame}{Results}
 % 	\only<1-1>{

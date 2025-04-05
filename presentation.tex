@@ -285,8 +285,6 @@
 
 \begin{frame}{Overview Optimal Performance Estimation}
 	\begin{itemize}
-		\item Previously: Introduced logical failure curves as quality metric for suboptimal decoders
-		\pause
 		\item Introduce recently developed approximate optimal decoding method
 		\pause
 		\item Discuss state of the art of optimal code performance estimation
@@ -315,8 +313,8 @@
 	\end{textblock*}
 	\begin{textblock*}{8cm}(0.5cm,3cm)
 		\begin{itemize}
-			\item Optimal decoding is NP-hard~\citeauthoryear{hsieh_np-hardness_2011}
-			\item \textbf{statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:} \\
+			\item Optimal decoding is generally NP-hard~\citeauthoryear{hsieh_np-hardness_2011}
+			\item statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}: \\
 				Relates threshold to a phase transition of associated physical system $\rightarrow$ Makes threshold calculation feasible through established methods
 		\end{itemize}
 	\end{textblock*}
@@ -327,10 +325,14 @@
 	\end{textblock*}
 	\begin{textblock*}{8cm}(0.5cm,2.5cm)
 		The statistical mechanics mapping has been extensively used to calculate the threshold of topological codes:
+		\pause
 		\begin{itemize}
 			\item Surface code under biflip noise~\citeauthoryear{merz_two-dimensional_2001} % mapping of the two-dimensional Ising model with random exchange (RBIM), via the transfer matrix, to a network model for a disordered system of non-interacting fermions. The RBIM transforms in this way to a localisation problem belonging to one of a set of non-standard symmetry classes, known as class D; the transition between paramagnet and ferromagnet is equivalent to a delocalisation transition between an insulator and a quantum Hall conductor.
+			\pause
 			\item Color code under bitflip noise~\citeauthoryear{katzgraber_error_2009}
+			\pause
 			\item Toric code under depolarization noise~\citeauthoryear{bombin_strong_2012}
+			\pause
 			\item Surface code under mildly correlated bitflip noise~\citeauthoryear{chubb_statistical_2019}
 		\end{itemize}
 	\end{textblock*}
@@ -340,7 +342,7 @@
 		\includegraphics[width=0.5\textwidth]{fig/threshold.png}
 	\end{textblock*}
 	\begin{textblock*}{8cm}(0.5cm,3cm)
-		TN decoder approximates optimal decoding and gives full curves:
+		The TN decoder was used to deduce logical failure curves under approximate optimal decoding:
 		\begin{itemize}
 			\item Surface code under depolarising noise~\citeauthoryear{bravyi_efficient_2014}
 			\item Surface code under biased Pauli noise~\citeauthoryear{tuckett_ultrahigh_2018}
@@ -383,11 +385,11 @@
 
 \begin{frame}{Overview Results}
 	\begin{itemize}
-		\item Developed code and noise adaptive framework for optimal code performance estimation
+		\item Developed flexible framework for optimal code performance estimation
 		\item Developed efficient estimator for optimal decoding success rate
 		\item Related existing measure to success rate of maximum probability decoding
 		\item Compared maximum probability and maximum likelihood decoding
-		\item Enhanced performance of maximum probability decoding
+		\item Enhanced performance of maximum probability decoder
 		\item Started investigation of noise influence on optimal code performance
 	\end{itemize}
 \end{frame}
@@ -415,43 +417,91 @@ Select most probable error class consistent with the partial error information\\
 $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=[E_{3}]$
 \end{frame}
 
+% \begin{frame}{Groundwork for Results - Decoder}
+% 	\only<1-1>{
+% 	\textbf{Maximum Probability/Minimum Weight decoding:}\\
+% 	Select error consistent with the partial error information and highest $P(E)$\\
+% 	\vspace{0.5cm}
+% 	\textbf{Maximum likelihood/Optimal decoding:}\\
+% 	Select class consistent with the partial error information and highest $P([E])$
+% 	}
+% 	\pause
+% 	\only<2-2>{
+% 		\textbf{Statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:}\\
+% 		Reduce calculation of $P(E)$ and $P([E])$ to very well studied partition function $Z_{E}(T)$ calculation\\
+% 	}
+% 	\pause
+% 	\only<3-3>{
+% 		\textbf{Maximum Probability/Minimum Weight decoding:}\\
+% 		Select error consistent with the partial error information and highest $P(E)=lim_{T\to 0}Z_{E}(T)$\\
+% 		\vspace{0.5cm}
+% 		\textbf{Maximum likelihood/Optimal decoding:}\\
+% 		Select class consistent with the partial error information and highest $P([E])=Z_{E}(T_{\text{Nishimori}})$
+% 	}
+% \end{frame}
+
 \begin{frame}{Groundwork for Results - Decoder}
-	\only<1-1>{
+	\vspace{-1cm}
 	\textbf{Maximum Probability/Minimum Weight decoding:}\\
 	Select error consistent with the partial error information and highest $P(E)$\\
-	\vspace{0.5cm}
+	\vspace{2cm}
 	\textbf{Maximum likelihood/Optimal decoding:}\\
 	Select class consistent with the partial error information and highest $P([E])$
-	}
 	\pause
-	\only<2-2>{
-		\textbf{Statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:}\\
-		Reduce calculation of $P(E)$ and $P([E])$ to very well studied partition function $Z_{E}(T)$ calculation\\
+	\only<2->{
+		\begin{textblock*}{4cm}(13.2cm,4.5cm)
+			\begin{tikzpicture}[overlay]
+				\draw[<-, line width=0.8mm, osakared] (0cm, 0.3cm) -- (0cm, 1.4cm) ;
+				\draw[<-, line width=0.8mm, osakared] (0cm, -2.6cm) -- (0cm, -1.5cm) ;
+			\end{tikzpicture}
+		\end{textblock*}
+		\begin{textblock*}{4cm}(11.7cm,4.3cm)
+			Boltzmann weight
+		\end{textblock*}
+		\begin{textblock*}{4cm}(11.7cm,7.2cm)
+			Partition function
+		\end{textblock*}
+		\begin{textblock*}{10.5cm}(0.5cm,6.5cm)
+		\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=10.5cm, arc=2mm]
+			\textbf{Statistical mechanics map:}\\ Translates calculation of $P(E)$ and $P([E])$ to very well studied quantities from statistical mechanics.
+		\end{tcolorbox}
+		\end{textblock*}
 	}
-	\pause
-	\only<3-3>{
-		\textbf{Maximum Probability/Minimum Weight decoding:}\\
-		Select error consistent with the partial error information and highest $P(E)=lim_{T\to 0}Z_{E}(T)$\\
-		\vspace{0.5cm}
-		\textbf{Maximum likelihood/Optimal decoding:}\\
-		Select class consistent with the partial error information and highest $P([E])=Z_{E}(T_{\text{Nishimori}})$
-	}
+	% \pause
+	% \only<2-2>{
+	% 	\textbf{Statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:}\\
+	% 	Reduce calculation of $P(E)$ and $P([E])$ to very well studied partition function $Z_{E}(T)$ calculation\\
+	% 	\textbf{Maximum Probability/Minimum Weight decoding:}\\
+	% 	Select error consistent with the partial error information and highest $P(E)=$\\
+	% 	\vspace{0.5cm}
+	% 	\textbf{Maximum likelihood/Optimal decoding:}\\
+	% 	Select class consistent with the partial error information and highest $P([E])=Z_{E}(T_{\text{Nishimori}})$
+	% }
 \end{frame}
 
 \begin{frame}{Groundwork for Results - Success Rates}
+	\only<1->{
 	Brute force simulation of decoding sample intensive $\rightarrow$ Define efficient estimators\\
-	\pause
-	\vspace{0.5cm}
-	\textbf{Maximum Probability/Minimum Weight decoding:}\\
-	Succees rate estimator: Order probability~\citeauthoryear{thomas_simplest_2011}\\
-	\pause
-	\vspace{0.5cm}
-	\textbf{Maximum likelihood/Optimal decoding:}\\
-	We introduce success rate estimator: Decoding probability
-	\pause
-	\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
-		\textbf{General framework:}\\ Relies only on mapping of error correcting code $+$ noise to statistical mechanics system.
-	\end{tcolorbox}
+	}
+	\only<2-2>{
+		\vspace{0.5cm}
+		The order probability~\citeauthoryear{thomas_simplest_2011} is a temperature dependent parameter which was introduced for the investigation of phase transitions in statistical mechanics.
+	}
+	\only<3->{
+		\vspace{0.5cm}
+		\textbf{Maximum Probability/Minimum Weight decoding:}\\
+		Succees rate estimator: Order probability in zero temperature limit\\
+	}
+	\only<4->{
+		\vspace{0.5cm}
+		\textbf{Maximum likelihood/Optimal decoding:}\\
+		Defined success rate estimator: Decoding probability at $T_{\text{Nishimori}}$\\
+	}
+	\only<5->{
+		\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
+			\textbf{General framework:}\\ Relies only on mapping of error correcting code $+$ noise to statistical mechanics system.
+		\end{tcolorbox}
+	}
 \end{frame}
 
 \begin{frame}{Results}

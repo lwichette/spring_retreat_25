@@ -392,7 +392,7 @@
 \end{itemize}
 \pause
 \vspace{0.5cm}
-\textbf{Maximum Probability decoding:}\\
+\textbf{Maximum Probability/Minimum Weight decoding:}\\
 Select most probable physical error consistent with the partial error information\\
 \pause
 $P(E_{1})\geq P(E_{i})\forall i \Rightarrow$ Select error $E_{1}$\\
@@ -406,27 +406,19 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 
 \begin{frame}{Groundwork for Results - Decoder}
 	\only<1-1>{
-	\textbf{Maximum Probability decoding:}\\
-	Select error consistent with the partial error information and highest $P(E)$\\
-	}
-	\pause
-	\only<2-3>{
 	\textbf{Maximum Probability/Minimum Weight decoding:}\\
 	Select error consistent with the partial error information and highest $P(E)$\\
-	}
-	\pause
-	\only<3-3>{
 	\vspace{0.5cm}
 	\textbf{Maximum likelihood/Optimal decoding:}\\
 	Select class consistent with the partial error information and highest $P([E])$
 	}
 	\pause
-	\only<4-4>{
+	\only<2-2>{
 		\textbf{Statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:}\\
 		Reduce calculation of $P(E)$ and $P([E])$ to very well studied partition function $Z_{E}(T)$ calculation\\
 	}
 	\pause
-	\only<5-5>{
+	\only<3-3>{
 		\textbf{Maximum Probability/Minimum Weight decoding:}\\
 		Select error consistent with the partial error information and highest $P(E)=lim_{T\to 0}Z_{E}(T)$\\
 		\vspace{0.5cm}

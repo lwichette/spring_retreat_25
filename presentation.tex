@@ -251,6 +251,18 @@
 	}
 \end{frame}
 
+\begin{frame}{Suboptimal Code Performance Estimates}
+	\only<1-1>{
+	\begin{textblock*}{10cm}(9.5cm,3cm)
+		\includegraphics[width=0.5\textwidth]{fig/threshold.png}
+	\end{textblock*}
+	\begin{textblock*}{8cm}(0.5cm,4cm)
+		\textbf{Suboptimal decoders:}\\
+		Failure curves estimated as quality measure for various codes at finite sizes under varying noise models~\citeauthoryear{demarti_iolius_decoding_2024}
+	\end{textblock*}
+	}
+\end{frame}
+
 \begin{frame}{Problem statement}
 	\includegraphics[width=0.4\textwidth]{fig/resource_intensive_decoder_dev.png}
 	\only<1>{\hspace{20pt}\raisebox{35pt}{$\huge \Rightarrow$ \textbf{Only do it for promising codes}}}
@@ -271,12 +283,24 @@
 	}
 \end{frame}
 
+\begin{frame}{Overview Optimal Performance Estimation}
+	\begin{itemize}
+		\item Previously: Introduced logical failure curves as quality metric for suboptimal decoders
+		\pause
+		\item Introduce recently developed approximate optimal decoding method
+		\pause
+		\item Discuss state of the art of optimal code performance estimation
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Approximate Optimal Decoding}
 	\textbf{Tensor Network Decoder~\citeauthoryear{bravyi_efficient_2014}}
 		\begin{itemize}
 			\item Surface Code $\rightarrow$ Tensor Network
+			\pause
 			\item Optimal decoding $\rightarrow$ TN contraction
 			\item Approximate contraction $\rightarrow$ approximate optimal decoding
+			\pause
 			\item Generalised to arbitrary 2D codes \citeauthoryear{chubb_general_2021}
 			\item Noise aware~\citeauthoryear{darmawan_optimal_2024}
 		\end{itemize}
@@ -284,23 +308,25 @@
 
 
 
-\begin{frame}{Suboptimal vs Optimal Decoding}
+\begin{frame}{Optimal Code Performance}
 	\only<1-1>{
 	\begin{textblock*}{10cm}(9.5cm,3cm)
-		\includegraphics[width=0.5\textwidth]{fig/threshold.png}
+		\includegraphics[width=0.5\textwidth]{fig/optimal_threshold.png}
 	\end{textblock*}
-	\begin{textblock*}{8cm}(0.5cm,4cm)
-		\textbf{Suboptimal decoders:}\\
-		Failure curves estimated for various finite sized codes under varying noise models~\citeauthoryear{demarti_iolius_decoding_2024}
+	\begin{textblock*}{8cm}(0.5cm,3cm)
+		\begin{itemize}
+			\item Optimal decoding is NP-hard~\citeauthoryear{hsieh_np-hardness_2011}
+			\item \textbf{statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:} \\
+				Relates threshold to a phase transition of associated physical system $\rightarrow$ Makes threshold calculation feasible through established methods
+		\end{itemize}
 	\end{textblock*}
 	}
 	\only<2-2>{
 	\begin{textblock*}{10cm}(9.5cm,3cm)
 		\includegraphics[width=0.5\textwidth]{fig/optimal_threshold.png}
 	\end{textblock*}
-	\begin{textblock*}{8cm}(0.5cm,3cm)
-		\textbf{Optimal decoding:}\\
-		Focus on optimal error threshold estimation
+	\begin{textblock*}{8cm}(0.5cm,2.5cm)
+		The statistical mechanics mapping has been extensively used to calculate the threshold of topological codes:
 		\begin{itemize}
 			\item Surface code under biflip noise~\citeauthoryear{merz_two-dimensional_2001} % mapping of the two-dimensional Ising model with random exchange (RBIM), via the transfer matrix, to a network model for a disordered system of non-interacting fermions. The RBIM transforms in this way to a localisation problem belonging to one of a set of non-standard symmetry classes, known as class D; the transition between paramagnet and ferromagnet is equivalent to a delocalisation transition between an insulator and a quantum Hall conductor.
 			\item Color code under bitflip noise~\citeauthoryear{katzgraber_error_2009}
@@ -314,7 +340,6 @@
 		\includegraphics[width=0.5\textwidth]{fig/threshold.png}
 	\end{textblock*}
 	\begin{textblock*}{8cm}(0.5cm,3cm)
-		\textbf{Optimal decoding:}\\
 		TN decoder approximates optimal decoding and gives full curves:
 		\begin{itemize}
 			\item Surface code under depolarising noise~\citeauthoryear{bravyi_efficient_2014}
@@ -331,7 +356,7 @@
 		\item Much effort in development of fast and high performant decoders
 	\end{itemize}
 	\pause
-	Laking:
+	Lacking:
 	\begin{itemize}
 		\item Comparibility of codes for finite size regime under realistic noise models
 		\item Gauge of existing decoders with respect to optimal code capacity
@@ -464,8 +489,8 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\pause
 	\vspace{0.5cm}
 	\textbf{Numerically:} \\
-	REWL~\cite{vogel_generic_2013, wang_efficient_2001} - can take limit but slow\\
-	FKT~\cite{kasteleyn_statistics_1961, temperley_dimer_1961, thomas_exact_2009, thomas_numerically_2013} - only finite T but fast\\
+	Replica exchange Wang Landau algorithm~\citeauthoryear{vogel_generic_2013, wang_efficient_2001} - can take limit but slow\\
+	Fischer Kasteleyn Temperley algorithm~\citeauthoryear{kasteleyn_statistics_1961, temperley_dimer_1961, thomas_exact_2009, thomas_numerically_2013} - only finite T but fast\\
 	\pause
 	\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=13cm, arc=2mm]
 		Showed FKT decoding at low $T\neq 0$ approximates WL $T=0$ decoding, e.g. MW decoding

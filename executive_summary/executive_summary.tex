@@ -1,0 +1,161 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault} % Use clean sans-serif font (Helvetica)
+
+\titleformat{\section}{\Large\bfseries}{}{0em}{}
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{Executive Summary} \\
+    \large Research Plan for Leon Wichette\\
+    \normalsize\vspace{0.5cm}
+\end{center}
+
+\section*{Planned Activities Until Next Fall-Symposium}
+Quantum error correction is a key component for realizing large scale quantum applications.
+The quantum error correction performance is determined by the error correcting code and the decoding scheme used to recover the original quantum state.
+% The maximum likelihood (ML) decoder is optimal in terms of performance, but it is computationally expensive.
+% The maximum probability (MP) decoder is a more time efficient alternative, but it generally does not achieve the same level of performance as the ML decoder. \\
+
+The development of fast and efficient decoders is crucial for practical quantum applications but their development is very ressource intensive.\\
+My research aims at developing a flexible framework for estimating the optimal performance for varying quantum error correcting codes and noise models.
+Access to optimal code performance estimates enables informed decisions on which codes are promising and a gauge of suboptimal decoders.
+Established methods on optimal code performance estimation are focused on the investigation the error threshold which does not provide information on code performances at finite distance and general physical error rates.\\
+I have implemented a flexible estimation framework and applied it as a starting example to the toric code under bitflip noise and the findings will get published untill the fall-symposium.
+Key components of my findings are the deduction of a sample efficient success rate estimator for the optimal decoding scheme, the identification of an existing measure, the order probability at zero temperature, with the success rate of the maximum probability decoding scheme, and improving the maximum probability decoding scheme by taking degeneracies into account.\\
+The next phase of my research targets the influence of noise models on the performance estimates. To tackle this question, more realistic noise models must get implemented within my framework.
+The incoporation of these noise models may require new simulation strategies. I have identified a tensor network method as a potential candidate to tackle more complex noise and have to investigate further alternatives.
+Until the fall-symposium I will have made an informed decision on what method to use, implemented it and will have numerical results to present first findings on the influence of noise on the performance estimates.
+
+\subsection*{Planned Activities}
+
+\begin{itemize}[leftmargin=1.5em]
+    \item \textbf{Publish current findings:}
+    \begin{itemize}
+        \item Submit first-author manuscript on "Estimating maximum lieklihood and maximum probability decoder performance in stabilizer codes, and the room for performance gains from ensembling in maximum probability decoders" (April–May 2025).
+    \end{itemize}
+
+    \item \textbf{Evaluate simulation methods for more realistic noise models:}
+    \begin{itemize}
+        \item Incorporate tensor-network-based approximate maximum lieklihood decoder into the framework.
+        \item Evaluate alternative approaches.
+    \end{itemize}
+
+    \item \textbf{Extend on more realistic noise:}
+    \begin{itemize}
+        \item Extend framework to include more realistic noise models and study their impact.
+        \item Extension of noise model includes atleast: Depolarizing noise, biased Pauli noise, and a non identical distributed bit-flip noise
+    \end{itemize}
+
+    \item \textbf{Prepare for QuaSA:}
+    \begin{itemize}
+        \item Literature research on methods for noise benchmarking.
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+\section*{Time Plan}
+
+\renewcommand{\arraystretch}{1.6}
+\begin{longtable}{p{3cm} | p{4.5cm} | p{4cm} | p{4.5cm}}
+\textbf{Timeframe} & \textbf{Planned Activities} & \textbf{Milestones / Breakpoints} & \textbf{Key Achievements} \\
+\hline
+\endfirsthead
+\textbf{Timeframe} & \textbf{Planned Activities} & \textbf{Milestones / Breakpoints} & \textbf{Key Achievements} \\
+\hline
+\endhead
+
+\textbf{February 2025} & Presentation of estimation framework at QIP 2025 (poster format) & Engage with feedback from QIP attendees & Framework visibility, input from research community \\
+
+\textbf{April–May 2025} & Submission of first-author publication on MP and ML decoding performance & Paper submission & Development of flexible framework for optimal code performance estimation by efficient success rate estimators and improvement of MP decoding \\
+
+\textbf{May–Sept. 2025} & Extension of noise models toward realistic, hardware-inspired models & First simulations of more realistic noise models - must include a non-identical distributed noise model, depolarizing noise, biased Pauli noise & Proof of concept that the framework can be applied for realistic scenarios \\
+
+\textbf{May–Sept. 2025} & Integration of tensor-network (TN) approximate ML decoder and exploration of alternative methods & Evaluation and comparison within framework on more realistic noise model & Establishment of flexible benchmarking platform which can scale and simulate realistic noise \\
+
+\textbf{Late 2025 – 2026} & Possibly QuaSA project: Implement quantum memory experiments, infer noise from hardware & Execution of quantum memory experiments with small distance codes & Deduction of a realistic noise model for quantum memory and evaluation of frameworks simulation capabilities \\
+
+\end{longtable}
+
+\end{document}
+
+
+
+
+% \section*{Planned Activities Until Fall-Symposium}
+
+% My current research focused on the implementation of a flexible framework for estimating optimal code performances.
+% I have applied this framework to the toric code under bitflip noise and the findings will get published untill the fall-symposium.
+% Key components of my findings are the deduction of a sample efficient success rate estimator for the optimal decoding scheme, the identification of an existing measure, the order probability at zero temperature, with the success rate of the maximum probability decoding scheme, and improving the maximum probability decoding scheme by taking degeneracies into account.\\
+% The next phase of my research targets the influence of noise models on the performance estimates. To tackle this question, more realistic noise models must get implemented within my framework.
+% The incoporation of these noise models may require new simulation strategies. I have identified a tensor network method as a potential candidate to tackle more complex noise and have to investigate further alternatives.
+% Until the fall-symposium I will have made an informed decision on what method to use, implemented it and will have numerical results to present first findings on the influence of noise on the performance estimates.
+
+% \subsection*{Planned Activities}
+
+% \begin{itemize}[leftmargin=1.5em]
+%     \item \textbf{Publish current findings:}
+%     \begin{itemize}
+%         \item Submit first-author manuscript on estimating maximum lieklihood and maximum probability decoder performance in stabilizer codes, and the room for performance gains from ensembling in maximum probability decoders (April–May 2025).
+%     \end{itemize}
+
+%     \item \textbf{Evaluate simulation methods for more realistic noise models:}
+%     \begin{itemize}
+%         \item Incorporate tensor-network-based approximate maximum lieklihood decoder into the framework.
+%         \item Evaluate alternative approaches.
+%     \end{itemize}
+
+%     \item \textbf{Extend on more realistic noise:}
+%     \begin{itemize}
+%         \item Extend framework to include more realistic noise models and study their impact.
+%         \item Extension of noise model includes atleast: Depolarizing noise, biased Pauli noise, and a non identical distributed bit-flip noise
+%     \end{itemize}
+
+%     \item \textbf{Prepare for QuaSA:}
+%     \begin{itemize}
+%         \item Literature research on methods for noise benchmarking.
+%     \end{itemize}
+% \end{itemize}
+
+% \newpage
+
+
+	% \begin{table}[h]
+    %     \renewcommand{\arraystretch}{1.5} % Increase row spacing
+	% 	\begin{tabular}{c|p{10cm}}
+	% 		\textbf{Time} &  \textbf{Objective} \\
+	% 		\hline
+	% 		February 2025 & Presented framework at QIP 2025 by poster \\
+	% 		April-May 2025 & Submit paper on optimization opportunities of MWPM by degeneracy of ground states \\
+	% 		2025 & Incorporate TN approximate ML decoder into framework $\&$ investigate further alternatives \\
+	% 		2025 & Incorporate more realistic noise model into framework $\&$ investigate its influence \\
+	% 		2025-2026 & Potentially QuaSA: Implementation of error correcting codes, deduction of noise model and simulation of hardware\\
+	% 	\end{tabular}
+	% \end{table}
+
+	% \begin{table}[h]
+	% 	\fontsize{8pt}{9pt}\selectfont
+	% 	\center
+	% 	{\renewcommand{\arraystretch}{2}
+	% 	\begin{tabular}{l@{\hspace{1em}}p{4.5cm}p{3cm}l@{\hspace{1em}}p{1.7cm}}
+    %         \toprule
+    %         Authorship & Title & Type  & Year & Status   \\
+    %         \midrule
+    %         1st-author & Estimating ML and MP decoder performance in stabilizer codes, and the room for performance gains from ensembling in MP decoders & Physical Review A & 2025 & submission April-May \\
+	% 		co-author & Exploration of Design Alternatives for Reducing Idle Time in Shor's Algorithm & IEEE Transactions on Quantum Engineering & 2025 & submitted \\
+    %         to be discussed & Extending current results to realistic noise models & Journal & 2025-26 & Future work \\
+	% 		to be discussed & QuaSA: Error dynamics of Quantum Memory & Journal & 2026 & Future work \\
+    %         \bottomrule
+    %     \end{tabular}
+	% 	}
+	% \end{table}

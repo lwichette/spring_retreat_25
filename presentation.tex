@@ -251,35 +251,42 @@
 	}
 \end{frame}
 
-\begin{frame}{Suboptimal Code Performance Estimates}
+\begin{frame}{Code Performance}
 	\only<1-1>{
-	\begin{textblock*}{10cm}(9.5cm,3cm)
-		\includegraphics[width=0.5\textwidth]{fig/threshold.png}
+	\begin{textblock*}{10cm}(2cm,3cm)
+		\includegraphics[width=0.55\textwidth]{fig/threshold.png}
 	\end{textblock*}
-	\begin{textblock*}{8cm}(0.5cm,4cm)
-		\textbf{Suboptimal decoders:}\\
-		Failure curves estimated as quality measure for various codes at finite sizes under varying noise models~\citeauthoryear{demarti_iolius_decoding_2024}
+	\begin{textblock*}{7cm}(8cm,4cm)
+		\textbf{Quality metric:}\\
+		Failure curves are a quality measure for decoders and available for various codes at finite sizes under varying noise models~\citeauthoryear{demarti_iolius_decoding_2024}
 	\end{textblock*}
 	}
 \end{frame}
 
 \begin{frame}{Problem statement}
-	\includegraphics[width=0.4\textwidth]{fig/resource_intensive_decoder_dev.png}
-	\only<1>{\hspace{20pt}\raisebox{35pt}{$\huge \Rightarrow$ \textbf{Only do it for promising codes}}}
+	\only<1-1>{
+		\center
+		\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=14cm, arc=2mm]
+			Need for fast and accurate decoders for large scale quantum applications
+		\end{tcolorbox}
+	}
 	\only<2->{
+		\includegraphics[width=0.4\textwidth]{fig/resource_intensive_decoder_dev.png}
+	}
+	\only<2>{\hspace{20pt}\raisebox{35pt}{$\huge \Rightarrow$ \textbf{Only do it for promising codes}}}
+	\only<3->{
 		\hspace{2pt}
 		\raisebox{18pt}{\includegraphics[width=0.08\textwidth]{fig/arrows.png}}
 		\hspace{5pt}
 		\includegraphics[width=0.4\textwidth]{fig/promising_codes.png}\\
 	}
-	\vspace{1.5cm}
-	\only<3->{
+	\only<4->{
 	\center
-	\textbf{Optimal code performance: \\baseline for code selection and decoder optimization}
-	% \begin{itemize}
-	% 	\only<3->{\item \textbf{Code selection:} Hardware specific simulation of optimal code performance makes error correcting codes comparable.}
-	% 	\only<4>{\item \textbf{Decoder optimization:} Estimation of optimal code performance shows upper limit for decoder optimization.}
-	% \end{itemize}
+	\textbf{Optimal code performance estimation:}\\
+	\begin{itemize}
+		\only<3->{\item \textbf{Code selection:} Hardware specific simulation of optimal code performance makes error correcting codes comparable.}
+		\only<4>{\item \textbf{Decoder optimization:} Estimation of optimal code performance shows upper limit for decoder optimization.}
+	\end{itemize}
 	}
 \end{frame}
 
@@ -314,8 +321,8 @@
 	\begin{textblock*}{8cm}(0.5cm,3cm)
 		\begin{itemize}
 			\item Optimal decoding is generally NP-hard~\citeauthoryear{hsieh_np-hardness_2011}
-			\item statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}: \\
-				Relates threshold to a phase transition of associated physical system $\rightarrow$ Makes threshold calculation feasible through established methods
+			\item \textbf{statistical mechanics mapping~\citeauthoryear{dennis_topological_2002}:} \\
+			    Makes threshold accessible by identification with well studied phenomenon called phase transition.
 		\end{itemize}
 	\end{textblock*}
 	}
@@ -324,15 +331,11 @@
 		\includegraphics[width=0.5\textwidth]{fig/optimal_threshold.png}
 	\end{textblock*}
 	\begin{textblock*}{8cm}(0.5cm,2.5cm)
-		The statistical mechanics mapping has been extensively used to calculate the threshold of topological codes:
-		\pause
+		statistical mechanics mapping has been extensively used for optimal threshold estimation: \\
 		\begin{itemize}
 			\item Surface code under biflip noise~\citeauthoryear{merz_two-dimensional_2001} % mapping of the two-dimensional Ising model with random exchange (RBIM), via the transfer matrix, to a network model for a disordered system of non-interacting fermions. The RBIM transforms in this way to a localisation problem belonging to one of a set of non-standard symmetry classes, known as class D; the transition between paramagnet and ferromagnet is equivalent to a delocalisation transition between an insulator and a quantum Hall conductor.
-			\pause
 			\item Color code under bitflip noise~\citeauthoryear{katzgraber_error_2009}
-			\pause
 			\item Toric code under depolarization noise~\citeauthoryear{bombin_strong_2012}
-			\pause
 			\item Surface code under mildly correlated bitflip noise~\citeauthoryear{chubb_statistical_2019}
 		\end{itemize}
 	\end{textblock*}
@@ -805,9 +808,18 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\vspace{2cm}
 	\hspace{1.5cm}
 	\begin{itemize}
+		\item Developed flexible framework for optimal code performance estimation
+		\pause
+		\item Developed efficient estimator for optimal decoding success rate
+		\pause
+		\item Related existing measure to success rate of maximum probability decoding
+		\pause
 		\item Applied estimation framework to toric code under bit-flip noise
+		\pause
 		\item Compared maximum probability and optimal decoding performance
+		\pause
 		\item Enhanced performance of maximum probability decoding
+		\pause
 		\item Started investigation of noise influence on optimal code performance
 	\end{itemize}
 	\begin{textblock*}{14cm}(1.5cm,2cm)

@@ -875,6 +875,92 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \end{frame}
 
 \printbibliography
+\newpage
+
+\begin{frame}{Error Classes}
+	\only<1-1>{
+		\begin{textblock*}{15cm}(0.5cm,2cm)
+			\begin{itemize}
+				\item $\mathcal{S} \subset \mathcal{P}_n$ the stabilizer group of a code (Abelian subgroup of $n$-qubit Pauli group).
+				\item Error $E$ maps a code state $|\psi\rangle$ to $E|\psi\rangle$.
+				\item $E_1$ and $E_2$ varying by stabilizer:
+				\[
+					E_1 = E_2 S \quad \text{for some } S \in \mathcal{S}
+				\]
+				Then,
+				\[
+					E_1|\psi\rangle = E_2 S |\psi\rangle = E_2 |\psi\rangle
+				\]
+				since $S|\psi\rangle = |\psi\rangle$ for all $|\psi\rangle$ in the code space.
+				\item \textbf{Conclusion:} $E_1$ and $E_2$ have the same effect on the code space.
+			\end{itemize}
+		\end{textblock*}
+	}
+	\only<2-2>{
+		\begin{textblock*}{15cm}(0.5cm,2cm)
+			\begin{itemize}
+				\item The \textbf{syndrome} depends only on commutation with stabilizers:
+				\[
+					\text{syndrome}(E) = \{ S_i E = \pm E S_i \}
+				\]
+				If $E' = E S$, then $E'$ has the same syndrome as $E$, since stabilizers commute with each other:
+				\[
+					[S_i, E'] = [S_i, E S] = [S_i, E] S + E [S_i, S] = [S_i, E] S
+				\]
+			\end{itemize}
+			\vspace{1em}
+			\textbf{Key Idea:} Errors differing by a stabilizer produce the same syndrome and act identically on the code—so we group them into equivalence classes.
+		\end{textblock*}
+	}
+	\only<3->{
+		Toric code under bit-flip noise:
+		\begin{textblock*}{6cm}(0.5cm,3cm)
+			\begin{center}
+				\includegraphics[width=0.8\textwidth]{fig/BU_equivalenceClass_2.png}
+			\end{center}
+		\end{textblock*}
+		\begin{textblock*}{8cm}(8.5cm,3cm)
+			\begin{center}
+				\includegraphics[width=1\textwidth]{fig/BU_equivalenceClass_1.png}
+			\end{center}
+		\end{textblock*}
+	}
+\end{frame}
+
+\begin{frame}{Statistical Mechanics Mapping}
+	\only<1-1>{
+		\begin{textblock*}{14cm}(0.5cm,2cm)
+			Error correcting code with error $e$ $\rightarrow$ statistical mechanics system with Hamiltonian $H_e$:
+			\begin{itemize}
+				\item \textbf{Stabilizer:} $S_k$ $\rightarrow$ classical spin dof $s_k \in \{-1,1\}$
+				\item \textbf{Qubits:} qubit $i$ with local Pauli group operator $\sigma$ defines interaction $J_{i}(\sigma)$ between classical spin dof $s_k$ satisfying:\\
+				\item \textbf{Hamiltonian:} $H_e(\{s_i\}) = -\sum_{i, \sigma \in \mathcal{P}_{i}}J_{i}(\sigma) [\sigma, e]_{\text{scalar}} \prod_{k:[\sigma, S_k]_{\text{scalar}}= -1} \sigma_k$
+				\item \textbf{Nishimori condition:} $\beta J_i(\sigma) = \frac{1}{\|\mathcal{P}\|}\sum_{\tau \in \mathcal{P}_i}\log p_i(\tau)[\sigma, \tau^{-1}]_{\text{scalar}} \forall i, \sigma \in \mathcal{P}_i$
+				\item \textbf{Boltzmann weight:} $P(e) = \exp(-\beta H_e(\{\Uparrow \}))$
+				\item \textbf{Partition function:} $P([e]) = Z(e)=\sum_{\{\sigma_k\}} \exp(-\beta H_e(\{\sigma_k\}))$
+			\end{itemize}
+		\end{textblock*}
+	}
+	\only<2->{
+		Toric code under bit-flip noise:
+		\begin{textblock*}{6cm}(0.5cm,3cm)
+			\begin{center}
+				\includegraphics[width=1\textwidth]{fig/BU_StatMech_1.png}
+			\end{center}
+		\end{textblock*}
+		\begin{textblock*}{6cm}(7.5cm,3cm)
+			\begin{center}
+				\includegraphics[width=1\textwidth]{fig/BU_StatMech_3.png}
+			\end{center}
+		\end{textblock*}
+	}
+\end{frame}
+
+\begin{frame}{Fisher Kasteleyn Temperley Algorithm}
+\end{frame}
+
+\begin{frame}{Wang Landau Algorithm}
+\end{frame}
 
 \end{document}
 

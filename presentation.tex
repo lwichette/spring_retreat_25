@@ -1038,7 +1038,6 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	}
 \end{frame}
 
-
 \begin{frame}{Wang Landau Algorithm: Motivation}
 	\begin{itemize}
 	\item Estimate the density of states $g(E_i)$ for energy levels $E_i$.
@@ -1067,113 +1066,162 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	\end{itemize}
 \end{frame}
 
-	% \begin{frame}{Histogram Flatness and Update Scheme}
-	% \begin{itemize}
-	% \item Histogram flatness condition:
-	% \begin{equation*}
-	% \min(h(E_i)) \geq \alpha \cdot \text{mean}(h(E_i))
-	% \end{equation*}
-	% \item If flatness is reached:
-	% \begin{align*}
-	% f &\leftarrow \sqrt{f} \
-	% h(E_i) &\leftarrow 0 \quad \forall E_i \in S
-	% \end{align*}
-	% \item Continue until $f < e^{\beta}$ for precision parameter $\beta$.
-	% \end{itemize}
-	% \end{frame}
+\begin{frame}{Results - Zero T Limit}
+	\only<1->{
+	\begin{textblock*}{7.5cm}(0.5cm,3cm)
+		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x11.png}
+	\end{textblock*}
+	}
+	\only<2-2>{
+	\begin{textblock*}{7.5cm}(8cm,3cm)
+		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x12.png}
+	\end{textblock*}
+	}
+\end{frame}
 
-	% \begin{frame}[fragile]{Wang-Landau Algorithm: Pseudocode}
-	% \begin{algorithm}[H]
-	% \caption{Wang-Landau Algorithm}
-	% \KwIn{${E_i}$, $H$, $\alpha$, $\beta$, $N$}
-	% \KwOut{$\log g(E_{i})$}
-	% Initialize $\log g(E_i) = 0$, $h(E_i) = 0$, $f = e$Initialize spin system $S$, calculate $E$\While{$f \geq e^{\beta}$}{
-	% \For{N times}{
-	% Propose random spin flipCalculate new energy $\tilde{E}$Accept with $p = \min(\frac{g(E)}{g(\tilde{E})}, 1)$Update $E$$h(E) \leftarrow h(E) + 1$$\log g(E) \leftarrow \log g(E) + \log f$}
-	% \If{$\min(h) \geq \alpha \cdot \text{mean}(h)$}{
-	% $f \leftarrow \sqrt{f}$Reset $h(E_i) = 0$
-	% }
-	% }
-	% \end{algorithm}
-	% \end{frame}
+% \begin{frame}{Experimental Realization}
+% 	\vspace{-18pt}
+% 	\begin{table}[h]
+% 		\fontsize{10pt}{10pt}\selectfont
+%         \renewcommand{\arraystretch}{1.5} % Increase row spacing
+% 		\begin{tabular}{c|p{3cm}|p{8.5cm}}
+% 			\textbf{Year} & \textbf{Author} & \textbf{Contribution} \\
+% 			2014 & Nigg et al. & Seven-qubit color code on trapped-ion device and execution of logical single-qubit gates \citeauthoryear{nigg_quantum_2014} \\
+% 			2015 & Kelly et al. &  Nine qubit repetition code on superconducting processor \citeauthoryear{kelly_state_2015} \\
+% 			2020 & Erhard et al. & Lattice surgery generated entanglement of two logical qubits on a ten qubit ion trap device \citeauthoryear{erhard_entangling_2020} \\
+% 			2021 & Ryan et al. & Real time decoding on seven-qubit color code on trapped-ion device and non-Clifford operation \citeauthoryear{ryan-anderson_realization_2021}\\
+% 			2023-24 & Google Quantum AI et al. & Real time decoding and below threshold quantum memory experiments on up to 101 qubits on superconducting processor \citeauthoryear{google_quantum_ai_suppressing_2023, google_quantum_ai_and_collaborators_quantum_2025}
+% 		\end{tabular}
+% 	\end{table}
+% \end{frame}
 
-	% \begin{frame}{Features and Remarks}
-	% \begin{itemize}
-	% \item Accurate density of states over full energy range.
-	% \item Accessible zero-temperature limit.
-	% \item Suitable for parallelization using Replica Exchange (REWL).
-	% \item Rescaling:
-	% \begin{equation*}
-	% \sum_{E_i} g(E_i) \overset{!}{=} 2^{# \text{spins}}
-	% \end{equation*}
-	% \item Prior energy range estimation is required.
-	% \end{itemize}
-	% \end{frame}
+% \begin{frame}{Stabilizer Codes}
+% 	% \begin{textblock*}{2.5cm}(12.5cm,0.5cm)
+% 	% 	\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
+% 	% \end{textblock*}
+% 	Quality markers: $\frac{k}{n}$, d (, $\omega$ for QLDPC)
+% 	\begin{table}[h]
+%         \renewcommand{\arraystretch}{1.5} % Increase row spacing
+%         \small
+% 		\begin{tabular}{c|c|c|c}
+% 			\textbf{Code} &  \textbf{n} & \textbf{k} & \textbf{d} \\
+% 			\hline
+% 			Toric Code \citeauthoryear{hirota_quantum_1997} & $2d^{2}$ & 2 & d \\
+% 			Planar Surface Code & $d^{2} + (L-1)^{2}$ &  1 & d \\
+% 			Rotated Surface Code & $d^{2}$ &  1 & d \\
+% 			\hline
+% 			\pause
+% 			Honneycomb Code \citeauthoryear{landahl_fault-tolerant_2011} & $\frac{3}{4}d^{2}$ + $\frac{1}{4}$ & 1 & d \\
+% 			\hline
+% 			\pause
+% 			Quantum Tanner Code \citeauthoryear{leverrier_quantum_2022} & n & $\Omega(n)$ & $\Omega(n)$
+% 		\end{tabular}
+% 	\end{table}
+% \end{frame}
 
 \end{document}
 
-% \begin{frame}{Conclusion and Outlook}
-% 	\begin{textblock*}{14cm}(1.5cm,2cm)
-% 		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
-% 		\begin{tikzpicture}[overlay]
-% 			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-% 			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-% 		\end{tikzpicture}
-% 		\hspace{4.5cm}
-% 		Optimal code performance estimate
-% 	\end{textblock*}
-% 	\vspace{3cm}
-% 	\small
-% 	\begin{itemize}
-% 		\item \textbf{Framework:} Applicable to all stabilizer codes under Pauli noise
-% 		\item \textbf{Optimal decoding:} Developed efficient estimator of success rate
-% 		\item \textbf{Decoder Optimization:} Improved MWPM by degeneracy of ground states
-% 		\item \textbf{Near future:} Investigate noise influence on optimal performance
-% 		\item \textbf{Further:} Incorporate realistic noise model which requires new methods like TN
-% 	\end{itemize}
-% \end{frame}
+\begin{frame}{Tackling Quantum Errors}
+	\begin{center}
+        \includegraphics[width=0.6\textwidth]{fig/TypesErrorCorrection.png}
+    \end{center}
+	\begin{itemize}
+		\item \textbf{QEM:} Evaluate accurate expectation values of observables on noisy quantum circuits
+		\item \textbf{QEC:} Build a framework to herald qubits and gates of arbitrary good quality
+		\begin{itemize}
+			\item \textbf{Active:} Extracts information about apparent errors and deduces correction operations
+			\item \textbf{Passive:} Store quantum information in a self correcting way \citeauthoryear{bacon_operator_2006, berthusen_experiments_2024}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
 
-% \begin{frame}{Results}
-% 	\only<1-1>{
-% 	\begin{textblock*}{14cm}(1.5cm,2cm)
-% 		\raisebox{-0.5cm}{\includegraphics[width=0.15\textwidth]{fig/Noise.png}}
-% 		\begin{tikzpicture}[overlay]
-% 			\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-% 			\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-% 		\end{tikzpicture}
-% 		\hspace{4.5cm}
-% 		Optimal code performance estimates
+% \begin{frame}{Surface Code Suboptimal Decoders}
+% 	\begin{textblock*}{9cm}(7cm,2.5cm)
+% 		\includegraphics[width=1\textwidth]{fig/Screenshot from 2025-03-24 15-21-55.png}
 % 	\end{textblock*}
-% 	}
-% 	\pause
-% 	\only<2->{
-% 		\vspace{2cm}
-% 		\hspace{1.5cm}
-% 		\begin{itemize}
-% 			\item Minimum weight decoding $\sim$ order probability
-% 			\item Optimal decoding $\sim$ decoding probability
-% 		\end{itemize}
-% 		\begin{textblock*}{14cm}(1.5cm,2cm)
-% 			\raisebox{-0.7cm}{\includegraphics[width=0.15\textwidth]{fig/toric_code.png}}
-% 			\begin{tikzpicture}[overlay]
-% 				\draw[->, line width=0.8mm, black] (0.5, 0.1) -- (4,0.1);
-% 				\draw[-, line width=0.8mm, black] (0.5, 0.3) -- (0.5,-0.1);
-% 			\end{tikzpicture}
-% 			\hspace{4.5cm}
-% 			Error class probability estimates
+% 	\begin{textblock*}{2cm}(12.5cm,3.4cm)
+% 		\begin{tiny}
+% 			\cite{edmonds_paths_1965}
+% 		\end{tiny}
+% 	\end{textblock*}
+% 	\begin{textblock*}{2cm}(9.2cm,3.4cm)
+% 		\begin{tiny}
+% 			\cite{delfosse_almost-linear_2021}
+% 		\end{tiny}
+% 	\end{textblock*}
+% 	\begin{textblock*}{2cm}(10.8cm,3.4cm)
+% 		\begin{tiny}
+% 			\cite{panteleev_degenerate_2021}
+% 		\end{tiny}
+% 	\end{textblock*}
+% 	\begin{textblock*}{2cm}(14.1cm,3.4cm)
+% 		\begin{tiny}
+% 			\cite{bravyi_efficient_2014,chubb_general_2021}
+% 		\end{tiny}
+% 	\end{textblock*}
+
+% 	\only<1-1>{
+% 		\begin{textblock*}{3.5cm}(1cm,4cm)
+% 			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
+% 				\center
+% 				Backlog problem
+% 			\end{tcolorbox}
 % 		\end{textblock*}
 % 	}
-% \end{frame}
-
-% \begin{frame}{Results - Zero T Limit}
-% 	\only<1->{
-% 	\begin{textblock*}{7.5cm}(0.5cm,3cm)
-% 		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x11.png}
+% 	\only<2-2>{
+% 	\begin{textblock*}{5.8cm}(0.1cm,3.5cm)
+% 		\begin{small}
+% 		\textbf{Union Find}
+% 		\begin{itemize}
+% 			\item Pauli errors $\rightarrow$ erasure errors
+% 			\item almost linear time complexity
+% 			\item Noise aware \cite{higgott_improved_2023}
+% 		\end{itemize}
+% 		\end{small}
+% 	\end{textblock*}
+% 	}
+% 	\only<3-3>{
+% 	\begin{textblock*}{5.8cm}(0.1cm,3cm)
+% 		\begin{small}
+% 		\textbf{Belief Propagation}
+% 		\begin{itemize}
+% 			\item Acts on general Tanner graphs $\rightarrow$ any QLDPC decoder
+% 			\item Issues with highly degenerate codes (split-belief phenomenon) \cite{poulin_iterative_2008, roffe_decoding_2020}
+% 			\item Ordered statistics decoding (BP+OSD) to enhance performance \cite{panteleev_degenerate_2021}
+% 		\end{itemize}
+% 		\end{small}
 % 	\end{textblock*}
 % 	}
 % 	\only<2-2>{
-% 	\begin{textblock*}{7.5cm}(8cm,3cm)
-% 		\includegraphics[width=\textwidth]{fig/FKTApproximateMP_WLMP_x12.png}
+% 	\begin{textblock*}{7cm}(0cm,2cm)
+% 		\begin{small}
+% 			\textbf{\hspace{1cm}Minimum Weight Perfect Matching}
+% 			\begin{itemize}
+% 				\item Complexity improved: Sparse blossom $O(n^{1.32})$, fusion blossom $O(n)$
+% 				\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \cite{higgott_sparse_2025}
+% 				\item Improved performance: Ensembling~\cite{shutty_efficient_2024, jones_improved_2024}
+% 				\item Noise aware: Weights calibrated by noise~\cite{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\cite{fowler_optimal_2013}
+% 			\end{itemize}
+% 		\end{small}
+% 	\end{textblock*}
+% 	\begin{textblock*}{10cm}(9.7cm,3.5cm)
+% 		\begin{tikzpicture}
+% 			\draw[->, bend right=70] (2.5cm,0cm) to node[below] {\tiny{\cite{fowler_towards_2012, wu_fusion_2023, higgott_sparse_2025}}} (0cm,0cm);
+% 		\end{tikzpicture}
+% 	\end{textblock*}
+% 	}
+% 	\only<3-3>{
+% 	\begin{textblock*}{7cm}(0cm,3cm)
+% 		\begin{small}
+% 			\textbf{\hspace{1cm}Tensor Network Decoder}
+% 			\begin{itemize}
+% 				\item Surface Code $\rightarrow$ Tensor Network
+% 				\item Optimal decoding $\rightarrow$ TN contraction
+% 				\item Approximate contraction $\rightarrow$ approximate optimal decoding
+% 				\item Generalised to arbitrary 2D codes \cite{chubb_general_2021}
+% 				\item Noise aware~\cite{darmawan_optimal_2024}
+% 			\end{itemize}
+% 		\end{small}
 % 	\end{textblock*}
 % 	}
 % \end{frame}
@@ -1211,136 +1259,6 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 % 	}
 % \end{frame}
 
-% \begin{frame}{Optimal Code Capacity Thresholds}
-% 	Quality marker: $p_{\text{threshold}}$
-% 	\begin{table}[h]
-%         \renewcommand{\arraystretch}{1.5} % Increase row spacing
-%         \small
-% 		\begin{tabular}{c|c|p{6cm}}
-% 			\textbf{Code} & \textbf{Noise} & \textbf{Publications} \\
-% 			\hline
-% 			Toric Code & Independent X, Z errors & \citeauthoryear{merz_two-dimensional_2001, honecker_nishimori_2001} \\
-% 			 & Depolarizing Noise & \citeauthoryear{bombin_strong_2012} \\
-% 			 & Correlated Noise & \citeauthoryear{chubb_statistical_2019}\\
-% 			\hline
-% 			Surface Code & Independent X, Z errors & \citeauthoryear{bravyi_efficient_2014} \\
-% 			& Depolarizing Noise & \citeauthoryear{bravyi_efficient_2014} \\
-% 			& Amplitude Damping & \citeauthoryear{darmawan_tensor-network_2017} \\
-% 			& Coherent Noise & \citeauthoryear{behrends_statistical_2024, bao_phases_2024}
-% 		\end{tabular}
-% 		\textcolor{red}{Optimal curves for toric code}
-% 	\end{table}
-% \end{frame}
-
-% \begin{frame}{Surface Code Suboptimal Decoders}
-% 	\begin{textblock*}{9cm}(7cm,2.5cm)
-%         \includegraphics[width=1\textwidth]{fig/Screenshot from 2025-03-24 15-21-55.png}
-%     \end{textblock*}
-% 	\begin{textblock*}{2cm}(12.5cm,3.4cm)
-% 		\begin{tiny}
-% 			\cite{edmonds_paths_1965}
-% 		\end{tiny}
-% 	\end{textblock*}
-% 	\begin{textblock*}{2cm}(9.2cm,3.4cm)
-% 		\begin{tiny}
-% 			\cite{delfosse_almost-linear_2021}
-% 		\end{tiny}
-% 	\end{textblock*}
-% 	\begin{textblock*}{2cm}(10.8cm,3.4cm)
-% 		\begin{tiny}
-% 			\cite{panteleev_degenerate_2021}
-% 		\end{tiny}
-% 	\end{textblock*}
-% 	\begin{textblock*}{2cm}(14.1cm,3.4cm)
-% 		\begin{tiny}
-% 			\cite{bravyi_efficient_2014,chubb_general_2021}
-% 		\end{tiny}
-% 	\end{textblock*}
-
-% 	\only<1-1>{
-% 		\begin{textblock*}{3.5cm}(1cm,4cm)
-% 			\begin{tcolorbox}[colback=osakared!5!white, colframe=osakared, width=4cm, arc=2mm]
-% 				\center
-% 				Backlog problem
-% 			\end{tcolorbox}
-% 		\end{textblock*}
-% 	}
-% 	% \pause
-% 	% \only<2-2>{
-% 	% \begin{textblock*}{5.8cm}(0.1cm,3.5cm)
-% 	% 	\begin{small}
-% 	% 	\textbf{Union Find}
-% 	% 	\begin{itemize}
-% 	% 		\item Pauli errors $\rightarrow$ erasure errors
-% 	% 		\item almost linear time complexity
-% 	% 		\item Noise aware \cite{higgott_improved_2023}
-% 	% 	\end{itemize}
-% 	% 	\end{small}
-% 	% \end{textblock*}
-% 	% }
-% 	% \pause
-% 	% \only<3-3>{
-% 	% \begin{textblock*}{5.8cm}(0.1cm,3cm)
-% 	% 	\begin{small}
-% 	% 	\textbf{Belief Propagation}
-% 	% 	\begin{itemize}
-% 	% 		\item Acts on general Tanner graphs $\rightarrow$ any QLDPC decoder
-% 	% 		\item Issues with highly degenerate codes (split-belief phenomenon) \cite{poulin_iterative_2008, roffe_decoding_2020}
-% 	% 		\item Ordered statistics decoding (BP+OSD) to enhance performance \cite{panteleev_degenerate_2021}
-% 	% 	\end{itemize}
-% 	% 	\end{small}
-% 	% \end{textblock*}
-% 	% }
-% 	\pause
-% 	\only<2-2>{
-% 	\begin{textblock*}{7cm}(0cm,2cm)
-% 		\begin{small}
-% 			\textbf{\hspace{1cm}Minimum Weight Perfect Matching}
-% 			\begin{itemize}
-% 				\item Complexity improved: Sparse blossom $O(n^{1.32})$, fusion blossom $O(n)$
-% 				\item Sparse blossom: Real time decoding $0.1\%$ depolarising noise on distance-17 surface code \citeauthoryear{higgott_sparse_2025}
-% 				\item Improved performance: Ensembling~\citeauthoryear{shutty_efficient_2024, jones_improved_2024}
-% 				\item Noise aware: Weights calibrated by noise~\citeauthoryear{iolius_performance_2022, hockings_improving_2025}, correlated MWPM~\citeauthoryear{fowler_optimal_2013}
-% 			\end{itemize}
-% 		\end{small}
-% 	\end{textblock*}
-% 	\begin{textblock*}{10cm}(9.7cm,3.5cm)
-% 		\begin{tikzpicture}
-% 			\draw[->, bend right=70] (2.5cm,0cm) to node[below] {\tiny{\cite{fowler_towards_2012, wu_fusion_2023, higgott_sparse_2025}}} (0cm,0cm);
-% 		\end{tikzpicture}
-% 	\end{textblock*}
-% 	}
-% 	\pause
-% 	\only<3-3>{
-% 	\begin{textblock*}{7cm}(0cm,3cm)
-% 		\begin{small}
-% 			\textbf{\hspace{1cm}Tensor Network Decoder}
-% 			\begin{itemize}
-% 				\item Surface Code $\rightarrow$ Tensor Network
-% 				\item Optimal decoding $\rightarrow$ TN contraction
-% 				\item Approximate contraction $\rightarrow$ approximate optimal decoding
-% 				\item Generalised to arbitrary 2D codes \citeauthoryear{chubb_general_2021}
-% 				\item Noise aware~\citeauthoryear{darmawan_optimal_2024}
-% 			\end{itemize}
-% 		\end{small}
-% 	\end{textblock*}
-% 	}
-% \end{frame}
-
-
-% \begin{frame}{Tackling Quantum Errors}
-% 	\begin{center}
-%         \includegraphics[width=0.6\textwidth]{fig/TypesErrorCorrection.png}
-%     \end{center}
-% 	\begin{itemize}
-% 		\item \textbf{QEM:} Evaluate accurate expectation values of observables on noisy quantum circuits
-% 		\item \textbf{QEC:} Build a framework to herald qubits and gates of arbitrary good quality
-% 		\begin{itemize}
-% 			\item \textbf{Active:} Extracts information about apparent errors and deduces correction operations
-% 			\item \textbf{Passive:} Store quantum information in a self correcting way \cite{bacon_operator_2006, berthusen_experiments_2024}
-% 		\end{itemize}
-% 	\end{itemize}
-% \end{frame}
 
 % \begin{frame}{Tackling Quantum Errors}
 % 	\begin{center}
@@ -1358,21 +1276,6 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 % 	\end{itemize}
 % \end{frame}
 
-% \begin{frame}{Experimental Realization}
-% 	\vspace{-18pt}
-% 	\begin{table}[h]
-% 		\fontsize{10pt}{10pt}\selectfont
-%         \renewcommand{\arraystretch}{1.5} % Increase row spacing
-% 		\begin{tabular}{c|p{3cm}|p{8.5cm}}
-% 			\textbf{Year} & \textbf{Author} & \textbf{Contribution} \\
-% 			2014 & Nigg et al. & Seven-qubit color code on trapped-ion device and execution of logical single-qubit gates \cite{nigg_quantum_2014} \\
-% 			2015 & Kelly et al. &  Nine qubit repetition code on superconducting processor \cite{kelly_state_2015} \\
-% 			2020 & Erhard et al. & Lattice surgery generated entanglement of two logical qubits on a ten qubit ion trap device \cite{erhard_entangling_2020} \\
-% 			2021 & Ryan et al. & Real time decoding on seven-qubit color code on trapped-ion device and non-Clifford operation \cite{ryan-anderson_realization_2021}\\
-% 			2023-24 & Google Quantum AI et al. & Real time decoding and below threshold quantum memory experiments on up to 101 qubits on superconducting processor \cite{google_quantum_ai_suppressing_2023, google_quantum_ai_and_collaborators_quantum_2025}
-% 		\end{tabular}
-% 	\end{table}
-% \end{frame}
 
 % \begin{frame}{Optimal Decoding Methods}
 % 	\vspace{-15pt}
@@ -1461,29 +1364,7 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 % \end{frame}
 
 
-% \begin{frame}{Stabilizer Codes}
-% 	% \begin{textblock*}{2.5cm}(12.5cm,0.5cm)
-% 	% 	\includegraphics[width=1\textwidth]{fig/QEC_pure_code.png}
-% 	% \end{textblock*}
-% 	Quality markers: $\frac{k}{n}$, d (, $\omega$ for QLDPC)
-% 	\begin{table}[h]
-%         \renewcommand{\arraystretch}{1.5} % Increase row spacing
-%         \small
-% 		\begin{tabular}{c|c|c|c}
-% 			\textbf{Code} &  \textbf{n} & \textbf{k} & \textbf{d} \\
-% 			\hline
-% 			Toric Code \cite{hirota_quantum_1997} & $2d^{2}$ & 2 & d \\
-% 			Planar Surface Code & $d^{2} + (L-1)^{2}$ &  1 & d \\
-% 			Rotated Surface Code & $d^{2}$ &  1 & d \\
-% 			\hline
-% 			\pause
-% 			Honneycomb Code \cite{landahl_fault-tolerant_2011} & $\frac{3}{4}d^{2}$ + $\frac{1}{4}$ & 1 & d \\
-% 			\hline
-% 			\pause
-% 			Quantum Tanner Code \cite{leverrier_quantum_2022} & n & $\Omega(n)$ & $\Omega(n)$
-% 		\end{tabular}
-% 	\end{table}
-% \end{frame}
+
 
 % \begin{frame}{Results}
 % 	\begin{figure}[h!]

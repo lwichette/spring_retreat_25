@@ -1038,8 +1038,77 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 	}
 \end{frame}
 
-\begin{frame}{Wang Landau Algorithm}
+
+\begin{frame}{Wang Landau Algorithm: Motivation}
+	\begin{itemize}
+	\item Estimate the density of states $g(E_i)$ for energy levels $E_i$.
+	\item Enables calculation of partition function $Z = \sum_{i} g(E_i) e^{-\beta E_i}$ at any temperature.
+	\item Overcomes limitations of finite temperature methods like FKT.
+	\item \textbf{Key Idea:} If sampling from system with dof $g(E_i)$ with acceptance ratio $\rho(E_i)\sim\frac{1}{g(E_i)}$,\\
+	 then: $P(E_{i})=\frac{g(E_i)}{g(E_i)}=\text{const.}$
+	\end{itemize}
+	\end{frame}
+
+\begin{frame}{Wang-Landau Algorithm}
+	\begin{itemize}
+	\item Perform a random walk over energy spectrum $S = {E_i}$.
+	\item Update rules converge to flat visitation histogram $h(E_i)$.
+	\item Transition probability:
+	\begin{equation*}
+	p(E_1 \rightarrow E_2) = \min\left(\frac{g(E_1)}{g(E_2)}, 1\right)
+	\end{equation*}
+	\item Update:
+	\begin{align*}
+	h(E) &\leftarrow h(E) + 1 \\
+	g(E) &\leftarrow g(E) * f
+	\end{align*}
+	\item Continue until histogram is flat
+	\item If flat update $f\leftarrow \sqrt{f}$ and repeat until f is sufficiently small
+	\end{itemize}
 \end{frame}
+
+	% \begin{frame}{Histogram Flatness and Update Scheme}
+	% \begin{itemize}
+	% \item Histogram flatness condition:
+	% \begin{equation*}
+	% \min(h(E_i)) \geq \alpha \cdot \text{mean}(h(E_i))
+	% \end{equation*}
+	% \item If flatness is reached:
+	% \begin{align*}
+	% f &\leftarrow \sqrt{f} \
+	% h(E_i) &\leftarrow 0 \quad \forall E_i \in S
+	% \end{align*}
+	% \item Continue until $f < e^{\beta}$ for precision parameter $\beta$.
+	% \end{itemize}
+	% \end{frame}
+
+	% \begin{frame}[fragile]{Wang-Landau Algorithm: Pseudocode}
+	% \begin{algorithm}[H]
+	% \caption{Wang-Landau Algorithm}
+	% \KwIn{${E_i}$, $H$, $\alpha$, $\beta$, $N$}
+	% \KwOut{$\log g(E_{i})$}
+	% Initialize $\log g(E_i) = 0$, $h(E_i) = 0$, $f = e$Initialize spin system $S$, calculate $E$\While{$f \geq e^{\beta}$}{
+	% \For{N times}{
+	% Propose random spin flipCalculate new energy $\tilde{E}$Accept with $p = \min(\frac{g(E)}{g(\tilde{E})}, 1)$Update $E$$h(E) \leftarrow h(E) + 1$$\log g(E) \leftarrow \log g(E) + \log f$}
+	% \If{$\min(h) \geq \alpha \cdot \text{mean}(h)$}{
+	% $f \leftarrow \sqrt{f}$Reset $h(E_i) = 0$
+	% }
+	% }
+	% \end{algorithm}
+	% \end{frame}
+
+	% \begin{frame}{Features and Remarks}
+	% \begin{itemize}
+	% \item Accurate density of states over full energy range.
+	% \item Accessible zero-temperature limit.
+	% \item Suitable for parallelization using Replica Exchange (REWL).
+	% \item Rescaling:
+	% \begin{equation*}
+	% \sum_{E_i} g(E_i) \overset{!}{=} 2^{# \text{spins}}
+	% \end{equation*}
+	% \item Prior energy range estimation is required.
+	% \end{itemize}
+	% \end{frame}
 
 \end{document}
 

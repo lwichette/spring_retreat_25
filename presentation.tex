@@ -913,13 +913,14 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 		\end{textblock*}
 	}
 	\only<3->{
+		\vspace{-2cm}
 		Toric code under bit-flip noise:
 		\begin{textblock*}{6cm}(0.5cm,3cm)
 			\begin{center}
 				\includegraphics[width=0.8\textwidth]{fig/BU_equivalenceClass_2.png}
 			\end{center}
 		\end{textblock*}
-		\begin{textblock*}{8cm}(8.5cm,3cm)
+		\begin{textblock*}{8cm}(7.5cm,3cm)
 			\begin{center}
 				\includegraphics[width=1\textwidth]{fig/BU_equivalenceClass_1.png}
 			\end{center}
@@ -957,6 +958,84 @@ $P([E_{2}])=P(E_{2})+P(E_{3})> P(E_{1})\Rightarrow$ Select error class $[E_{2}]=
 \end{frame}
 
 \begin{frame}{Fisher Kasteleyn Temperley Algorithm}
+	\only<1-1>{
+		\begin{textblock*}{9cm}(0cm,2cm)
+		\begin{itemize}
+			\item  The toric code with bit-flip noise maps to a 2D RBIM:
+			$
+			H_{\text{RBIM}} = -\sum_{\langle ij \rangle} J_{ij} S_i S_j
+			$
+			\item Spins \( S_i = \pm 1 \) live on faces of the dual lattice \( G^\star \).
+			\item Interactions \( J_{ij} \) are random: ferromagnetic/antiferromagnetic bonds encode noise.
+			\item Domain walls separate regions of flipped spins: edges where \( S_i S_j = -1 \).
+			\item Relative domain walls correspond to configurations up to a global spin flip.
+			\item $P([e]) = Z(e)=\sum_{\{\sigma_k\}} \exp(-\beta H_e(\{\sigma_k\}))$
+		\end{itemize}
+		\end{textblock*}
+		\begin{textblock*}{5cm}(9.5cm,3cm)
+			\begin{center}
+				\includegraphics[width=0.8\textwidth]{fig/domain_wall_configuration.png}
+			\end{center}
+		\end{textblock*}
+	}
+	\only<2-2>{
+		\begin{textblock*}{9cm}(0cm,2cm)
+		\begin{itemize}
+			\item \textbf{Kasteleyn cities}: Spin configurations map to \textit{perfect matchings} (dimers) on decorated \( \tilde{G}^\star \), though not bijectively.
+			\item Choose Pfaffian orientation on \( \tilde{G}^\star \) with edge weights:
+			\begin{small}
+			\[
+			\omega((i,j)) =
+			\begin{cases}
+				0 & \text{if } i,j \text{ in same city} \\
+				J_{ij} & \text{otherwise}
+			\end{cases}
+			\]
+			\end{small}
+			\item Connectivity matrix - Kasteleyn matrix \( K \) for weighted directed graph:
+			\begin{small}
+			\[
+			K_{ij} =
+			\begin{cases}
+				e^{-2\beta \omega((i,j))} & \text{if } (i,j) \in D \\
+				-e^{-2\beta \omega((j,i))} & \text{if } (j,i) \in D \\
+				0 & \text{otherwise}
+			\end{cases}
+			\]
+			\end{small}
+		\end{itemize}
+		\end{textblock*}
+		\begin{textblock*}{5cm}(9.5cm,1.5cm)
+			\begin{center}
+				\includegraphics[width=0.8\textwidth]{fig/domain_wall_configuration.png}
+			\end{center}
+		\end{textblock*}
+		\begin{textblock*}{5cm}(9.5cm,5cm)
+			\begin{center}
+				\includegraphics[width=0.8\textwidth]{fig/dimer_cover.png}
+			\end{center}
+		\end{textblock*}
+	}
+	\only<3-3>{
+		\begin{textblock*}{10cm}(0cm,2cm)
+		\begin{itemize}
+			\item $PF(K)=\frac{1}{n!2^{n}}\sum_{\pi\in S_{2n}}\sigma(\pi)\prod_{j=1}^{n}K_{\pi(2j-1), \pi(2j)}$
+			\item For planar graphs: $Z=Pf(K_{\text{Pf}})$
+			\item Torus: More complicated as not all perfect matchings are associated with physical states \\
+			$2Z=Pf(K^{++})+Pf(K^{+-})+Pf(K^{-+})+Pf(K^{--})$
+		\end{itemize}
+		\end{textblock*}
+		\begin{textblock*}{5cm}(9.5cm,1.5cm)
+			\begin{center}
+				\includegraphics[width=0.8\textwidth]{fig/domain_wall_configuration.png}
+			\end{center}
+		\end{textblock*}
+		\begin{textblock*}{5cm}(9.5cm,5cm)
+			\begin{center}
+				\includegraphics[width=0.8\textwidth]{fig/dimer_cover.png}
+			\end{center}
+		\end{textblock*}
+	}
 \end{frame}
 
 \begin{frame}{Wang Landau Algorithm}
